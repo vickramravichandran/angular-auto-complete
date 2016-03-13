@@ -46,6 +46,10 @@
                 var templateFn = $compile(template);
                 ctrl.container = templateFn(scope);
 
+                if (angular.isDefined(ctrl.options.containerCssClass)) {
+                    ctrl.container.addClass(ctrl.options.containerCssClass);
+                }
+
                 // if a jquery parent is specified in options append the container to that
                 // otherwise append to body
                 if (angular.isDefined(ctrl.options.dropdownParent)) {
@@ -72,14 +76,14 @@
                     ctrl.activate();
                 });
             });
-                        
+
             // handle key strokes
             element.on("keydown", function (e) {
                 scope.$evalAsync(function () {
                     _elementKeyDown(e);
                 });
             });
-            
+
             // hide container on ENTER
             $document.on("keydown", function (e) {
                 scope.$evalAsync(function () {
@@ -166,7 +170,7 @@
                     ctrl.empty();
                 }
             }
-            
+
             function _documentKeyDown(e) {
                 // if multiple auto complete exist on a page, hide inactive dropdowns
                 autoCompleteService.hideIfInactive();
@@ -251,23 +255,6 @@
 
         this.activate = function () {
             activeInstanceId = that.instanceId;
-
-            //var value_watch = $scope.$watch(
-            //    function () {
-            //        return ngmodel.$modelValue;
-            //    },
-            //    function (nv, ov) {
-            //        // Prevent suggestion cycle when the value is the last value selected.
-            //        // When selecting from the menu the ng-model is updated and this watch
-            //        // is triggered. This causes another suggestion cycle that will provide as
-            //        // suggestion the value that is currently selected - this is unnecessary.
-            //        if (nv === last_selected_value)
-            //            return;
-
-            //        _position_autocomplete();
-            //        suggest(nv, current_element);
-            //    }
-            //);
         }
 
         this.fetch = function (term) {
@@ -351,6 +338,9 @@
                 return;
             }
 
+            // reset scroll position
+            that.elementUL[0].scrollTop = 0;
+
             that.containerVisible = false;
 
             // callback
@@ -383,12 +373,13 @@
                         that.elementUL.scrollTo(li);
                     }
                 }
-                else {
-                    // this was causing the page to jump/scroll 
-                    //var li = that.elementUL[0].querySelector("li[data-index='" + index + "']");
-                    //if (li) {
-                    //    li.scrollIntoView(true);
-                    //}
+                else {                    
+                    var li = that.elementUL[0].querySelector("li[data-index='" + index + "']");
+                    if (li) {
+                        // this was causing the page to jump/scroll 
+                        //    li.scrollIntoView(true);
+                        that.elementUL[0].scrollTop = li.offsetTop;
+                    }
                 }
             }
         }
@@ -401,7 +392,7 @@
             }
 
             that.selectedIndex = index;
-            
+
             if (confirm === true) {
                 // updates textbox and raises callback
                 that.confirm();
@@ -546,6 +537,7 @@
     var instanceCount = 0;
 
     var defaultOptions = {
+        containerCssClass: "",
         selectedCssClass: "auto-complete-item-selected",
         minimumChars: "1",
         maxItemsToRender: 20,
@@ -562,7 +554,8 @@
     };
 
     var defaultOptionsDoc = {
-        selectedCssClass: { def: "auto-complete-item-selected", doc: "CSS class applied to the selected element" },
+        containerCssClass: { def: "undefined", doc: "CSS class applied to the dropdown container" },
+        selectedCssClass: { def: "auto-complete-item-selected", doc: "CSS class applied to the selected list element" },
         minimumChars: { def: "1", doc: "Minimum number of characters required to display the dropdown." },
         maxItemsToRender: { def: "20", doc: "Maximum number of items to render in the list." },
         dropdownWidth: { def: "auto", doc: "Width in 'px' of the dropddown list." },
