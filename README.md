@@ -1,4 +1,4 @@
-# angular-auto-complete
+# AngularJS auto-complete
 
 Demo http://vickramravichandran.github.io/angular-auto-complete/
 
