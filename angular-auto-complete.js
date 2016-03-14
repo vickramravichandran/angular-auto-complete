@@ -373,7 +373,7 @@
                         that.elementUL.scrollTo(li);
                     }
                 }
-                else {                    
+                else {
                     var li = that.elementUL[0].querySelector("li[data-index='" + index + "']");
                     if (li) {
                         // this was causing the page to jump/scroll 
@@ -534,6 +534,13 @@
         }
     }
 
+    var KEYCODE = {
+        ENTER: 13,
+        ESCAPE: 27,
+        UPARROW: 38,
+        DOWNARROW: 40
+    };
+
     var instanceCount = 0;
 
     var defaultOptions = {
@@ -569,4 +576,5 @@
         dropdownShown: { def: "noop", doc: "Callback after the dropdown is hidden." },
         dropdownHidden: { def: "noop", doc: "Callback after the dropdown is shown." }
     };
+
 })();
