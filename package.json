@@ -1,0 +1,24 @@
+{
+  "name": "angular-auto-complete",
+  "version": "1.0.0",
+  "description": "AngularJS auto-complete plugin",
+  "main": "angular-auto-complete.js",
+  "homepage": "https://github.com/vickramravichandran/angular-auto-complete#readme",
+  "author": "Vickram Ravichandran (http://vickram.me)",
+  "license": "ISC",
+  "keywords": [
+    "angular",
+    "auto complete",
+    "auto suggest",
+    "directive",
+    "plugin",
+    "dropdown"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vickramravichandran/angular-auto-complete.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vickramravichandran/angular-auto-complete/issues"
+  }
+}
