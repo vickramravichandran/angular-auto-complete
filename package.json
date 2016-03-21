@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "AngularJS auto-complete plugin",
   "main": "angular-auto-complete.js",
-  "homepage": "https://github.com/vickramravichandran/angular-auto-complete#readme",
+  "homepage": "http://vickramravichandran.github.io/angular-auto-complete",
   "author": "Vickram Ravichandran (http://vickram.me)",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "angular",
     "auto complete",
