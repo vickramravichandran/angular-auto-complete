@@ -1,6 +1,6 @@
 {
   "name": "angular-auto-complete",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AngularJS auto-complete plugin",
   "main": "angular-auto-complete.js",
   "authors": [
