@@ -1,8 +1,9 @@
 {
   "name": "angular-auto-complete",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "AngularJS auto-complete plugin",
   "main": "angular-auto-complete.js",
+  "homepage": "http://www.vickram.me/angularjs-auto-complete-plugin/",
   "authors": [
     "Vickram Ravichandran (http://vickram.me)"
   ],
@@ -15,7 +16,6 @@
     "plugin",
     "dropdown"
   ],
-  "homepage": "http://vickramravichandran.github.io/angular-auto-complete",
   "ignore": [
     "**/.*",
     "node_modules",

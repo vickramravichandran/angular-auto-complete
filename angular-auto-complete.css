@@ -1,4 +1,6 @@
-﻿div.auto-complete-container {
+﻿/*angular-auto-complete v1.0.0*/
+
+div.auto-complete-container {
 	border: 1px solid lightsteelblue;
 	background-color: #cccccc;
 	white-space: nowrap;

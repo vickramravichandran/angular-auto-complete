@@ -1,5 +1,5 @@
 ﻿// angular-auto-complete v1.0.0
-// http://vickramravichandran.github.io/angular-auto-complete/
+// http://www.vickram.me/angularjs-auto-complete-plugin/
 
 (function () {
     angular
