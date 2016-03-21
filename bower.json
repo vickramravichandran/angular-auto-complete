@@ -15,10 +15,6 @@
     "plugin",
     "dropdown"
   ],
-  "dependencies": {
-    "angular": "^1.5.0",
-    "angular-sanitize": "^1.5.0"
-  },
   "homepage": "http://vickramravichandran.github.io/angular-auto-complete",
   "ignore": [
     "**/.*",

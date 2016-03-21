@@ -1,8 +1,9 @@
 # AngularJS auto-complete
 
-npm i angular-mass-autocomplete
+npm install angular-mass-autocomplete
 
+bower install angular-auto-complete
 
-Demo http://vickramravichandran.github.io/angular-auto-complete/
+<b>Demo:</b> http://vickramravichandran.github.io/angular-auto-complete/
 
-<a href="https://github.com/vickramravichandran/angular-auto-complete/archive/demo.zip">Download Demo zip file</a>
+<a href="https://github.com/vickramravichandran/angular-auto-complete/archive/demo.zip">Download Demo zip</a>
