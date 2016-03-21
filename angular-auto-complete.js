@@ -1,7 +1,4 @@
-﻿// angular-auto-complete v1.0.1
-// http://www.vickram.me/angularjs-auto-complete-plugin/
-
-(function () {
+﻿(function () {
     angular
         .module('autoCompleteModule', ['ngSanitize'])
         .service('autoCompleteService', autoCompleteService)
