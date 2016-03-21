@@ -1,6 +1,6 @@
 # AngularJS auto-complete
 
-npm install angular-mass-autocomplete
+npm install angular-auto-complete
 
 bower install angular-auto-complete
 
