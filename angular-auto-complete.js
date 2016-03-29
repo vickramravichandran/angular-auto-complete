@@ -9,10 +9,10 @@
 
         return {
             restrict: "A",
-            scope: { options: '&autoComplete' },
+            scope: {},
             transclude: false,
             controllerAs: "ctrl",
-            bindToController: true,
+            bindToController: { options: '&autoComplete' },
             require: ["autoComplete", "ngModel"],
             link: postLinkFn,
             controller: MainCtrl
@@ -226,6 +226,8 @@
 
         var that = this;
 
+        this.target = null;
+
         this.selectedIndex = -1;
 
         this.renderItems = [];
@@ -244,7 +246,7 @@
             }
 
             if (that.instanceId !== activeInstanceId) {
-                that.hide;
+                that.hide();
             }
         }
 
