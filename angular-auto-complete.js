@@ -281,7 +281,7 @@
                     that.hide();
 
                     // callback
-                    _safeCallback(that.options.loadingComplete.bind(null, error));
+                    _safeCallback(that.options.loadingComplete, { error: error });
                 });
         }
 
@@ -414,7 +414,7 @@
 
             selectedValue = _updateTextBox();
 
-            _safeCallback(that.options.itemSelected.bind(that, selectedValue));
+            _safeCallback(that.options.itemSelected, { item: selectedValue });
         }
 
         this.isSelected = function (index) {
@@ -433,7 +433,7 @@
         function _safeCallback(fn, args) {
             if (angular.isFunction(fn)) {
                 try {
-                    fn(args);
+                    return fn.call(that.target, args);
                 } catch (e) {
                     //ignore
                 }
