@@ -4,16 +4,16 @@
         .service('autoCompleteService', autoCompleteService)
         .directive('autoComplete', autoCompleteDirective);
 
-    autoCompleteDirective.$inject = ["$compile", "$document", "$window", "$timeout", "autoCompleteService"];
+    autoCompleteDirective.$inject = ['$compile', '$document', '$window', '$timeout', 'autoCompleteService'];
     function autoCompleteDirective($compile, $document, $window, $timeout, autoCompleteService) {
 
         return {
-            restrict: "A",
+            restrict: 'A',
             scope: {},
             transclude: false,
-            controllerAs: "ctrl",
+            controllerAs: 'ctrl',
             bindToController: { options: '&autoComplete' },
-            require: ["autoComplete", "ngModel"],
+            require: ['autoComplete', 'ngModel'],
             link: postLinkFn,
             controller: MainCtrl
         }
@@ -32,16 +32,16 @@
 
             function initContainer() {
                 var template =
-                    "<div class='auto-complete-container' data-instance-id='{{ctrl.instanceId}}' ng-show='ctrl.containerVisible'>" +
-                      "<ul class='auto-complete-results'>" +
-                        "<li ng-repeat='item in ctrl.renderItems'" +
-                            "ng-click='ctrl.selectItem($index, true)' " +
-                            "class='auto-complete-item' data-index='{{$index}}' " +
-                            "ng-class='ctrl.isSelected($index)'>" +
-                                "<div ng-bind-html='item.label'></div>" +
-                        "</li>" +
-                      "</ul>" +
-                    "</div>";
+                    '<div class="auto-complete-container" data-instance-id="{{ctrl.instanceId}}" ng-show="ctrl.containerVisible">' +
+                      '<ul class="auto-complete-results">' +
+                        '<li ng-repeat="item in ctrl.renderItems"' +
+                            'ng-click="ctrl.selectItem($index, true)" ' +
+                            'class="auto-complete-item" data-index="{{$index}}" ' +
+                            'ng-class="ctrl.isSelected($index)">' +
+                                '<div ng-bind-html="item.label"></div>' +
+                        '</li>' +
+                      '</ul>' +
+                    '</div>';
 
                 var templateFn = $compile(template);
                 ctrl.container = templateFn(scope);
@@ -56,49 +56,49 @@
                     ctrl.options.dropdownParent.append(ctrl.container);
                 }
                 else {
-                    $document.find("body").append(ctrl.container);
-                    ctrl.container.addClass("auto-complete-absolute-container");
+                    $document.find('body').append(ctrl.container);
+                    ctrl.container.addClass('auto-complete-absolute-container');
                 }
 
                 // store the jquery element on the controller          
                 ctrl.target = element;
 
                 // store a reference to the UL
-                ctrl.elementUL = angular.element(ctrl.container[0].querySelector("ul.auto-complete-results"));
+                ctrl.elementUL = angular.element(ctrl.container[0].querySelector('ul.auto-complete-results'));
 
                 // prevents text select on mouse drag, dblclick
-                ctrl.container.css("MozUserSelect", "none").bind("selectstart", function () { return false; });
+                ctrl.container.css('MozUserSelect', 'none').bind('selectstart', function () { return false; });
             }
 
             // when the target(textbox) gets focus activate the corresponding container
-            element.on("focus", function (e) {
+            element.on('focus', function (e) {
                 scope.$evalAsync(function () {
                     ctrl.activate();
                 });
             });
 
             // handle key strokes
-            element.on("keydown", function (e) {
+            element.on('keydown', function (e) {
                 scope.$evalAsync(function () {
                     _elementKeyDown(e);
                 });
             });
 
             // hide container on ENTER
-            $document.on("keydown", function (e) {
+            $document.on('keydown', function (e) {
                 scope.$evalAsync(function () {
                     _documentKeyDown(e);
                 });
             });
 
-            angular.element($window).on("resize", function (e) {
+            angular.element($window).on('resize', function (e) {
                 scope.$evalAsync(function () {
                     ctrl.hide();
                 });
             })
 
             // hide container upon CLICK outside of the dropdown rectangle region
-            $document.on("click", function (e) {
+            $document.on('click', function (e) {
                 scope.$evalAsync(function () {
                     _documentClick(e);
                 });
@@ -153,22 +153,24 @@
                 // fetch if minimum number of chars are types
                 // else hide dropdown
                 var term = element.val();
-                if (term.length >= ctrl.options.minimumChars && term !== ctrl.selectedText())
-                    // wait few millisecs before calling fetch()
-                    // this allows checking if user has stopped typing
-                    var delay = $timeout(function () {
-                        // is term unchanged?
-                        if (term == element.val()) {
-                            ctrl.fetch(term);
-                        }
-
-                        //cancel the timeout
-                        $timeout.cancel(delay);
-                    }, 300);
-                else {
+                if (term.length < ctrl.options.minimumChars || term === ctrl.selectedText()) {
                     ctrl.hide();
                     ctrl.empty();
+
+                    return;
                 }
+                
+                // wait few millisecs before calling fetch()
+                // this allows checking if user has stopped typing
+                var delay = $timeout(function () {
+                    // is term unchanged?
+                    if (term == element.val()) {
+                        ctrl.fetch(term);
+                    }
+
+                    //cancel the timeout
+                    $timeout.cancel(delay);
+                }, 300);
             }
 
             function _documentKeyDown(e) {
@@ -218,8 +220,8 @@
         }
     }
 
-    MainCtrl.$inject = ["$q", "$window", "$document", "$sce", "autoCompleteService"];
-    function MainCtrl($q, $window, $document, $sce, autoCompleteService) {
+    MainCtrl.$inject = ['$q', '$window', '$document', '$sce', '$timeout', '$interpolate', '$templateRequest', '$exceptionHandler', 'autoCompleteService'];
+    function MainCtrl($q, $window, $document, $sce, $timeout, $interpolate, $templateRequest, $exceptionHandler, autoCompleteService) {
         var activeInstanceId = 0,
             selectedText,
             selectedValue;
@@ -227,11 +229,8 @@
         var that = this;
 
         this.target = null;
-
         this.selectedIndex = -1;
-
         this.renderItems = [];
-
         this.containerVisible = false;
 
         this.activeInstanceId = function () {
@@ -293,35 +292,10 @@
                 return;
             }
 
-            var renderFn = null;
-            if (angular.isFunction(that.options.renderItem) && that.options.renderItem !== angular.noop) {
-                // delegate to user provided function
-                renderFn = that.options.renderItem;
-            }
-            else {
-                // delegate to local function
-                renderFn = _renderItem;
-            }
-
-            // limit number of items rendered in the dropdown
-            var maxItemsToRender = result.length < that.options.maxItemsToRender ? result.length : that.options.maxItemsToRender;
-            for (var i = 0; i < maxItemsToRender; i++) {
-                var data = result[i];
-
-                //invoke render callback with the data item as parameter
-                //this should return an object with a 'label' and 'value' property
-                var item = renderFn(data);
-
-                if (item !== null && angular.isDefined(item)) {
-                    // store the data on the renderItem and add to array
-                    item.data = data;
-                    that.renderItems.push(item);
-                }
-            }
-
-            that.show();
+            _getRenderFn().then(function(renderFn) { 
+                _renderList(renderFn, result); 
+            });
         }
-
 
         this.show = function () {
             // the show gets called after the items are ready for display
@@ -330,6 +304,11 @@
             _positionDropdown();
 
             that.containerVisible = true;
+
+            // HACK: this reduces the flickr when the dropdown is being positioned  
+            $timeout(function(){
+                _positionDropdown();
+            }, 1);
 
             // callback
             _safeCallback(that.options.dropdownShown);
@@ -342,19 +321,16 @@
 
             // reset scroll position
             that.elementUL[0].scrollTop = 0;
-
             that.containerVisible = false;
 
             // callback
             _safeCallback(that.options.dropdownHidden);
         }
 
-
         this.empty = function () {
             that.selectedIndex = -1;
             that.renderItems = [];
         }
-
 
         this.scrollToItem = function (offset) {
             if (that.containerVisible === false) {
@@ -362,27 +338,28 @@
             }
 
             var index = that.selectedIndex + offset;
-
             var item = that.renderItems[index];
-            if (item) {
-                that.selectItem(index);
+            if (!item) {
+                return;
+            }
 
-                // use jquery.scrollTo plugin if available
-                // http://flesler.blogspot.com/2007/10/jqueryscrollto.html
-                if (window.jQuery) {  // requires jquery to be loaded
-                    var li = that.elementUL.find("li[data-index='" + index + "']");
-                    if (jQuery.scrollTo) {
-                        that.elementUL.scrollTo(li);
-                    }
+            that.selectItem(index);
+
+            // use jquery.scrollTo plugin if available
+            // http://flesler.blogspot.com/2007/10/jqueryscrollto.html
+            if (window.jQuery) {  // requires jquery to be loaded
+                var li = that.elementUL.find('li[data-index="' + index + '"]');
+                if (jQuery.scrollTo) {
+                    that.elementUL.scrollTo(li);
                 }
-                else {
-                    var li = that.elementUL[0].querySelector("li[data-index='" + index + "']");
-                    if (li) {
-                        // this was causing the page to jump/scroll 
-                        //    li.scrollIntoView(true);
-                        that.elementUL[0].scrollTop = li.offsetTop;
-                    }
-                }
+                return;
+            }
+
+            var li = that.elementUL[0].querySelector('li[data-index="' + index + '"]');
+            if (li) {
+                // this was causing the page to jump/scroll 
+                //    li.scrollIntoView(true);
+                that.elementUL[0].scrollTop = li.offsetTop;
             }
         }
 
@@ -421,8 +398,7 @@
             if (index == that.selectedIndex) {
                 return that.options.selectedCssClass;
             }
-
-            return "";
+            return '';
         }
 
         this.selectedText = function () {
@@ -431,12 +407,14 @@
 
 
         function _safeCallback(fn, args) {
-            if (angular.isFunction(fn)) {
-                try {
-                    return fn.call(that.target, args);
-                } catch (e) {
-                    //ignore
-                }
+            if (!angular.isFunction(fn)) {
+                return;
+            }
+
+            try {
+                return fn.call(that.target, args);
+            } catch (e) {
+                //ignore
             }
         }
 
@@ -449,30 +427,30 @@
 
             var rect = that.target[0].getBoundingClientRect();
 
-            if (that.options.dropdownWidth == "auto") {
+            if (that.options.dropdownWidth == 'auto') {
                 // same as textbox width
-                that.container.css({ "width": rect.width + "px" });
+                that.container.css({ 'width': rect.width + 'px' });
             }
             else {
-                that.container.css({ "width": that.options.dropdownWidth });
+                that.container.css({ 'width': that.options.dropdownWidth });
             }
 
-            if (that.options.dropdownHeight !== "auto") {
-                that.elementUL.css({ "height": that.options.dropdownHeight });
+            if (that.options.dropdownHeight !== 'auto') {
+                that.elementUL.css({ 'height': that.options.dropdownHeight });
             }
 
             // use the .position() function from jquery.ui if available
             // requires both jquery and jquery-ui to be loaded
             if (window.jQuery && window.jQuery.ui) {
-                that.container.position({ my: "left top", at: "left bottom", of: that.target, collision: "none flip" });
+                that.container.position({ my: 'left top', at: 'left bottom', of: that.target, collision: 'none flip' });
+                return;
             }
-            else {
-                var scrollTop = $document[0].body.scrollTop || $document[0].documentElement.scrollTop || $window.pageYOffset,
-                    scrollLeft = $document[0].body.scrollLeft || $document[0].documentElement.scrollLeft || $window.pageXOffset;
+            
+            var scrollTop = $document[0].body.scrollTop || $document[0].documentElement.scrollTop || $window.pageYOffset,
+                scrollLeft = $document[0].body.scrollLeft || $document[0].documentElement.scrollLeft || $window.pageXOffset;
 
-                that.container.css({ "left": rect.left + scrollLeft + "px" });
-                that.container.css({ "top": rect.top + rect.height + scrollTop + "px" });
-            }
+            that.container.css({ 'left': rect.left + scrollLeft + 'px' });
+            that.container.css({ 'top': rect.top + rect.height + scrollTop + 'px' });
         }
 
         function _updateTextBox() {
@@ -499,24 +477,73 @@
 
         function _updateModel(modelValue) {
             // update only if different from current value
-            if (modelValue !== that.textModelCtrl.$modelValue) {
-                that.textModelCtrl.$setViewValue(modelValue);
-                that.textModelCtrl.$render();
-
-                selectedText = modelValue;
+            if (modelValue === that.textModelCtrl.$modelValue) {
+                return;
             }
+            
+            that.textModelCtrl.$setViewValue(modelValue);
+            that.textModelCtrl.$render();
+
+            selectedText = modelValue;
         }
 
-        function _renderItem(item) {
+        function _renderList (renderFn, result) {
+            // limit number of items rendered in the dropdown
+            var maxItemsToRender = result.length < that.options.maxItemsToRender ? result.length : that.options.maxItemsToRender;
+            var itemsToRender = result.slice(0, maxItemsToRender);
+
+            angular.forEach(itemsToRender, function(data, key) {
+                //invoke render callback with the data item as parameter
+                //this should return an object with a 'label' and 'value' property
+                var item = renderFn(data);
+                if ( item !== null && angular.isDefined(item) && item.label && item.value ) {
+                    // store the data on the renderItem and add to array
+                    item.data = data;
+                    that.renderItems.push(item);
+                }
+            });
+
+            that.show();
+        }
+
+        function _getRenderFn() {
+            // user provided function
+            if (angular.isFunction(that.options.renderItem) && that.options.renderItem !== angular.noop) {
+                return _getPromise(that.options.renderItem);
+            }
+
+            // itemTemplateUrl
+            if (that.options.itemTemplateUrl) {
+                return _getRenderFn_TemplateUrl();
+            }
+
+            // itemTemplate
+            var template = that.options.itemTemplate ||  '<span>{{item}}</span>';
+            return _getPromise(_renderItem.bind(null, $interpolate(template, false)));
+        }
+
+        function _getRenderFn_TemplateUrl() {
+            return $templateRequest(that.options.itemTemplateUrl)
+                .then(function(content) {
+                    // delegate to local function
+                    return  _renderItem.bind(null, $interpolate(content, false));
+                })
+                .catch($exceptionHandler)
+                .catch(angular.noop);
+        }
+
+        function _renderItem(interpolationFn, data) {
+            var value = (angular.isObject(data) && that.options.selectedTextAttr) ? data[that.options.selectedTextAttr] : data;
             return {
-                value: item,
-                label: $sce.trustAsHtml("<span>" + item + "</span>")
+                value: value,
+                label: $sce.trustAsHtml(interpolationFn({item: data}))
             };
         }
 
-
-        autoCompleteService.defaultOptionsDoc = function () {
-            return defaultOptionsDoc;
+        function _getPromise(value) {
+            var deferred = $q.defer();    
+            deferred.resolve(value);
+            return deferred.promise;
         }
     }
 
@@ -534,6 +561,10 @@
                 value.hideIfInactive();
             });
         }
+
+        this.defaultOptionsDoc = function () {
+            return defaultOptionsDoc;
+        }
     }
 
     var KEYCODE = {
@@ -546,13 +577,19 @@
     var instanceCount = 0;
 
     var defaultOptions = {
-        containerCssClass: "",
-        selectedCssClass: "auto-complete-item-selected",
-        minimumChars: "1",
+        containerCssClass: '',
+        selectedCssClass: 'auto-complete-item-selected',
+        minimumChars: 1,
         maxItemsToRender: 20,
-        dropdownWidth: "auto",
-        dropdownHeight: "auto",
+        //
+        dropdownWidth: 'auto',
+        dropdownHeight: 'auto',
         dropdownParent: undefined,
+        //
+        selectedTextAttr: undefined,
+        itemTemplate: undefined,
+        itemTemplateUrl: undefined,
+        //
         loading: angular.noop,
         data: angular.noop,
         loadingComplete: angular.noop,
@@ -563,20 +600,25 @@
     };
 
     var defaultOptionsDoc = {
-        containerCssClass: { def: "undefined", doc: "CSS class applied to the dropdown container" },
-        selectedCssClass: { def: "auto-complete-item-selected", doc: "CSS class applied to the selected list element" },
-        minimumChars: { def: "1", doc: "Minimum number of characters required to display the dropdown." },
-        maxItemsToRender: { def: "20", doc: "Maximum number of items to render in the list." },
-        dropdownWidth: { def: "auto", doc: "Width in 'px' of the dropddown list." },
-        dropdownHeight: { def: "auto", doc: "Height in 'px' of the dropddown list." },
-        dropdownParent: { def: "undefined", doc: "a jQuery object to append the dropddown list." },
-        loading: { def: "noop", doc: "Callback before getting the data for the dropdown." },
-        data: { def: "noop", doc: "Callback for data for the dropdown. Must return a promise" },
-        loadingComplete: { def: "noop", doc: "Callback after the items are rendered in the dropdown." },
-        renderItem: { def: "noop", doc: "Callback for custom rendering a list item. This is called for each item in the dropdown. It must return an object literal with 'value' and 'label' properties, where label is the safe html for display and value is the text for the textbox" },
-        itemSelected: { def: "noop", doc: "Callback after an item is selected from the dropdown." },
-        dropdownShown: { def: "noop", doc: "Callback after the dropdown is hidden." },
-        dropdownHidden: { def: "noop", doc: "Callback after the dropdown is shown." }
+        containerCssClass: { def: 'undefined', doc: 'CSS class applied to the dropdown container' },
+        selectedCssClass: { def: 'auto-complete-item-selected', doc: 'CSS class applied to the selected list element' },
+        minimumChars: { def: '1', doc: 'Minimum number of characters required to display the dropdown.' },
+        maxItemsToRender: { def: '20', doc: 'Maximum number of items to render in the list.' },
+        dropdownWidth: { def: 'auto', doc: 'Width in "px" of the dropddown list.' },
+        dropdownHeight: { def: 'auto', doc: 'Height in "px" of the dropddown list.' },
+        dropdownParent: { def: 'undefined', doc: 'a jQuery object to append the dropddown list.' },
+        //
+        selectedTextAttr: { def: 'undefined', doc: 'If the data for the dropdown is a collection of objects, the value of this attribute will be used to update the input text element.' },
+        itemTemplate: { def: 'undefined', doc: 'A template for the dropddown list item. For example "<div>{{item.lastName}} - {{item.jobTitle}}</div>".' },
+        itemTemplateUrl: { def: 'undefined', doc: 'This is similar to template but the template is loaded from the specified URL, asynchronously.' },
+        //
+        loading: { def: 'noop', doc: 'Callback before getting the data for the dropdown.' },
+        data: { def: 'noop', doc: 'Callback for data for the dropdown. Must return a promise' },
+        loadingComplete: { def: 'noop', doc: 'Callback after the items are rendered in the dropdown.' },
+        renderItem: { def: 'noop', doc: 'Callback for custom rendering a list item. This is called for each item in the dropdown. It must return an object literal with "value" and "label" properties, where label is the safe html for display and value is the text for the textbox' },
+        itemSelected: { def: 'noop', doc: 'Callback after an item is selected from the dropdown.' },
+        dropdownShown: { def: 'noop', doc: 'Callback after the dropdown is hidden.' },
+        dropdownHidden: { def: 'noop', doc: 'Callback after the dropdown is shown.' }
     };
 
 })();
