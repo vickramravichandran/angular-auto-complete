@@ -1,0 +1,54 @@
+<div class="scenario">
+    <div ng-controller="CustomListUsingTemplateCtrl as vm">
+        <h3 class="config-title">Example 2. Custom List</h3>
+        <input type="text"
+               ng-model="vm.colorName"
+               class="form-control"
+               style="width:70%"
+               placeholder="Color Name"
+               auto-complete="vm.autoCompleteOptions" />
+        <div ng-show="vm.selectedColor">
+            <pre>{{vm.selectedColor | json}}</pre>
+        </div>
+    </div>
+    <div class="code-container">
+        <h6>HTML</h6>
+        <div>
+<pre><code ng-prism class="language-markup">&lt;body ng-app="mainApp">
+    &lt;div ng-controller="MainCtrl as vm">
+        &lt;input type="text" 
+            ng-model="vm.colorName"   
+            placeholder="Color Name"
+            auto-complete="vm.autoCompleteOptions" />
+    &lt;/div>
+&lt;/body>
+</code></pre>
+        </div>
+        <div>
+            <h6>JavaScript</h6>
+<pre><code ng-prism class="language-javascript">angular
+    .module('mainApp', ['autoComplete'])
+    .controller('MainCtrl', function() {
+        var that = this;
+        that.colorName = null;
+
+        that.autoCompleteOptions = {
+            minimumChars: 1,
+            data: function (term) {
+                term = term.toUpperCase();
+                return _.filter(CSS_COLORS, function (value) {
+                    return value.name.startsWith(term);
+                });
+            },
+            containerCssClass: 'color-codes',
+            selectedTextAttr: 'name',
+            itemTemplateUrl : 'templates/color-list-item.tpl.html',
+            itemSelected: function (item) {
+                that.selectedColor = item;
+            }
+        }
+    });
+</code></pre>
+        </div>
+    </div>
+</div>

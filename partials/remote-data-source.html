@@ -1,0 +1,58 @@
+<div class="scenario">
+    <div ng-controller="SimpleListRemoteDataCtrl as vm">
+        <h3 class="config-title">Example 3. Remote Data Source</h3>
+        <div>
+            <input type="text"
+                   ng-model="vm.stateName"
+                   class="form-control"
+                   style="width:60%"
+                   placeholder="State Name"
+                   auto-complete="vm.autoCompleteOptions" />
+        </div>
+    </div>
+    <div class="code-container">
+        <h6>HTML</h6>
+        <div>
+<pre><code ng-prism class="language-markup">&lt;body ng-app="mainApp">
+    &lt;div ng-controller="MainCtrl as vm">
+        &lt;input type="text" 
+            ng-model="vm.stateName"   
+            placeholder="State Name"
+            auto-complete="vm.autoCompleteOptions" />
+    &lt;/div>
+&lt;/body>
+</code></pre>
+        </div>
+        <div>
+            <h6>JavaScript</h6>
+<pre><code ng-prism class="language-javascript">angular
+    .module('mainApp', ['autoComplete'])
+    .controller('MainCtrl', MainCtrl);
+    
+    MainCtrl.$inject = ['$http'];
+    function MainCtrl($http) {
+        var that = this;
+        that.stateName = null;
+        
+        that.autoCompleteOptions = {
+            minimumChars: 1,
+            data: function (term) {
+                return $http.get('states.txt')
+                    .then(function (response) {
+                        // ideally filtering should be done on server
+                        term = term.toUpperCase();
+                        var match = _.filter(response.data, function (value) {
+                            return value.name.startsWith(term);
+                        });
+                        return _.pluck(match, 'name');
+                    },
+                    function (error) {
+                        return error;
+                    });
+            }
+        }
+    }
+</code></pre>
+        </div>
+    </div>
+</div>

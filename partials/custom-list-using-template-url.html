@@ -1,0 +1,61 @@
+<div class="scenario">
+    <div ng-controller="CustomListUsingTemplateUrlCtrl as vm">
+        <h3 class="config-title">Example 4. Custom List Using itemTemplateUrl</h3>
+        <div>
+            <input type="text"
+                   ng-model="vm.colorName"
+                   class="form-control"
+                   style="width: 80%;"
+                   placeholder="Hex Color Code. Try 'a' or '0'"
+                   auto-complete="vm.autoCompleteOptions" />
+        </div>
+        <div ng-if="vm.selectedColor">
+            <pre>{{vm.selectedColor | json}}</pre>
+        </div>
+    </div>
+    <div class="code-container">
+        <h6>HTML</h6>
+        <div>
+<pre><code ng-prism class="language-markup">&lt;body ng-app="mainApp">
+    &lt;div ng-controller="MainCtrl as vm">
+        &lt;input type="text"
+            ng-model="vm.colorName"
+            style="width: 400px;"
+            placeholder="Hex Color Code. Try 'a' or '0'"
+            auto-complete="vm.autoCompleteOptions" />
+    &lt;/div>
+&lt;/body>
+</code></pre>
+        </div>
+        <div>
+            <h6>JavaScript</h6>
+<pre><code ng-prism class="language-javascript">angular
+    .module('mainApp', ['autoComplete'])
+    .controller('MainCtrl', function() {
+        var that = this;
+        that.colorName = '';
+        that.selectedColor = null;
+
+        that.autoCompleteOptions = {
+            minimumChars: 1,
+            data: function (term) {
+                if (!term.startsWith('#')) {
+                    term = '#' + term;
+                }
+                term = term.toUpperCase();
+                return _.filter(sorted, function (value) {
+                    return value.code.startsWith(term);
+                });
+            },
+            containerCssClass: 'color-codes',
+            selectedTextAttr: 'code',
+            itemTemplateUrl: 'templates/color-list-item.tpl.html',
+            itemSelected: function (e) {
+                that.selectedColor = e.item;
+            }
+        }
+    });
+</code></pre>
+        </div>
+    </div>
+</div>

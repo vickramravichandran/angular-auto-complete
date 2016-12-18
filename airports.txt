@@ -1,0 +1,1034 @@
+[
+  {
+    "iata": "AKC",
+    "name": "AKRON FULTON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ALB",
+    "name": "ALBANY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ABQ",
+    "name": "ALBUQUERQUE INTERNATIONAL SUNPORT AIRPORT"
+  },
+  {
+    "iata": "AEX",
+    "name": "ALEXANDRIA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ALI",
+    "name": "ALICE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SCU",
+    "name": "ANTONIO MACEO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "EPS",
+    "name": "ARROYO BARRIL INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ACY",
+    "name": "ATLANTIC CITY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MGA",
+    "name": "AUGUSTO C. SANDINO (MANAGUA) INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "AUS",
+    "name": "AUSTIN BERGSTROM INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GRB",
+    "name": "AUSTIN STRAUBEL INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BWI",
+    "name": "BALTIMORE/WASHINGTON INTERNATIONAL THURGOOD MARSHAL AIRPORT"
+  },
+  {
+    "iata": "BGR",
+    "name": "BANGOR INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BLI",
+    "name": "BELLINGHAM INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BIL",
+    "name": "BILLINGS LOGAN INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BHM",
+    "name": "BIRMINGHAM-SHUTTLESWORTH INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "FNT",
+    "name": "BISHOP INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BOC",
+    "name": "BOCAS DEL TORO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BFI",
+    "name": "BOEING FIELD KING COUNTY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BDL",
+    "name": "BRADLEY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BRO",
+    "name": "BROWNSVILLE SOUTH PADRE ISLAND INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BUF",
+    "name": "BUFFALO NIAGARA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BTV",
+    "name": "BURLINGTON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YYC",
+    "name": "CALGARY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CAP",
+    "name": "CAP HAITIEN INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "LRM",
+    "name": "CASA DE CAMPO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CPR",
+    "name": "CASPER-NATRONA COUNTY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CHS",
+    "name": "CHARLESTON AIR FORCE BASE-INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CLT",
+    "name": "CHARLOTTE DOUGLAS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CWF",
+    "name": "CHENNAULT INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CTM",
+    "name": "CHETUMAL INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MDW",
+    "name": "CHICAGO MIDWAY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ORD",
+    "name": "CHICAGO O'HARE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "RFD",
+    "name": "CHICAGO ROCKFORD INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CZA",
+    "name": "CHICHEN ITZA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CIU",
+    "name": "CHIPPEWA COUNTY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "STI",
+    "name": "CIBAO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CVG",
+    "name": "CINCINNATI NORTHERN KENTUCKY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CME",
+    "name": "CIUDAD DEL CARMEN INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CLE",
+    "name": "CLEVELAND HOPKINS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CRP",
+    "name": "CORPUS CHRISTI INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CZM",
+    "name": "COZUMEL INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "DFW",
+    "name": "DALLAS FORT WORTH INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "LIR",
+    "name": "DANIEL ODUBER QUIROS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "DAB",
+    "name": "DAYTONA BEACH INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "NTR",
+    "name": "DEL NORTE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "DEN",
+    "name": "DENVER INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "DSM",
+    "name": "DES MOINES INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GDL",
+    "name": "DON MIGUEL HIDALGO Y COSTILLA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "DLH",
+    "name": "DULUTH INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YEG",
+    "name": "EDMONTON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ELP",
+    "name": "EL PASO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SAL",
+    "name": "EL SALVADOR INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "DAV",
+    "name": "ENRIQUE MALEK INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ERI",
+    "name": "ERIE INTERNATIONAL TOM RIDGE FIELD"
+  },
+  {
+    "iata": "GGT",
+    "name": "EXUMA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "FAI",
+    "name": "FAIRBANKS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "INL",
+    "name": "FALLS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CUL",
+    "name": "FEDERAL DE BACHIGUALATO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BON",
+    "name": "FLAMINGO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "FLL",
+    "name": "FORT LAUDERDALE HOLLYWOOD INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "FWA",
+    "name": "FORT WAYNE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "FTW",
+    "name": "FORT WORTH MEACHAM INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "TRC",
+    "name": "FRANCISCO SARABIA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "HOG",
+    "name": "FRANK PAIS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "FAT",
+    "name": "FRESNO YOSEMITE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YQX",
+    "name": "GANDER INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GYY",
+    "name": "GARY CHICAGO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BOS",
+    "name": "GENERAL EDWARD LAWRENCE LOGAN INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MLM",
+    "name": "GENERAL FRANCISCO J. MUJICA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "TAM",
+    "name": "GENERAL FRANCISCO JAVIER MINA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "DGO",
+    "name": "GENERAL GUADALUPE VICTORIA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "VER",
+    "name": "GENERAL HERIBERTO JARA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "HMO",
+    "name": "GENERAL IGNACIO P. GARCIA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ACA",
+    "name": "GENERAL JUAN N ALVAREZ INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ZCL",
+    "name": "GENERAL LEOBARDO C. RUIZ INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "REX",
+    "name": "GENERAL LUCIO BLANCO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MTY",
+    "name": "GENERAL MARIANO ESCOBEDO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MKE",
+    "name": "GENERAL MITCHELL INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CVM",
+    "name": "GENERAL PEDRO JOSE MENDEZ INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MZT",
+    "name": "GENERAL RAFAEL BUELNA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CUU",
+    "name": "GENERAL ROBERTO FIERRO VILLALOBOS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MAM",
+    "name": "GENERAL SERVANDO CANALES INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GRR",
+    "name": "GERALD R. FORD INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CYB",
+    "name": "GERRARD SMITH INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "FCA",
+    "name": "GLACIER PARK INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "LCE",
+    "name": "GOLOSON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "FPO",
+    "name": "GRAND BAHAMA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GFK",
+    "name": "GRAND FORKS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GTF",
+    "name": "GREAT FALLS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YQM",
+    "name": "GREATER MONCTON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ROC",
+    "name": "GREATER ROCHESTER INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GSP",
+    "name": "GREENVILLE SPARTANBURG INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "POP",
+    "name": "GREGORIO LUPERON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GPT",
+    "name": "GULFPORT BILOXI INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YHZ",
+    "name": "HALIFAX / STANFIELD INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MDT",
+    "name": "HARRISBURG INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ATL",
+    "name": "HARTSFIELD JACKSON ATLANTA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CUR",
+    "name": "HATO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "FAR",
+    "name": "HECTOR INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "UVF",
+    "name": "HEWANORRA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ITO",
+    "name": "HILO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "HNL",
+    "name": "HONOLULU INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "HSV",
+    "name": "HUNTSVILLE INTERNATIONAL CARL T JONES FIELD"
+  },
+  {
+    "iata": "CMW",
+    "name": "IGNACIO AGRAMONTE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "IND",
+    "name": "INDIANAPOLIS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ZIH",
+    "name": "IXTAPA ZIHUATANEJO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "JAN",
+    "name": "JACKSON EVERS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "JAX",
+    "name": "JACKSONVILLE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GDT",
+    "name": "JAGS MCCARTNEY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "DAY",
+    "name": "JAMES M COX DAYTON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "AGU",
+    "name": "JESUS TERAN INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YHM",
+    "name": "JOHN C. MUNRO HAMILTON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "JFK",
+    "name": "JOHN F KENNEDY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "VRA",
+    "name": "JUAN GUALBERTO GOMEZ INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "RTB",
+    "name": "JUAN MANUEL GALVEZ INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SJO",
+    "name": "JUAN SANTAMARIA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "JNU",
+    "name": "JUNEAU INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "AZO",
+    "name": "KALAMAZOO BATTLE CREEK INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MCI",
+    "name": "KANSAS CITY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "KTN",
+    "name": "KETCHIKAN INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "EYW",
+    "name": "KEY WEST INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "KOA",
+    "name": "KONA INTERNATIONAL AT KEAHOLE AIRPORT"
+  },
+  {
+    "iata": "BDA",
+    "name": "L.F. WADE INTERNATIONAL INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "JBQ",
+    "name": "LA ISABELA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YTM",
+    "name": "LA MACAZA / MONT-TREMBLANT INTERNATIONAL INC AIRPORT"
+  },
+  {
+    "iata": "STL",
+    "name": "LAMBERT ST LOUIS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "LRD",
+    "name": "LAREDO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "LRU",
+    "name": "LAS CRUCES INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "IFP",
+    "name": "LAUGHLIN BULLHEAD INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ABE",
+    "name": "LEHIGH VALLEY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YYZ",
+    "name": "LESTER B. PEARSON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "TLC",
+    "name": "LICENCIADO ADOLFO LOPEZ MATEOS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MEX",
+    "name": "LICENCIADO BENITO JUAREZ INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "LIO",
+    "name": "LIMON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "LTO",
+    "name": "LORETO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "LAX",
+    "name": "LOS ANGELES INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SJD",
+    "name": "LOS CABOS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MSY",
+    "name": "LOUIS ARMSTRONG NEW ORLEANS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SDF",
+    "name": "LOUISVILLE INTERNATIONAL STANDIFORD FIELD"
+  },
+  {
+    "iata": "LBB",
+    "name": "LUBBOCK PRESTON SMITH INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SJU",
+    "name": "LUIS MUNOZ MARIN INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "NAS",
+    "name": "LYNDEN PINDLING INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PAC",
+    "name": "MARCOS A. GELABERT INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BRX",
+    "name": "MARIA MONTEZ INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MHH",
+    "name": "MARSH HARBOUR INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MSS",
+    "name": "MASSENA INTERNATIONAL RICHARDS FIELD"
+  },
+  {
+    "iata": "MBS",
+    "name": "MBS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MFE",
+    "name": "MC ALLEN MILLER INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "LAS",
+    "name": "MCCARRAN INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MLB",
+    "name": "MELBOURNE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MEM",
+    "name": "MEMPHIS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "OAK",
+    "name": "METROPOLITAN OAKLAND INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MIA",
+    "name": "MIAMI INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MAF",
+    "name": "MIDLAND INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MSP",
+    "name": "MINNEAPOLIS-ST PAUL INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MOT",
+    "name": "MINOT INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MSO",
+    "name": "MISSOULA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "LOV",
+    "name": "MONCLOVA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YUL",
+    "name": "MONTREAL / PIERRE ELLIOTT TRUDEAU INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YMX",
+    "name": "MONTREAL INTERNATIONAL (MIRABEL) AIRPORT"
+  },
+  {
+    "iata": "FRS",
+    "name": "MUNDO MAYA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MYR",
+    "name": "MYRTLE BEACH INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BNA",
+    "name": "NASHVILLE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "EWR",
+    "name": "NEWARK LIBERTY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PHF",
+    "name": "NEWPORT NEWS WILLIAMSBURG INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "IAG",
+    "name": "NIAGARA FALLS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "NOG",
+    "name": "NOGALES INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ORF",
+    "name": "NORFOLK INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "KIN",
+    "name": "NORMAN MANLEY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SJC",
+    "name": "NORMAN Y. MINETA SAN JOSE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ECP",
+    "name": "NORTHWEST FLORIDA BEACHES INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ONT",
+    "name": "ONTARIO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MCO",
+    "name": "ORLANDO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SFB",
+    "name": "ORLANDO SANFORD INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GCM",
+    "name": "OWEN ROBERTS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PQM",
+    "name": "PALENQUE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PBI",
+    "name": "PALM BEACH INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PSP",
+    "name": "PALM SPRINGS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PFN",
+    "name": "PANAMA CITY-BAY CO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PHL",
+    "name": "PHILADELPHIA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BZE",
+    "name": "PHILIP S. W. GOLDSON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PHX",
+    "name": "PHOENIX SKY HARBOR INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "POS",
+    "name": "PIARCO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GSO",
+    "name": "PIEDMONT TRIAD INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PDS",
+    "name": "PIEDRAS NEGRAS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PIT",
+    "name": "PITTSBURGH INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SLW",
+    "name": "PLAN DE GUADALUPE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PBG",
+    "name": "PLATTSBURGH INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ZLO",
+    "name": "PLAYA DE ORO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GND",
+    "name": "POINT SALINES INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SLP",
+    "name": "PONCIANO ARRIAGA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CMH",
+    "name": "PORT COLUMBUS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PDX",
+    "name": "PORTLAND INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PWM",
+    "name": "PORTLAND INTERNATIONAL JETPORT AIRPORT"
+  },
+  {
+    "iata": "PSM",
+    "name": "PORTSMOUTH INTERNATIONAL AT PEASE AIRPORT"
+  },
+  {
+    "iata": "SXM",
+    "name": "PRINCESS JULIANA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PXM",
+    "name": "PUERTO ESCONDIDO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PUJ",
+    "name": "PUNTA CANA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MLI",
+    "name": "QUAD CITY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YQB",
+    "name": "QUEBEC JEAN LESAGE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "AUA",
+    "name": "QUEEN BEATRIX INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "RDU",
+    "name": "RALEIGH DURHAM INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YQR",
+    "name": "REGINA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "RNO",
+    "name": "RENO TAHOE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "RIC",
+    "name": "RICHMOND INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "AMA",
+    "name": "RICK HUSBAND AMARILLO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SKB",
+    "name": "ROBERT L. BRADSHAW INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "RST",
+    "name": "ROCHESTER INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MFR",
+    "name": "ROGUE VALLEY INTERNATIONAL MEDFORD AIRPORT"
+  },
+  {
+    "iata": "ROW",
+    "name": "ROSWELL INTERNATIONAL AIR CENTER AIRPORT"
+  },
+  {
+    "iata": "SMF",
+    "name": "SACRAMENTO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SLC",
+    "name": "SALT LAKE CITY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SAT",
+    "name": "SAN ANTONIO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SAN",
+    "name": "SAN DIEGO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SFH",
+    "name": "SAN FELIPE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SFO",
+    "name": "SAN FRANCISCO INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "MBJ",
+    "name": "SANGSTER INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SRQ",
+    "name": "SARASOTA BRADENTON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YXE",
+    "name": "SASKATOON JOHN G. DIEFENBAKER INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SAV",
+    "name": "SAVANNAH HILTON HEAD INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GLS",
+    "name": "SCHOLES INTERNATIONAL AT GALVESTON AIRPORT"
+  },
+  {
+    "iata": "SEA",
+    "name": "SEATTLE TACOMA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "BGI",
+    "name": "SIR GRANTLEY ADAMS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "RSW",
+    "name": "SOUTHWEST FLORIDA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GEG",
+    "name": "SPOKANE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YYT",
+    "name": "ST JOHNS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "FPR",
+    "name": "ST LUCIE COUNTY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PIE",
+    "name": "ST PETERSBURG CLEARWATER INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SWF",
+    "name": "STEWART INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "SYR",
+    "name": "SYRACUSE HANCOCK INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "TPA",
+    "name": "TAMPA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "TAP",
+    "name": "TAPACHULA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ANC",
+    "name": "TED STEVENS ANCHORAGE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "EIS",
+    "name": "TERRANCE B. LETTSOME INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "HUF",
+    "name": "TERRE HAUTE INTERNATIONAL HULMAN FIELD"
+  },
+  {
+    "iata": "SYQ",
+    "name": "TOBIAS BOLANOS INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PTY",
+    "name": "TOCUMEN INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "PAP",
+    "name": "TOUSSAINT LOUVERTURE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "TUS",
+    "name": "TUCSON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "TUL",
+    "name": "TULSA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "UNI",
+    "name": "UNION ISLAND INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ANU",
+    "name": "V.C. BIRD INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "LMM",
+    "name": "VALLE DEL FUERTE INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "HRL",
+    "name": "VALLEY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "NEV",
+    "name": "VANCE W. AMORY INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YVR",
+    "name": "VANCOUVER INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YYJ",
+    "name": "VICTORIA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CYO",
+    "name": "VILO ACUNA INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "IAD",
+    "name": "WASHINGTON DULLES INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ART",
+    "name": "WATERTOWN INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YXY",
+    "name": "WHITEHORSE / ERIK NIELSEN INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "AVP",
+    "name": "WILKES BARRE SCRANTON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "CLM",
+    "name": "WILLIAM R FAIRCHILD INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "ILM",
+    "name": "WILMINGTON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YWG",
+    "name": "WINNIPEG / JAMES ARMSTRONG RICHARDSON INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "GGW",
+    "name": "WOKAL FIELD GLASGOW INTERNATIONAL AIRPORT"
+  },
+  {
+    "iata": "YUM",
+    "name": "YUMA MCAS/YUMA INTERNATIONAL AIRPORT"
+  }
+]

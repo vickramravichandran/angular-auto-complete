@@ -1,0 +1,80 @@
+<div class="scenario">
+    <div ng-controller="RemoteDataUsingRenderItemCtrl as vm">
+        <h3 class="config-title">Example 5. Scrollable List Using renderItem Callback</h3>
+        <div>
+            <input type="text"
+                   ng-model="vm.airportName"
+                   class="form-control"
+                   style="width: 80%;"
+                   placeholder="Airport Name (Try 'a' or 'g')"
+                   auto-complete="vm.autoCompleteOptions" />
+        </div>
+        <div ng-show="vm.airport">
+            <pre>{{vm.airport | json}}</pre>
+        </div>
+    </div>
+    <div class="code-container">
+        <h6>HTML</h6>
+        <div>
+<pre><code ng-prism class="language-markup">&lt;body ng-app="mainApp">
+    &lt;div ng-controller="MainCtrl as vm">
+        &lt;input type="text"
+            ng-model="vm.airportName"
+            style="width: 400px;"
+            placeholder="Airport Name (Try 'a' or 'g')"
+            auto-complete="vm.autoCompleteOptions" />
+    &lt;/div>
+&lt;/body>
+</code></pre>
+        </div>
+        <div>
+            <h6>JavaScript</h6>
+<pre><code ng-prism class="language-javascript">angular
+    .module('mainApp', ['autoComplete'])
+    .controller('MainCtrl', MainCtrl);
+    
+    MainCtrl.$inject = ['$http', '$sce'];
+    function MainCtrl($http, $sce) {
+        var that = this;
+        that.airport = null;
+
+        that.autoCompleteOptions = {
+            minimumChars: 1,
+            dropdownHeight: '200px',
+            data: function (term) {
+                return $http.get('airports.txt')
+                    .then(function (response) {
+                        // ideally filtering should be done on server
+                        term = term.toUpperCase();                        
+                        return _.filter(response.data, function (val){
+                            return val.iata == term
+                                || val.name.startsWith(term);
+                        });
+                    },
+                    function (error) {
+                        return error;
+                    });
+            },
+            renderItem: function (item) {
+                return {
+                    value: item.name,
+                    label: $sce.trustAsHtml(
+                "&lt;table class='auto-complete'>"
+                + "&lt;tbody>"
+                    + "&lt;tr>"
+                    + "&lt;td style='width: 90%'>" + item.name + "&lt;/td>"
+                    + "&lt;td style='width: 10%'>" + item.iata + "&lt;/td>"
+                    + "&lt;/tr>"
+                + "&lt;/tbody>"
+                + "&lt;/table>")
+                };
+            },
+            itemSelected: function (item) {
+                that.airport = item;
+            }
+        }
+    }
+</code></pre>
+        </div>
+    </div>
+</div>

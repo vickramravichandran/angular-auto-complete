@@ -1,0 +1,48 @@
+<div class="scenario">
+    <div ng-controller="SimpleListCtrl as vm">
+        <h3 class="config-title">Example 1. Simple List</h3>
+        <div>
+            <input type="text"
+                   ng-model="vm.colorName"
+                   class="form-control"
+                   style="width:400px"
+                   placeholder="Color Name"
+                   auto-complete="vm.autoCompleteOptions" />
+        </div>
+    </div>
+    <div class="code-container">
+        <h6>HTML</h6>
+        <div>
+<pre><code ng-prism class="language-markup">&lt;body ng-app="mainApp">
+    &lt;div ng-controller="MainCtrl as vm">
+        &lt;input type="text"
+            ng-model="vm.colorName"
+            placeholder="Color Name"
+            auto-complete="vm.autoCompleteOptions" />
+    &lt;/div>
+&lt;/body>
+</code></pre>
+        </div>
+        <div>
+            <h6>JavaScript</h6>
+<pre><code ng-prism class="language-javascript">angular
+    .module('mainApp', ['autoComplete'])
+    .controller('MainCtrl', function() {
+        var that = this;
+        that.stateName = null;
+        
+        that.autoCompleteOptions = {
+            minimumChars: 1,
+            data: function (term) {
+                term = term.toUpperCase();
+                var match = _.filter(CSS_COLORS, function (value) {
+                    return value.name.startsWith(term);
+                });
+                return _.pluck(match, 'name');
+            }
+        }
+    });
+</code></pre>
+        </div>
+    </div>
+</div>
