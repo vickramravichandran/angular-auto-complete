@@ -27,11 +27,39 @@ div.scenario {
 
 	div.scenario input[type=text] {
 		font-weight: bold;
-		background-color: white;
+		background-color: rgb(255, 248, 182);
 	}
+
+p.auto-complete {
+    padding: 0px 2px;
+    margin: 0px;
+}
 
 h3.config-title {
 	margin-top: 20px;
+}
+
+div.config-options {
+	margin-top:20px;
+}
+
+div.config-options div.default {
+	margin-top: 10px;
+	font-style: italic;
+}
+
+div.config-options > ul {
+	padding: 0px;
+}
+div.config-options > ul > li {
+	padding: 8px;
+	list-style: none;
+	border-top: 1px solid #dddddd;
+	padding-bottom: 20px;
+}
+
+div.config-options > ul > li:nth-child(odd) {
+	background-color: #f6f6f6;
 }
 
 

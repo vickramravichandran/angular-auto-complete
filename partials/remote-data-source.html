@@ -5,7 +5,7 @@
             <input type="text"
                    ng-model="vm.stateName"
                    class="form-control"
-                   style="width:60%"
+                   style="width:300px"
                    placeholder="State Name"
                    auto-complete="vm.autoCompleteOptions" />
         </div>
@@ -45,9 +45,6 @@
                             return value.name.startsWith(term);
                         });
                         return _.pluck(match, 'name');
-                    },
-                    function (error) {
-                        return error;
                     });
             }
         }

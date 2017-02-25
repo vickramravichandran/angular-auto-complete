@@ -5,7 +5,7 @@
             <input type="text"
                    ng-model="vm.airportName"
                    class="form-control"
-                   style="width: 80%;"
+                   style="width:300px"
                    placeholder="Airport Name (Try 'a' or 'g')"
                    auto-complete="vm.autoCompleteOptions" />
         </div>
@@ -40,6 +40,7 @@
 
         that.autoCompleteOptions = {
             minimumChars: 1,
+            dropdownWidth: '500px',
             dropdownHeight: '200px',
             data: function (term) {
                 return $http.get('airports.txt')
@@ -50,23 +51,15 @@
                             return val.iata == term
                                 || val.name.startsWith(term);
                         });
-                    },
-                    function (error) {
-                        return error;
                     });
             },
             renderItem: function (item) {
                 return {
                     value: item.name,
                     label: $sce.trustAsHtml(
-                "&lt;table class='auto-complete'>"
-                + "&lt;tbody>"
-                    + "&lt;tr>"
-                    + "&lt;td style='width: 90%'>" + item.name + "&lt;/td>"
-                    + "&lt;td style='width: 10%'>" + item.iata + "&lt;/td>"
-                    + "&lt;/tr>"
-                + "&lt;/tbody>"
-                + "&lt;/table>")
+                    "&lt;p class='auto-complete'>" 
+                    + item.name + 
+                    "&lt;/p>")
                 };
             },
             itemSelected: function (item) {

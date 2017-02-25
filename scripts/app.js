@@ -27,6 +27,12 @@ if (!String.prototype.startsWith) {
             }
         });
 
+    // upper case color code and name
+    _.each(CSS_COLORS, function (value) {
+        value.code = value.code.toUpperCase();
+        value.name = value.name.toUpperCase();
+    });
+
     function SimpleListCtrl() {
         var that = this;
         that.colorName = null;
@@ -58,6 +64,7 @@ if (!String.prototype.startsWith) {
                     return value.name.startsWith(term);
                 });
             },
+            dropdownWidth: '400px',
             containerCssClass: 'color-codes',
             selectedTextAttr: 'name',
             itemTemplate: $templateCache.get('color-item-template'),
@@ -75,7 +82,7 @@ if (!String.prototype.startsWith) {
         that.autoCompleteOptions = {
             minimumChars: 1,
             data: function (term) {
-                return $http.get('states.txt')
+                return $http.get('data_files/usa_states.json')
                     .then(function (response) {
                         // ideally filtering should be done on server
                         term = term.toUpperCase();
@@ -83,9 +90,6 @@ if (!String.prototype.startsWith) {
                             return value.name.startsWith(term);
                         });
                         return _.pluck(match, 'name');
-                    },
-                    function (error) {
-                        return error;
                     });
             }
         }
@@ -97,11 +101,6 @@ if (!String.prototype.startsWith) {
         that.colorName = '';
         that.selectedColor = null;
 
-        var sorted = _.sortBy(CSS_COLORS, function (value) {
-            value.code = value.code.toUpperCase();
-            return value.code;
-        });
-
         that.autoCompleteOptions = {
             minimumChars: 1,
             data: function (term) {
@@ -109,7 +108,7 @@ if (!String.prototype.startsWith) {
                     term = '#' + term;
                 }
                 term = term.toUpperCase();
-                return _.filter(sorted, function (value) {
+                return _.filter(CSS_COLORS, function (value) {
                     return value.code.startsWith(term);
                 });
             },
@@ -130,9 +129,10 @@ if (!String.prototype.startsWith) {
 
         that.autoCompleteOptions = {
             minimumChars: 1,
+            dropdownWidth: '500px',
             dropdownHeight: '200px',
             data: function (term) {
-                return $http.get('airports.txt')
+                return $http.get('data_files/airports.json')
                     .then(function (response) {
                         // ideally filtering should be done on the server
                         term = term.toUpperCase();
@@ -140,23 +140,12 @@ if (!String.prototype.startsWith) {
                             return val.iata == term
                                 || val.name.startsWith(term);
                         });
-                    },
-                    function (error) {
-                        return error;
                     });
             },
             renderItem: function (item) {
                 return {
                     value: item.name,
-                    label: $sce.trustAsHtml(
-                            "<table class='auto-complete'>"
-                                + "<tbody>"
-                                    + "<tr>"
-                                    + "<td style='width: 90%'>" + item.name + "</td>"
-                                    + "<td style='width: 10%'>" + item.iata + "</td>"
-                                    + "</tr>"
-                                + "</tbody>"
-                            + "</table>")
+                    label: $sce.trustAsHtml("<p class='auto-complete'>" + item.name + "</p>")
                 };
             },
             itemSelected: function (e) {

@@ -535,8 +535,8 @@ a {
 .content .post {
 	/*padding-bottom: 1em;
 	margin-top: 1em;*/
-    padding-bottom: 30px;
-    margin-bottom: 30px;
+    padding-bottom: 50px;
+    margin-bottom: 10px;
 	border-bottom: #EBF2F6 1px solid;
 	word-wrap: break-word;
 	hyphens: auto;

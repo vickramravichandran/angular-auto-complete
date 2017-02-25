@@ -32,20 +32,12 @@
     "name": "ATLANTIC CITY INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "MGA",
-    "name": "AUGUSTO C. SANDINO (MANAGUA) INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "AUS",
     "name": "AUSTIN BERGSTROM INTERNATIONAL AIRPORT"
   },
   {
     "iata": "GRB",
     "name": "AUSTIN STRAUBEL INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "BWI",
-    "name": "BALTIMORE/WASHINGTON INTERNATIONAL THURGOOD MARSHAL AIRPORT"
   },
   {
     "iata": "BGR",
@@ -60,10 +52,6 @@
     "name": "BILLINGS LOGAN INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "BHM",
-    "name": "BIRMINGHAM-SHUTTLESWORTH INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "FNT",
     "name": "BISHOP INTERNATIONAL AIRPORT"
   },
@@ -72,16 +60,8 @@
     "name": "BOCAS DEL TORO INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "BFI",
-    "name": "BOEING FIELD KING COUNTY INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "BDL",
     "name": "BRADLEY INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "BRO",
-    "name": "BROWNSVILLE SOUTH PADRE ISLAND INTERNATIONAL AIRPORT"
   },
   {
     "iata": "BUF",
@@ -106,10 +86,6 @@
   {
     "iata": "CPR",
     "name": "CASPER-NATRONA COUNTY INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "CHS",
-    "name": "CHARLESTON AIR FORCE BASE-INTERNATIONAL AIRPORT"
   },
   {
     "iata": "CLT",
@@ -146,10 +122,6 @@
   {
     "iata": "STI",
     "name": "CIBAO INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "CVG",
-    "name": "CINCINNATI NORTHERN KENTUCKY INTERNATIONAL AIRPORT"
   },
   {
     "iata": "CME",
@@ -192,10 +164,6 @@
     "name": "DES MOINES INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "GDL",
-    "name": "DON MIGUEL HIDALGO Y COSTILLA INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "DLH",
     "name": "DULUTH INTERNATIONAL AIRPORT"
   },
@@ -232,16 +200,8 @@
     "name": "FALLS INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "CUL",
-    "name": "FEDERAL DE BACHIGUALATO INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "BON",
     "name": "FLAMINGO INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "FLL",
-    "name": "FORT LAUDERDALE HOLLYWOOD INTERNATIONAL AIRPORT"
   },
   {
     "iata": "FWA",
@@ -272,22 +232,6 @@
     "name": "GARY CHICAGO INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "BOS",
-    "name": "GENERAL EDWARD LAWRENCE LOGAN INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "MLM",
-    "name": "GENERAL FRANCISCO J. MUJICA INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "TAM",
-    "name": "GENERAL FRANCISCO JAVIER MINA INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "DGO",
-    "name": "GENERAL GUADALUPE VICTORIA INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "VER",
     "name": "GENERAL HERIBERTO JARA INTERNATIONAL AIRPORT"
   },
@@ -308,10 +252,6 @@
     "name": "GENERAL LUCIO BLANCO INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "MTY",
-    "name": "GENERAL MARIANO ESCOBEDO INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "MKE",
     "name": "GENERAL MITCHELL INTERNATIONAL AIRPORT"
   },
@@ -322,10 +262,6 @@
   {
     "iata": "MZT",
     "name": "GENERAL RAFAEL BUELNA INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "CUU",
-    "name": "GENERAL ROBERTO FIERRO VILLALOBOS INTERNATIONAL AIRPORT"
   },
   {
     "iata": "MAM",
@@ -388,10 +324,6 @@
     "name": "HARRISBURG INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "ATL",
-    "name": "HARTSFIELD JACKSON ATLANTA INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "CUR",
     "name": "HATO INTERNATIONAL AIRPORT"
   },
@@ -448,10 +380,6 @@
     "name": "JESUS TERAN INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "YHM",
-    "name": "JOHN C. MUNRO HAMILTON INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "JFK",
     "name": "JOHN F KENNEDY INTERNATIONAL AIRPORT"
   },
@@ -472,10 +400,6 @@
     "name": "JUNEAU INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "AZO",
-    "name": "KALAMAZOO BATTLE CREEK INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "MCI",
     "name": "KANSAS CITY INTERNATIONAL AIRPORT"
   },
@@ -492,16 +416,8 @@
     "name": "KONA INTERNATIONAL AT KEAHOLE AIRPORT"
   },
   {
-    "iata": "BDA",
-    "name": "L.F. WADE INTERNATIONAL INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "JBQ",
     "name": "LA ISABELA INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "YTM",
-    "name": "LA MACAZA / MONT-TREMBLANT INTERNATIONAL INC AIRPORT"
   },
   {
     "iata": "STL",
@@ -528,14 +444,6 @@
     "name": "LESTER B. PEARSON INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "TLC",
-    "name": "LICENCIADO ADOLFO LOPEZ MATEOS INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "MEX",
-    "name": "LICENCIADO BENITO JUAREZ INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "LIO",
     "name": "LIMON INTERNATIONAL AIRPORT"
   },
@@ -550,10 +458,6 @@
   {
     "iata": "SJD",
     "name": "LOS CABOS INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "MSY",
-    "name": "LOUIS ARMSTRONG NEW ORLEANS INTERNATIONAL AIRPORT"
   },
   {
     "iata": "SDF",
@@ -636,14 +540,6 @@
     "name": "MONCLOVA INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "YUL",
-    "name": "MONTREAL / PIERRE ELLIOTT TRUDEAU INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "YMX",
-    "name": "MONTREAL INTERNATIONAL (MIRABEL) AIRPORT"
-  },
-  {
     "iata": "FRS",
     "name": "MUNDO MAYA INTERNATIONAL AIRPORT"
   },
@@ -660,10 +556,6 @@
     "name": "NEWARK LIBERTY INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "PHF",
-    "name": "NEWPORT NEWS WILLIAMSBURG INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "IAG",
     "name": "NIAGARA FALLS INTERNATIONAL AIRPORT"
   },
@@ -678,14 +570,6 @@
   {
     "iata": "KIN",
     "name": "NORMAN MANLEY INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "SJC",
-    "name": "NORMAN Y. MINETA SAN JOSE INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "ECP",
-    "name": "NORTHWEST FLORIDA BEACHES INTERNATIONAL AIRPORT"
   },
   {
     "iata": "ONT",
@@ -722,10 +606,6 @@
   {
     "iata": "PHL",
     "name": "PHILADELPHIA INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "BZE",
-    "name": "PHILIP S. W. GOLDSON INTERNATIONAL AIRPORT"
   },
   {
     "iata": "PHX",
@@ -876,10 +756,6 @@
     "name": "SARASOTA BRADENTON INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "YXE",
-    "name": "SASKATOON JOHN G. DIEFENBAKER INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "SAV",
     "name": "SAVANNAH HILTON HEAD INTERNATIONAL AIRPORT"
   },
@@ -910,10 +786,6 @@
   {
     "iata": "FPR",
     "name": "ST LUCIE COUNTY INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "PIE",
-    "name": "ST PETERSBURG CLEARWATER INTERNATIONAL AIRPORT"
   },
   {
     "iata": "SWF",
@@ -950,10 +822,6 @@
   {
     "iata": "PTY",
     "name": "TOCUMEN INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "PAP",
-    "name": "TOUSSAINT LOUVERTURE INTERNATIONAL AIRPORT"
   },
   {
     "iata": "TUS",
@@ -1004,10 +872,6 @@
     "name": "WATERTOWN INTERNATIONAL AIRPORT"
   },
   {
-    "iata": "YXY",
-    "name": "WHITEHORSE / ERIK NIELSEN INTERNATIONAL AIRPORT"
-  },
-  {
     "iata": "AVP",
     "name": "WILKES BARRE SCRANTON INTERNATIONAL AIRPORT"
   },
@@ -1018,10 +882,6 @@
   {
     "iata": "ILM",
     "name": "WILMINGTON INTERNATIONAL AIRPORT"
-  },
-  {
-    "iata": "YWG",
-    "name": "WINNIPEG / JAMES ARMSTRONG RICHARDSON INTERNATIONAL AIRPORT"
   },
   {
     "iata": "GGW",
