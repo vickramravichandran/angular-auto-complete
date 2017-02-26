@@ -1,0 +1,15 @@
+{
+  "name": "angular-auto-complete-development",
+  "version": "1.0.0",
+  "description": "angular-auto-complete development",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "keywords": [],
+  "author": "Vickram Ravichandran (http://vickram.me)",
+  "license": "MIT",
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  }
+}
+

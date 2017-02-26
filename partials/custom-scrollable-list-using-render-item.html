@@ -1,0 +1,16 @@
+<div class="scenario">
+    <div ng-controller="RemoteDataUsingRenderItemCtrl as vm">
+        <h3 class="config-title">Example 5. Scrollable List Using renderItem Callback</h3>
+        <div>
+            <input type="text"
+                   ng-model="vm.airportName"
+                   class="form-control"
+                   style="width:300px"
+                   placeholder="Airport Name (Try 'a' or 'g')"
+                   auto-complete="vm.autoCompleteOptions" />
+        </div>
+        <div ng-show="vm.airport" class="selected-json">
+            <pre>{{vm.airport | json}}</pre>
+        </div>
+    </div>
+</div>
