@@ -46,13 +46,13 @@
                 var templateFn = $compile(template);
                 ctrl.container = templateFn(scope);
 
-                if (angular.isDefined(ctrl.options.containerCssClass)) {
+                if (ctrl.options.containerCssClass) {
                     ctrl.container.addClass(ctrl.options.containerCssClass);
                 }
 
                 // if a jquery parent is specified in options append the container to that
                 // otherwise append to body
-                if (angular.isDefined(ctrl.options.dropdownParent)) {
+                if (ctrl.options.dropdownParen) {
                     ctrl.options.dropdownParent.append(ctrl.container);
                 }
                 else {
@@ -240,7 +240,7 @@
         // hide any open containers other than the active container
         this.hideIfInactive = function () {
             // do not hide container if appended to dropdown parent specified in options
-            if (angular.isDefined(that.options.dropdownParent)) {
+            if (that.options.dropdownParent) {
                 return;
             }
 
@@ -302,13 +302,6 @@
             // the textbox position can change (ex: window resize) when it has focus
             // so reposition the dropdown before it's shown
             _positionDropdown();
-
-            that.containerVisible = true;
-
-            // HACK: this reduces the flickr when the dropdown is being positioned  
-            $timeout(function(){
-                _positionDropdown();
-            }, 1);
 
             // callback
             _safeCallback(that.options.dropdownShown);
@@ -421,7 +414,7 @@
         function _positionDropdown() {
             // no need to position if container has been appended to 
             // parent specified in options
-            if (angular.isDefined(that.options.dropdownParent)) {
+            if (that.options.dropdownParent) {
                 return;
             }
 
@@ -438,19 +431,56 @@
             if (that.options.dropdownHeight !== 'auto') {
                 that.elementUL.css({ 'height': that.options.dropdownHeight });
             }
+            
+            if (that.options.positionUsingJQuery && hasJQueryUI()) {
+                positionUsingJQuery();
+            }
+            else {
+                positionUsingDomAPI();
+            }
+        }
 
+        function hasJQueryUI() {
+            return (window.jQuery && window.jQuery.ui);
+        }
+
+        function positionUsingJQuery() {
             // use the .position() function from jquery.ui if available
-            // requires both jquery and jquery-ui to be loaded
-            if (window.jQuery && window.jQuery.ui) {
-                that.container.position({ my: 'left top', at: 'left bottom', of: that.target, collision: 'none flip' });
+            // requires both jquery and jquery-ui
+            if (!hasJQueryUI()) {
                 return;
             }
+
+            var defaultPosition = {
+                my: 'left top',
+                at: 'left bottom',
+                of: that.target,
+                collision: 'none flip'
+            };
+            
+            var pos = angular.extend({}, defaultPosition, that.options.positionUsing);
+            
+            // jquery.ui position() requires the container to be visible to calculate its position.
+            that.containerVisible = true; // used in the template to set ng-show.
+            that.container.css({ 'visibility': 'hidden' });
+            $timeout(function(){
+                that.container.position(pos);
+                that.container.css({ 'visibility': 'visible' });
+            });
+        }
+
+        function positionUsingDomAPI() {
+            var rect = that.target[0].getBoundingClientRect();
             
             var scrollTop = $document[0].body.scrollTop || $document[0].documentElement.scrollTop || $window.pageYOffset,
                 scrollLeft = $document[0].body.scrollLeft || $document[0].documentElement.scrollLeft || $window.pageXOffset;
 
-            that.container.css({ 'left': rect.left + scrollLeft + 'px' });
-            that.container.css({ 'top': rect.top + rect.height + scrollTop + 'px' });
+            that.container.css({
+                'left': rect.left + scrollLeft + 'px',
+                'top': rect.top + rect.height + scrollTop + 'px'
+            });
+
+            that.containerVisible = true;
         }
 
         function _updateTextBox() {
@@ -562,7 +592,7 @@
             });
         }
 
-        this.defaultOptionsDoc = function () {
+        this.getDefaultOptionsDoc = function () {
             return defaultOptionsDoc;
         }
     }
@@ -577,19 +607,22 @@
     var instanceCount = 0;
 
     var defaultOptions = {
-        containerCssClass: '',
+        containerCssClass: null,
         selectedCssClass: 'auto-complete-item-selected',
         minimumChars: 1,
         maxItemsToRender: 20,
         //
         dropdownWidth: 'auto',
         dropdownHeight: 'auto',
-        dropdownParent: undefined,
+        dropdownParent: null,
         //
-        selectedTextAttr: undefined,
-        itemTemplate: undefined,
-        itemTemplateUrl: undefined,
-        //
+        selectedTextAttr: null,
+        itemTemplate: null,
+        itemTemplateUrl: null,
+        /*position using jQuery*/
+        positionUsingJQuery: true,
+        positionUsing: null,
+        /*callbacks*/
         loading: angular.noop,
         data: angular.noop,
         loadingComplete: angular.noop,
@@ -600,25 +633,82 @@
     };
 
     var defaultOptionsDoc = {
-        containerCssClass: { def: 'undefined', doc: 'CSS class applied to the dropdown container' },
-        selectedCssClass: { def: 'auto-complete-item-selected', doc: 'CSS class applied to the selected list element' },
-        minimumChars: { def: '1', doc: 'Minimum number of characters required to display the dropdown.' },
-        maxItemsToRender: { def: '20', doc: 'Maximum number of items to render in the list.' },
-        dropdownWidth: { def: 'auto', doc: 'Width in "px" of the dropddown list.' },
-        dropdownHeight: { def: 'auto', doc: 'Height in "px" of the dropddown list.' },
-        dropdownParent: { def: 'undefined', doc: 'a jQuery object to append the dropddown list.' },
-        //
-        selectedTextAttr: { def: 'undefined', doc: 'If the data for the dropdown is a collection of objects, the value of this attribute will be used to update the input text element.' },
-        itemTemplate: { def: 'undefined', doc: 'A template for the dropddown list item. For example "<div>{{item.lastName}} - {{item.jobTitle}}</div>".' },
-        itemTemplateUrl: { def: 'undefined', doc: 'This is similar to template but the template is loaded from the specified URL, asynchronously.' },
-        //
-        loading: { def: 'noop', doc: 'Callback before getting the data for the dropdown.' },
-        data: { def: 'noop', doc: 'Callback for data for the dropdown. Must return a promise' },
-        loadingComplete: { def: 'noop', doc: 'Callback after the items are rendered in the dropdown.' },
-        renderItem: { def: 'noop', doc: 'Callback for custom rendering a list item. This is called for each item in the dropdown. It must return an object literal with "value" and "label" properties, where label is the safe html for display and value is the text for the textbox' },
-        itemSelected: { def: 'noop', doc: 'Callback after an item is selected from the dropdown.' },
-        dropdownShown: { def: 'noop', doc: 'Callback after the dropdown is hidden.' },
-        dropdownHidden: { def: 'noop', doc: 'Callback after the dropdown is shown.' }
+        containerCssClass: {
+            def: 'null',
+            doc: 'CSS class applied to the dropdown container'
+        },
+        selectedCssClass: {
+            def: 'auto-complete-item-selected',
+            doc: 'CSS class applied to the selected list element'
+        },
+        minimumChars: {
+            def: '1',
+            doc: 'Minimum number of characters required to display the dropdown.'
+        },
+        maxItemsToRender: {
+            def: '20',
+            doc: 'Maximum number of items to render in the list.'
+        },
+        dropdownWidth: {
+            def: 'auto',
+            doc: 'Width in "px" of the dropddown list.'
+        },
+        dropdownHeight: {
+            def: 'auto',
+            doc: 'Height in "px" of the dropddown list.'
+        },
+        dropdownParent: {
+            def: 'null',
+            doc: 'a jQuery object to append the dropddown list.'
+        },
+        selectedTextAttr: {
+            def: 'null',
+            doc: 'If the data for the dropdown is a collection of objects, the value of this attribute will be used to update the input text element.'
+        },
+        itemTemplate: {
+            def: 'null',
+            doc: 'A template for the dropddown list item. For example "<div>{{item.lastName}} - {{item.jobTitle}}</div>".'
+        },
+        itemTemplateUrl: {
+            def: 'null',
+            doc: 'This is similar to template but the template is loaded from the specified URL, asynchronously.'
+        },
+        positionUsingJQuery: {
+            def: 'false',
+            doc: 'If true will position the dropdown list using the position() method from the jQueryUI library. See <a href="https://api.jqueryui.com/position/">jQueryUI.position() documentation</a>'
+        },
+        positionUsing: {
+            def: 'null',
+            doc: 'Options that will be passed to jQueryUI position() method.'
+        },
+        loading: {
+            def: 'noop',
+            doc: 'Callback before getting the data for the dropdown.'
+        },
+        data: {
+            def: 'noop',
+            doc: 'Callback for data for the dropdown. Must return a promise'
+        },
+        loadingComplete: {
+            def: 'noop',
+            doc: 'Callback after the items are rendered in the dropdown.'
+        },
+        renderItem: {
+            def: 'noop',
+            doc: 'Callback for custom rendering a list item. This is called for each item in the dropdown. It must return an object literal with "value" and "label" properties, where label is the safe html for display and value is the text for the textbox'
+        },
+        itemSelected: {
+            def: 'noop',
+            doc: 'Callback after an item is selected from the dropdown.'
+        },
+        dropdownShown: {
+            def: 'noop',
+            doc: 'Callback after the dropdown is hidden.'
+        },
+        dropdownHidden: {
+            def: 'noop',
+            doc: 'Callback after the dropdown is shown.'
+        }
     };
 
 })();
