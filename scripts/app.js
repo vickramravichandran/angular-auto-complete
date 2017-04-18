@@ -156,7 +156,7 @@ if (!String.prototype.startsWith) {
 
     PluginOptionsCtrl.$inject = ["autoCompleteService"];
     function PluginOptionsCtrl(autoCompleteService) {
-        this.options = autoCompleteService.defaultOptionsDoc();
+        this.options = autoCompleteService.getDefaultOptionsDoc();
     }
         
 })()
