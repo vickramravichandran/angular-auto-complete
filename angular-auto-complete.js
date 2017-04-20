@@ -60,7 +60,7 @@
                     ctrl.container.addClass('auto-complete-absolute-container');
                 }
 
-                // store the jquery element on the controller          
+                // store the jquery element on the controller
                 ctrl.target = element;
 
                 // store a reference to the UL
@@ -74,6 +74,7 @@
             element.on('focus', function (e) {
                 scope.$evalAsync(function () {
                     ctrl.activate();
+                    _elementKeyDown(e);
                 });
             });
 
@@ -153,13 +154,13 @@
                 // fetch if minimum number of chars are types
                 // else hide dropdown
                 var term = element.val();
-                if (term.length < ctrl.options.minimumChars || term === ctrl.selectedText()) {
+                if (term.length < ctrl.options.minimumChars) {
                     ctrl.hide();
                     ctrl.empty();
 
                     return;
                 }
-                
+
                 // wait few millisecs before calling fetch()
                 // this allows checking if user has stopped typing
                 var delay = $timeout(function () {
@@ -267,7 +268,7 @@
                     // there might some lag when remote web services are involved
                     // to get data. so check if current element value has changed
                     var value = that.textModelCtrl.$viewValue;
-                    if (term != value) {
+                    if (value && term != value) {
                         return;
                     }
 
@@ -292,8 +293,8 @@
                 return;
             }
 
-            _getRenderFn().then(function(renderFn) { 
-                _renderList(renderFn, result); 
+            _getRenderFn().then(function(renderFn) {
+                _renderList(renderFn, result);
             });
         }
 
@@ -350,7 +351,7 @@
 
             var li = that.elementUL[0].querySelector('li[data-index="' + index + '"]');
             if (li) {
-                // this was causing the page to jump/scroll 
+                // this was causing the page to jump/scroll
                 //    li.scrollIntoView(true);
                 that.elementUL[0].scrollTop = li.offsetTop;
             }
@@ -412,7 +413,7 @@
         }
 
         function _positionDropdown() {
-            // no need to position if container has been appended to 
+            // no need to position if container has been appended to
             // parent specified in options
             if (that.options.dropdownParent) {
                 return;
@@ -431,7 +432,7 @@
             if (that.options.dropdownHeight !== 'auto') {
                 that.elementUL.css({ 'height': that.options.dropdownHeight });
             }
-            
+
             if (that.options.positionUsingJQuery && hasJQueryUI()) {
                 positionUsingJQuery();
             }
@@ -457,9 +458,9 @@
                 of: that.target,
                 collision: 'none flip'
             };
-            
+
             var pos = angular.extend({}, defaultPosition, that.options.positionUsing);
-            
+
             // jquery.ui position() requires the container to be visible to calculate its position.
             that.containerVisible = true; // used in the template to set ng-show.
             that.container.css({ 'visibility': 'hidden' });
@@ -471,7 +472,7 @@
 
         function positionUsingDomAPI() {
             var rect = that.target[0].getBoundingClientRect();
-            
+
             var scrollTop = $document[0].body.scrollTop || $document[0].documentElement.scrollTop || $window.pageYOffset,
                 scrollLeft = $document[0].body.scrollLeft || $document[0].documentElement.scrollLeft || $window.pageXOffset;
 
@@ -491,7 +492,7 @@
             var item = that.renderItems[that.selectedIndex];
             var textboxValue;
 
-            // first check if the data is a simple string type 
+            // first check if the data is a simple string type
             if (angular.isString(item.data)) {
                 textboxValue = item.data;
             }
@@ -499,7 +500,7 @@
                 textboxValue = item.value;
             }
 
-            // update the textbox 
+            // update the textbox
             _updateModel(textboxValue);
 
             return item.data;
@@ -510,7 +511,7 @@
             if (modelValue === that.textModelCtrl.$modelValue) {
                 return;
             }
-            
+
             that.textModelCtrl.$setViewValue(modelValue);
             that.textModelCtrl.$render();
 
@@ -571,7 +572,7 @@
         }
 
         function _getPromise(value) {
-            var deferred = $q.defer();    
+            var deferred = $q.defer();
             deferred.resolve(value);
             return deferred.promise;
         }
