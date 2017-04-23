@@ -116,6 +116,7 @@
 
             function _ignoreKeyCode(keyCode) {
                 return [
+                    KEYCODE.TAB,
                     KEYCODE.ALT,
                     KEYCODE.CTRL,
                     KEYCODE.LEFTARROW,
@@ -199,12 +200,12 @@
 
             function _documentKeyDown() {
                 // if multiple auto complete exist on a page, hide inactive dropdowns
-                autoCompleteService.hideIfInactive();
+                autoCompleteService.hideInactiveLists();
             }
 
             function _documentClick(event) {
                 // if multiple auto complete exist on a page, hide inactive dropdowns
-                autoCompleteService.hideIfInactive();
+                autoCompleteService.hideInactiveLists();
 
                 // ignore inline
                 if (ctrl.isInline()) {
@@ -235,28 +236,12 @@
     MainCtrl.$inject = ['$q', '$window', '$document', '$sce', '$timeout', '$interpolate', '$templateRequest', '$exceptionHandler', 'autoCompleteService'];
     function MainCtrl($q, $window, $document, $sce, $timeout, $interpolate, $templateRequest, $exceptionHandler, autoCompleteService) {
         var that = this;
-        var activeInstanceId = 0;
         var originalValue = null;
 
         this.target = null;
         this.selectedIndex = -1;
         this.renderItems = [];
         this.containerVisible = false;
-
-        this.activeInstanceId = function () {
-            return activeInstanceId;
-        }
-
-        // hide any open containers other than the active container
-        this.hideIfInactive = function () {
-            if (that.isInline()) {
-                return;
-            }
-
-            if ((that.instanceId !== activeInstanceId) && that.containerVisible) {
-                that.hide();
-            }
-        }
 
         this.isInline = function () {
             // if a dropdown jquery parent is provided it is assumed inline
@@ -269,7 +254,7 @@
         }
 
         this.activate = function () {
-            activeInstanceId = that.instanceId;
+            autoCompleteService.setActiveInstanceId(that.instanceId);
         }
 
         this.fetch = function (term) {
@@ -562,7 +547,14 @@
     }
 
     function autoCompleteService() {
+        var that = this;
         var pluginCtrls = [];
+        var activeInstanceId = 0;
+
+        this.setActiveInstanceId = function (instanceId) {
+            activeInstanceId = instanceId;
+            that.hideInactiveLists();
+        }
 
         this.addDirectiveCtrl = function (ctrl) {
             if (ctrl) {
@@ -570,9 +562,15 @@
             }
         }
 
-        this.hideIfInactive = function (ctrl) {
-            angular.forEach(pluginCtrls, function (value) {
-                value.hideIfInactive();
+        this.hideInactiveLists = function () {
+            angular.forEach(pluginCtrls, function (ctrl) {
+                if (ctrl.isInline()) {
+                    return;
+                }
+
+                if (ctrl.instanceId !== activeInstanceId) {
+                    ctrl.hide();
+                }
             });
         }
 
@@ -582,6 +580,7 @@
     }
 
     var KEYCODE = {
+        TAB: 9,
         ENTER: 13,
         CTRL: 17,
         ALT: 18,
