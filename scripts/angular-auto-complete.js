@@ -254,6 +254,7 @@
         }
 
         this.activate = function () {
+            originalValue = null;
             autoCompleteService.setActiveInstanceId(that.instanceId);
         }
 
@@ -328,7 +329,6 @@
             }
 
             that.target.val(originalValue);
-            originalValue = null;
         }
 
         this.empty = function () {
@@ -351,11 +351,9 @@
 
             // use jquery.scrollTo plugin if available
             // http://flesler.blogspot.com/2007/10/jqueryscrollto.html
-            if (window.jQuery) {  // requires jquery to be loaded
+            if (window.jQuery && window.jQuery.scrollTo) {  // requires jquery to be loaded
                 var li = that.elementUL.find('li[data-index="' + index + '"]');
-                if (jQuery.scrollTo) {
-                    that.elementUL.scrollTo(li);
-                }
+                that.elementUL.scrollTo(li);
                 return;
             }
 
