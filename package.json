@@ -21,6 +21,9 @@
   "bugs": {
     "url": "https://github.com/vickramravichandran/angular-auto-complete/issues"
   },
+  "dependencies": {
+    "jquery": "^1.11.0"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
