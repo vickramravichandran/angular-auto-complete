@@ -28,9 +28,13 @@ if (!String.prototype.startsWith) {
         });
 
     // upper case color code and name
-    _.each(CSS_COLORS, function (value) {
-        value.code = value.code.toUpperCase();
-        value.name = value.name.toUpperCase();
+    _.each(MOCK_CSS_COLORS, function (color) {
+        color.code = color.code.toUpperCase();
+        color.name = color.name.toUpperCase();
+    });
+    // sort by name
+    MOCK_CSS_COLORS = _.sortBy(MOCK_CSS_COLORS, function(color) {
+        return color.name;
     });
 
     function SimpleListCtrl() {
@@ -41,7 +45,7 @@ if (!String.prototype.startsWith) {
             minimumChars: 1,
             data: function (term) {
                 term = term.toUpperCase();
-                var match = _.filter(CSS_COLORS, function (value) {
+                var match = _.filter(MOCK_CSS_COLORS, function (value) {
                     return value.name.startsWith(term);
                 });
                 return _.pluck(match, 'name');
@@ -60,7 +64,7 @@ if (!String.prototype.startsWith) {
             minimumChars: 1,
             data: function (term) {
                 term = term.toUpperCase();
-                return _.filter(CSS_COLORS, function (value) {
+                return _.filter(MOCK_CSS_COLORS, function (value) {
                     return value.name.startsWith(term);
                 });
             },
@@ -100,6 +104,11 @@ if (!String.prototype.startsWith) {
         var that = this;
         that.colorName = '';
         that.selectedColor = null;
+
+        // sort by color code
+        var CSS_COLORS = _.sortBy(MOCK_CSS_COLORS, function(color) {
+            return color.code;
+        });
 
         that.autoCompleteOptions = {
             minimumChars: 1,
