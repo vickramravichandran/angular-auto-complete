@@ -41,6 +41,7 @@ h3.config-title {
 
 div.config-options {
 	margin-top:20px;
+	hyphens: initial;
 }
 
 div.config-options div.default {

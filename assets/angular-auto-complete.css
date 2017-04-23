@@ -4,6 +4,13 @@
 	white-space: nowrap;
 }
 
+div.auto-complete-container.unselectable {
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
 div.auto-complete-absolute-container {
 	position: absolute;
 	z-index: 10000;

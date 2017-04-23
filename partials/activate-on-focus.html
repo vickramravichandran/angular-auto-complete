@@ -1,0 +1,48 @@
+<div class="scenario">
+    <div ng-controller="ActivateOnFocusCtrl as vm">
+        <h3 class="config-title">Activate on Focus</h3>
+        <div>
+            <input type="text"
+                   ng-model="vm.breakfast"
+                   class="form-control"
+                   style="width:200px"
+                   placeholder="Breakfast"
+                   auto-complete="vm.autoCompleteOptions" />
+        </div>
+    </div>
+<div class="code-container">
+        <h6>HTML</h6>
+        <div>
+<pre><code ng-prism class="language-markup">&lt;body ng-app="mainApp">
+    &lt;div ng-controller="MainCtrl as vm">
+        &lt;input type="text"
+            ng-model="vm.breakfast"
+            placeholder="Breakfast"
+            auto-complete="vm.autoCompleteOptions" />
+    &lt;/div>
+&lt;/body>
+</code></pre>
+        </div>
+        <div>
+            <h6>JavaScript</h6>
+<pre><code ng-prism class="language-javascript">angular
+    .module('mainApp', ['autoComplete'])
+    .controller('MainCtrl', function() {
+        var that = this;
+        that.breakfast = null;
+        
+        that.autoCompleteOptions = {
+            minimumChars: 0,
+            activateOnFocus: true,
+            data: function (term) {
+                term = term.toUpperCase();
+                return _.filter(BREAKFAST, function (value) {
+                    return value.startsWith(term);
+                });
+            }
+        }
+    });
+</code></pre>
+        </div>
+    </div>
+</div>

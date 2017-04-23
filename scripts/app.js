@@ -12,6 +12,7 @@ if (!String.prototype.startsWith) {
         .module('mainApp', ['autoCompleteModule'])
         .controller('SimpleListCtrl', SimpleListCtrl)
         .controller('CustomListUsingTemplateCtrl', CustomListUsingTemplateCtrl)
+        .controller('ActivateOnFocusCtrl', ActivateOnFocusCtrl)
         .controller('SimpleListRemoteDataCtrl', SimpleListRemoteDataCtrl)
         .controller('CustomListUsingTemplateUrlCtrl', CustomListUsingTemplateUrlCtrl)
         .controller('RemoteDataUsingRenderItemCtrl', RemoteDataUsingRenderItemCtrl)
@@ -74,6 +75,23 @@ if (!String.prototype.startsWith) {
             itemTemplate: $templateCache.get('color-item-template'),
             itemSelected: function (e) {
                 that.selectedColor = e.item;
+            }
+        }
+    }
+
+    // activate on focus
+    function ActivateOnFocusCtrl() {
+        var that = this;
+        that.breakfast = null;
+
+        that.autoCompleteOptions = {
+            minimumChars: 0,
+            activateOnFocus: true,
+            data: function (term) {
+                term = term.toUpperCase();
+                return _.filter(MOCK_BREAKFAST, function (value) {
+                    return value.startsWith(term);
+                });
             }
         }
     }
