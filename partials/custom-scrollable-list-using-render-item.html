@@ -1,6 +1,6 @@
 <div class="scenario">
     <div ng-controller="RemoteDataUsingRenderItemCtrl as vm">
-        <h3 class="config-title">Example 5. Scrollable List Using renderItem Callback</h3>
+        <h3 class="config-title">Scrollable List Using renderItem Callback</h3>
         <div>
             <input type="text"
                    ng-model="vm.airportName"
@@ -43,7 +43,7 @@
             dropdownWidth: '500px',
             dropdownHeight: '200px',
             data: function (term) {
-                return $http.get('airports.txt')
+                return $http.get('airports.json')
                     .then(function (response) {
                         // ideally filtering should be done on server
                         term = term.toUpperCase();                        
