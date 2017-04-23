@@ -1,10 +1,10 @@
 {
-  "name": "angular-auto-complete development",
+  "name": "angular-auto-complete-demo",
   "homepage": "https://github.com/vickramravichandran/angular-auto-complete",
   "authors": [
     "vickramravichandran"
   ],
-  "description": "angular-auto-complete development",
+  "description": "angular-auto-complete Demo",
   "main": "Index.html",
   "license": "MIT",
   "private": true,
