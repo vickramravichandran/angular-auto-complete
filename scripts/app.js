@@ -25,7 +25,7 @@ if (!String.prototype.startsWith) {
                         Prism.highlightElement(element[0]);
                     });
                 }
-            }
+            };
         });
 
     // upper case color code and name
@@ -51,11 +51,11 @@ if (!String.prototype.startsWith) {
                 });
                 return _.pluck(match, 'name');
             }
-        }
+        };
     }
 
     // Using itemTemplate
-    CustomListUsingTemplateCtrl.$inject = ["$templateCache"];
+    CustomListUsingTemplateCtrl.$inject = ['$templateCache'];
     function CustomListUsingTemplateCtrl($templateCache) {
         var that = this;
         that.colorName = '';
@@ -76,7 +76,7 @@ if (!String.prototype.startsWith) {
             itemSelected: function (e) {
                 that.selectedColor = e.item;
             }
-        }
+        };
     }
 
     // activate on focus
@@ -93,11 +93,11 @@ if (!String.prototype.startsWith) {
                     return value.startsWith(term);
                 });
             }
-        }
+        };
     }
 
-    SimpleListRemoteDataCtrl.$inject = ["$q", "$http"];
-    function SimpleListRemoteDataCtrl($q, $http) {
+    SimpleListRemoteDataCtrl.$inject = ['$http'];
+    function SimpleListRemoteDataCtrl($http) {
         var that = this;
         that.stateName = null;
 
@@ -114,7 +114,7 @@ if (!String.prototype.startsWith) {
                         return _.pluck(match, 'name');
                     });
             }
-        }
+        };
     }
 
     // Using itemTemplateUrl
@@ -145,12 +145,12 @@ if (!String.prototype.startsWith) {
             itemSelected: function (e) {
                 that.selectedColor = e.item;
             }
-        }
+        };
     }
 
     // Using renderItem Callback
-    RemoteDataUsingRenderItemCtrl.$inject = ["$q", "$http", "$sce"];
-    function RemoteDataUsingRenderItemCtrl($q, $http, $sce) {
+    RemoteDataUsingRenderItemCtrl.$inject = ['$http', '$sce'];
+    function RemoteDataUsingRenderItemCtrl($http, $sce) {
         var that = this;
         that.airport = null;
 
@@ -164,8 +164,8 @@ if (!String.prototype.startsWith) {
                         // ideally filtering should be done on the server
                         term = term.toUpperCase();
                         return _.filter(response.data, function (val) {
-                            return val.iata == term
-                                || val.name.startsWith(term);
+                            return val.iata == term ||
+                                   val.name.startsWith(term);
                         });
                     });
             },
@@ -178,10 +178,10 @@ if (!String.prototype.startsWith) {
             itemSelected: function (e) {
                 that.airport = e.item;
             }
-        }
+        };
     }
 
-    PluginOptionsCtrl.$inject = ["autoCompleteService"];
+    PluginOptionsCtrl.$inject = ['autoCompleteService'];
     function PluginOptionsCtrl(autoCompleteService) {
         this.options = autoCompleteService.defaultOptionsDoc();
     }
