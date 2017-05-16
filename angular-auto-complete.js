@@ -74,24 +74,24 @@
                     ctrl.container.addClass('auto-complete-absolute-container');
                 }
 
-                // store a reference to the UL
+                // keep a reference to the <ul> element
                 ctrl.elementUL = angular.element(ctrl.container[0].querySelector('ul.auto-complete-results'));
             }
 
             function _getTemplate() {
                 var html = '';
-                html +=  '<div class="auto-complete-container unselectable"';
-                html +=       'data-instance-id="{{ ctrl.instanceId }}"';
-                html += 	  'ng-show="ctrl.containerVisible">';
-                html +=       '<ul class="auto-complete-results">';
-                html +=           '<li ng-repeat="item in ctrl.renderItems track by $index"';
-                html +=               'ng-click="ctrl.selectItem($index, true)"';
-                html +=               'class="auto-complete-item" data-index="{{ $index }}"';
-                html +=               'ng-class="ctrl.getSelectedCssClass($index)">';
-                html +=                   '<div ng-bind-html="item.label"></div>';
-                html +=           '</li>';
-                html +=       '</ul>';
-                html +=  '</div>';
+                html += '<div class="auto-complete-container unselectable"';
+                html += '     data-instance-id="{{ ctrl.instanceId }}"';
+                html += '     ng-show="ctrl.containerVisible">';
+                html += '     <ul class="auto-complete-results">';
+                html += '         <li ng-repeat="item in ctrl.renderItems track by $index"';
+                html += '             ng-click="ctrl.selectItem($index, true)"';
+                html += '             class="auto-complete-item" data-index="{{ $index }}"';
+                html += '             ng-class="ctrl.getSelectedCssClass($index)">';
+                html += '                 <div ng-bind-html="item.label"></div>';
+                html += '         </li>';
+                html += '     </ul>';
+                html += '</div>';
 
                 return html;
             }
@@ -106,6 +106,10 @@
                             _waitAndFetch(element.val(), 100);
                         }
                     });
+                });
+
+                element.on('input', function () {
+                    scope.$evalAsync(_fetch);
                 });
 
                 // handle key strokes
@@ -193,7 +197,9 @@
 
                         return;
                     }
+                }
 
+                function _fetch() {
                     // fetch only if minimum number of chars are typed
                     // else hide dropdown
                     var term = element.val();
@@ -302,8 +308,8 @@
 
             $q.when(that.options.data(term),
                 function successCallback(result) {
-                    // there might some lag in getting data when remote web services are involved
-                    // so check if current element value has changed
+                    // there might be some lag in getting data when remote web services are involved
+                    // so check if the current value of the element is has changed
                     var value = that.textModelCtrl.$viewValue;
                     if (value && term !== value) {
                         return;
@@ -363,7 +369,7 @@
                 return;
             }
 
-            that.target.val(originalValue);
+            _setTargetValue(originalValue);
         };
 
         this.empty = function () {
@@ -461,22 +467,22 @@
                 that.elementUL.css({'height': that.options.dropdownHeight});
             }
 
-            if (that.options.positionUsingJQuery && hasJQueryUI()) {
-                positionUsingJQuery();
+            if (that.options.positionUsingJQuery && _hasJQueryUI()) {
+                _positionUsingJQuery();
             }
             else {
-                positionUsingDomAPI();
+                _positionUsingDomAPI();
             }
         }
 
-        function hasJQueryUI() {
+        function _hasJQueryUI() {
             return (window.jQuery && window.jQuery.ui);
         }
 
-        function positionUsingJQuery() {
+        function _positionUsingJQuery() {
             // use the .position() function from jquery.ui if available
             // requires both jquery and jquery-ui
-            if (!hasJQueryUI()) {
+            if (!_hasJQueryUI()) {
                 return;
             }
 
@@ -498,7 +504,7 @@
             });
         }
 
-        function positionUsingDomAPI() {
+        function _positionUsingDomAPI() {
             var rect = that.target[0].getBoundingClientRect();
 
             var scrollTop = $document[0].body.scrollTop || $document[0].documentElement.scrollTop || $window.pageYOffset,
@@ -518,8 +524,12 @@
                 return;
             }
 
-            that.textModelCtrl.$setViewValue(item.value);
-            that.textModelCtrl.$render();
+            _setTargetValue(item.value);
+        }
+
+        function _setTargetValue(value) {
+            that.target.val(value);
+            that.textModelCtrl.$setViewValue(value);
         }
 
         function _renderList(renderFn, result) {
