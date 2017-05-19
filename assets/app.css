@@ -63,6 +63,9 @@ div.config-options > ul > li:nth-child(odd) {
 	background-color: #f6f6f6;
 }
 
+div.config-options > ul > li a {
+	color: blue;
+}
 
 div.color-codes ul.auto-complete-results li.auto-complete-item {
 	background-color: white;

@@ -102,9 +102,15 @@
                     <ul class="options">
                         <li ng-repeat="(key, val) in vm.options">
                             <h5>{{key}}</h5>
-                            <p>{{val.doc}}</p>
-                            <div class="default">
-                                Default: {{val.def}}
+                            <p ng-bind-html="val.doc"></p>
+                            <div ng-if="val.docArray">
+                                <ul>
+                                    <li ng-repeat="arr in val.docArray">
+                                        <span ng-repeat="(key, val) in arr">
+                                            <b>{{key}}:</b> {{val}}
+                                        </span>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
                     </ul>
