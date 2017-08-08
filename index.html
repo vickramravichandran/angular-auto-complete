@@ -105,7 +105,8 @@
                     <ul class="options">
                         <li ng-repeat="(key, val) in vm.options">
                             <h5>{{key}}</h5>
-                            <p ng-bind-html="val.doc"></p>
+                            <p ng-if="val.bindAsHtml" ng-bind-html="val.doc"></p>
+                            <p ng-if="!val.bindAsHtml" ng-bind="val.doc"></p>
                             <div ng-if="val.docArray">
                                 <ul>
                                     <li ng-repeat="arr in val.docArray">

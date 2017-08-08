@@ -184,6 +184,8 @@ if (!String.prototype.startsWith) {
     PluginOptionsCtrl.$inject = ['autoCompleteService'];
     function PluginOptionsCtrl(autoCompleteService) {
         this.options = autoCompleteService.getDefaultOptionsDoc();
+
+		this.options.positionUsingJQuery.bindAsHtml = true;
     }
         
 })();
