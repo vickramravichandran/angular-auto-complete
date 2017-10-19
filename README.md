@@ -10,6 +10,6 @@
 * Angular Sanitize
 
 
-<b>Demo:</b> http://vickramravichandran.github.io/angular-auto-complete/
+<b>Demo:</b> http://demo.vickram.me/angular-auto-complete/
 
 <a href="https://github.com/vickramravichandran/angular-auto-complete/archive/demo.zip">Download Demo zip</a>
