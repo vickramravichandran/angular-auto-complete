@@ -99,54 +99,10 @@
                     <div class="row" ng-include="'partials/custom-scrollable-list-using-render-item.html'"></div>
                 </div>
 
-                <div class="config-options" ng-controller="PluginOptionsCtrl as vm">
-                    
-                    <h2 id="options">Options</h2>
-                    <ul class="options">
-                        <li ng-repeat="(key, val) in vm.options">
-                            <h5>{{key}}</h5>
-                            <p ng-if="val.bindAsHtml" ng-bind-html="val.doc"></p>
-                            <p ng-if="!val.bindAsHtml" ng-bind="val.doc"></p>
-                            <div ng-if="val.docArray">
-                                <ul>
-                                    <li ng-repeat="arr in val.docArray">
-                                        <span ng-repeat="(key, val) in arr">
-                                            <b>{{key}}:</b> {{val}}
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                    
-                </div>
-
-                <section class="post-comments">
-                    <div id="disqus_thread"></div>
-                    <script>
-                        /**
-                        * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                        * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-                        */
-
-                        var disqus_config = function () {
-                            this.page.url = "http://www.vickram.me/angular-auto-complete"
-                            this.page.identifier = "87mvfvbhsthnv";
-                            this.page.title = "angular-auto-complete plugin"
-                        };
-
-                        (function () { // DON'T EDIT BELOW THIS LINE
-                            var d = document, s = d.createElement('script');
-
-                            s.src = '//vickram.disqus.com/embed.js';
-
-                            s.setAttribute('data-timestamp', +new Date());
-                            (d.head || d.body).appendChild(s);
-                        })();
-                    </script>
-                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-                </section>
-
+                <div ng-include="'partials/config-options.html'"></div>
+                
+                <div ng-include="'partials/post-comments.html'"></div>
+                
             </article>
         </main>
     </div>

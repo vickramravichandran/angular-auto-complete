@@ -1,0 +1,21 @@
+<div class="config-options" ng-controller="PluginOptionsCtrl as vm">
+                    
+	<h2 id="options">Options</h2>
+	<ul class="options">
+		<li ng-repeat="(key, val) in vm.options">
+			<h5>{{key}}</h5>
+			<p ng-if="val.bindAsHtml" ng-bind-html="val.doc"></p>
+			<p ng-if="!val.bindAsHtml" ng-bind="val.doc"></p>
+			<div ng-if="val.docArray">
+				<ul>
+					<li ng-repeat="arr in val.docArray">
+						<span ng-repeat="(key, val) in arr">
+							<b>{{key}}:</b> {{val}}
+						</span>
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+	
+</div>
