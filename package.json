@@ -6,7 +6,8 @@
     "start": "lite-server"
   },
   "keywords": [],
-  "author": "Vickram Ravichandran (http://vickram.me)",
+  "homepage": "http://www.vickram.me/angular-auto-complete",
+  "author": "Vickram Ravichandran (http://www.vickram.me)",
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.1",
