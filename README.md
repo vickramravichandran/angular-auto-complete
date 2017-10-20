@@ -6,10 +6,10 @@
 
 #### Requirements
 
-* Angular v1.5.0+
-* Angular Sanitize
+* AngularJS v1.5.0+
+* AngularJS Sanitize
 
 
-<b>Demo:</b> http://demo.vickram.me/angular-auto-complete/
+<b>Demo:</b> http://demo.vickram.me/angular-auto-complete
 
 <a href="https://github.com/vickramravichandran/angular-auto-complete/archive/demo.zip">Download Demo zip</a>
