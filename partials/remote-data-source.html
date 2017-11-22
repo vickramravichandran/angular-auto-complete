@@ -41,8 +41,8 @@
                     .then(function (response) {
                         // ideally filtering should be done on server
                         term = term.toUpperCase();
-                        var match = _.filter(response.data, function (value) {
-                            return value.name.startsWith(term);
+                        var match = _.filter(response.data, function (state) {
+                            return state.name.startsWith(term);
                         });
                         return _.pluck(match, 'name');
                     });

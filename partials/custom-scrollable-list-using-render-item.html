@@ -36,6 +36,7 @@
     MainCtrl.$inject = ['$http', '$sce'];
     function MainCtrl($http, $sce) {
         var that = this;
+        that.airportName = null;
         that.airport = null;
 
         that.autoCompleteOptions = {
@@ -47,9 +48,9 @@
                     .then(function (response) {
                         // ideally filtering should be done on server
                         term = term.toUpperCase();                        
-                        return _.filter(response.data, function (val){
-                            return val.iata == term
-                                || val.name.startsWith(term);
+                        return _.filter(response.data, function (airport){
+                            return airport.iata == term
+                                || airport.name.startsWith(term);
                         });
                     });
             },

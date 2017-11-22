@@ -46,8 +46,8 @@ if (!String.prototype.startsWith) {
             minimumChars: 1,
             data: function (term) {
                 term = term.toUpperCase();
-                var match = _.filter(MOCK_CSS_COLORS, function (value) {
-                    return value.name.startsWith(term);
+                var match = _.filter(MOCK_CSS_COLORS, function (color) {
+                    return color.name.startsWith(term);
                 });
                 return _.pluck(match, 'name');
             }
@@ -58,15 +58,15 @@ if (!String.prototype.startsWith) {
     CustomListUsingTemplateCtrl.$inject = ['$templateCache'];
     function CustomListUsingTemplateCtrl($templateCache) {
         var that = this;
-        that.colorName = '';
+        that.colorName = null;
         that.selectedColor = null;
 
         that.autoCompleteOptions = {
             minimumChars: 1,
             data: function (term) {
                 term = term.toUpperCase();
-                return _.filter(MOCK_CSS_COLORS, function (value) {
-                    return value.name.startsWith(term);
+                return _.filter(MOCK_CSS_COLORS, function (color) {
+                    return color.name.startsWith(term);
                 });
             },
             dropdownWidth: '400px',
@@ -89,8 +89,8 @@ if (!String.prototype.startsWith) {
             activateOnFocus: true,
             data: function (term) {
                 term = term.toUpperCase();
-                return _.filter(MOCK_BREAKFAST, function (value) {
-                    return value.startsWith(term);
+                return _.filter(MOCK_BREAKFAST, function (breakfast) {
+                    return breakfast.startsWith(term);
                 });
             }
         };
@@ -108,8 +108,8 @@ if (!String.prototype.startsWith) {
                     .then(function (response) {
                         // ideally filtering should be done on server
                         term = term.toUpperCase();
-                        var match = _.filter(response.data, function (value) {
-                            return value.name.startsWith(term);
+                        var match = _.filter(response.data, function (state) {
+                            return state.name.startsWith(term);
                         });
                         return _.pluck(match, 'name');
                     });
@@ -135,8 +135,8 @@ if (!String.prototype.startsWith) {
                     term = '#' + term;
                 }
                 term = term.toUpperCase();
-                return _.filter(CSS_COLORS, function (value) {
-                    return value.code.startsWith(term);
+                return _.filter(CSS_COLORS, function (color) {
+                    return color.code.startsWith(term);
                 });
             },
             containerCssClass: 'color-codes',
@@ -163,9 +163,9 @@ if (!String.prototype.startsWith) {
                     .then(function (response) {
                         // ideally filtering should be done on the server
                         term = term.toUpperCase();
-                        return _.filter(response.data, function (val) {
-                            return val.iata == term ||
-                                   val.name.startsWith(term);
+                        return _.filter(response.data, function (airport) {
+                            return airport.iata == term ||
+                                   airport.name.startsWith(term);
                         });
                     });
             },

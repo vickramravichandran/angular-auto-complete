@@ -33,7 +33,7 @@
     .module('mainApp', ['autoCompleteModule'])
     .controller('MainCtrl', function() {
         var that = this;
-        that.colorName = '';
+        that.colorName = null;
         that.selectedColor = null;
 
         that.autoCompleteOptions = {
@@ -43,8 +43,8 @@
                     term = '#' + term;
                 }
                 term = term.toUpperCase();
-                return _.filter(CSS_COLORS, function (value) {
-                    return value.code.startsWith(term);
+                return _.filter(CSS_COLORS, function (color) {
+                    return color.code.startsWith(term);
                 });
             },
             containerCssClass: 'color-codes',

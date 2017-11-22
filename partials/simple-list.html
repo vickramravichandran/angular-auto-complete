@@ -29,14 +29,14 @@
     .module('mainApp', ['autoCompleteModule'])
     .controller('MainCtrl', function() {
         var that = this;
-        that.stateName = null;
+        that.colorName = null;
         
         that.autoCompleteOptions = {
             minimumChars: 1,
             data: function (term) {
                 term = term.toUpperCase();
-                var match = _.filter(CSS_COLORS, function (value) {
-                    return value.name.startsWith(term);
+                var match = _.filter(CSS_COLORS, function (color) {
+                    return color.name.startsWith(term);
                 });
                 return _.pluck(match, 'name');
             }

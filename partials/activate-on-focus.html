@@ -36,8 +36,8 @@
             activateOnFocus: true,
             data: function (term) {
                 term = term.toUpperCase();
-                return _.filter(BREAKFAST, function (value) {
-                    return value.startsWith(term);
+                return _.filter(BREAKFAST, function (breakfast) {
+                    return breakfast.startsWith(term);
                 });
             }
         }

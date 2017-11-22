@@ -36,8 +36,8 @@
             minimumChars: 1,
             data: function (term) {
                 term = term.toUpperCase();
-                return _.filter(CSS_COLORS, function (value) {
-                    return value.name.startsWith(term);
+                return _.filter(CSS_COLORS, function (color) {
+                    return color.name.startsWith(term);
                 });
             },
             dropdownWidth: '400px',
