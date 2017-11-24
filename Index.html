@@ -6,22 +6,21 @@
     <meta name="viewport" content="width=device-width,user-scalable=no">
     <title>angular-auto-complete</title>
 
-    <link rel="stylesheet" type="text/css" href="bower_components/normalize-css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="assets/angular-auto-complete.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/normalize-css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-auto-complete/angular-auto-complete.css" />
     <link rel="stylesheet" type="text/css" href="assets/app.css" />
 
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.min.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script type="text/javascript" src="bower_components/moment/moment.js"></script>
-    <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
+    <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
 
-    <script type="text/javascript" src="scripts/angular-auto-complete.js"></script>
+    <script type="text/javascript" src="bower_components/angular-auto-complete/angular-auto-complete.js"></script>
     <script type="text/javascript" src="scripts/mock-data.js"></script>
     <script type="text/javascript" src="scripts/app.js"></script>
-    
+
 </head>
 <body ng-app="mainApp">
     <div class="content">
@@ -34,9 +33,11 @@
 
             <div class="row" ng-include="'partials/custom-list-using-template.html'"></div>
 
-            <div class="row" ng-include="'partials/activate-on-focus.html'"></div>
-
             <div class="row" ng-include="'partials/remote-data-source.html'"></div>
+
+            <div class="row" ng-include="'partials/remote-data-source-using-paging.html'"></div>
+
+            <div class="row" ng-include="'partials/activate-on-focus.html'"></div>
 
             <div class="row" ng-include="'partials/custom-list-using-template-url.html'"></div>
 

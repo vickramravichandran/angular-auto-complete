@@ -12,17 +12,22 @@ gulp.task('scripts', function () {
         ])
         .pipe(plugins.jshint({camelcase: true, unused: 'strict'}))
         .pipe(plugins.jshint.reporter(stylish))
-        //.pipe(plugins.uglify())
-        //.pipe(plugins.rename({extname: '.min.js'}))
+        .pipe(plugins.uglify())
+        .pipe(plugins.rename({extname: '.min.js'}))
         .pipe(gulp.dest('./dist'));
 });
 
-// Rerun the task when a file changes
+gulp.task('documentation', function () {
+    return gulp.src('./scripts/angular-auto-complete.js')
+        .pipe(plugins.documentation('json', {filename: 'docs.json'}))
+        .pipe(gulp.dest('./'));
+});
+
 gulp.task('watch', function () {
     gulp.watch([
         'scripts/angular-auto-complete.js',
         'scripts/app.js'
-    ], ['scripts']);
+    ], ['scripts', 'documentation']);
 });
 
-gulp.task('default', ['scripts', 'watch']);
+gulp.task('default', ['scripts', 'documentation', 'watch']);

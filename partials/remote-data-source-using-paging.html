@@ -1,12 +1,12 @@
 <div class="scenario">
-    <div ng-controller="SimpleListRemoteDataCtrl as vm">
-        <h3 class="config-title">Remote Data Source</h3>
+    <div ng-controller="SimplePagedListRemoteDataCtrl as vm">
+        <h3 class="config-title">Remote Data Source using Paging</h3>
         <div style="position:relative">
             <input type="text"
-                   ng-model="vm.stateName"
+                   ng-model="vm.airportName"
                    class="form-control"
                    style="width:300px"
-                   placeholder="USA State Name. Try 'a' or 'n'"
+                   placeholder="Airport Name. Try 'p' or 'c'"
                    auto-complete="vm.autoCompleteOptions" />
             <span class="loading" ng-show="vm.loading"></span>
         </div>

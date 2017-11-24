@@ -1,7 +1,7 @@
 {
-  "name": "angular-auto-complete-development",
+  "name": "angular-auto-complete-demo",
   "version": "1.0.0",
-  "description": "angular-auto-complete development",
+  "description": "angular-auto-complete demo",
   "scripts": {
     "start": "lite-server"
   },
@@ -10,7 +10,9 @@
   "author": "Vickram Ravichandran (http://www.vickram.me)",
   "license": "MIT",
   "devDependencies": {
+    "documentation": "^5.3.3",
     "gulp": "^3.9.1",
+    "gulp-documentation": "^3.2.1",
     "gulp-jshint": "^2.0.4",
     "gulp-load-plugins": "^1.5.0",
     "gulp-rename": "^1.2.2",
@@ -20,4 +22,3 @@
     "lite-server": "^2.2.2"
   }
 }
-
