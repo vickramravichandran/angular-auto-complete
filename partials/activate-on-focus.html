@@ -1,6 +1,10 @@
 <div class="scenario">
     <div ng-controller="ActivateOnFocusCtrl as vm">
-        <h3 class="config-title">Activate on Focus</h3>
+        <h3 class="config-title">
+            <a class="anchor" id="activate-on-focus">
+                Activate on Focus
+            </a>
+        </h3>
         <div>
             <input type="text"
                    ng-model="vm.breakfast"
@@ -30,14 +34,15 @@
     .controller('MainCtrl', function() {
         var that = this;
         that.breakfast = null;
-        
+
         that.autoCompleteOptions = {
             minimumChars: 0,
             activateOnFocus: true,
-            data: function (term) {
-                term = term.toUpperCase();
+            data: function (searchText) {
+                searchText = searchText.toUpperCase();
+
                 return _.filter(BREAKFAST, function (breakfast) {
-                    return breakfast.startsWith(term);
+                    return breakfast.startsWith(searchText);
                 });
             }
         }

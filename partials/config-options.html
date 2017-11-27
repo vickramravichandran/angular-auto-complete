@@ -2,18 +2,21 @@
                     
 	<h2 id="options">Options</h2>
 	<ul class="options">
-		<li ng-repeat="(key, val) in vm.options">
-			<h5>{{key}}</h5>
-			<p ng-if="val.bindAsHtml" ng-bind-html="val.doc"></p>
-			<p ng-if="!val.bindAsHtml" ng-bind="val.doc"></p>
-			<div ng-if="val.docArray">
+		<li ng-repeat="option in vm.options track by $index">
+			<h5>{{option.name}}</h5>
+			<p ng-if="option.bindAsHtml" ng-bind-html="option.description"></p>
+			<p ng-if="!option.bindAsHtml" ng-bind="option.description"></p>
+			<div ng-if="option.docArray">
 				<ul>
-					<li ng-repeat="arr in val.docArray">
+					<li ng-repeat="arr in option.docArray">
 						<span ng-repeat="(key, val) in arr">
 							<b>{{key}}:</b> {{val}}
 						</span>
 					</li>
 				</ul>
+			</div>
+			<div>
+				<i>default: <span ng-bind="option.default"></span></i>
 			</div>
 		</li>
 	</ul>

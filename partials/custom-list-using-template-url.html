@@ -1,6 +1,10 @@
 <div class="scenario">
     <div ng-controller="CustomListUsingTemplateUrlCtrl as vm">
-        <h3 class="config-title">Custom List Using itemTemplateUrl</h3>
+        <h3 class="config-title">
+            <a class="anchor" id="custom-list-using-item-template-url">
+                Custom List Using itemTemplateUrl
+            </a>
+        </h3>
         <div>
             <input type="text"
                    ng-model="vm.colorName"
@@ -38,18 +42,20 @@
 
         that.autoCompleteOptions = {
             minimumChars: 1,
-            data: function (term) {
-                if (!term.startsWith('#')) {
-                    term = '#' + term;
-                }
-                term = term.toUpperCase();
-                return _.filter(CSS_COLORS, function (color) {
-                    return color.code.startsWith(term);
-                });
-            },
             containerCssClass: 'color-codes',
             selectedTextAttr: 'code',
             itemTemplateUrl: 'templates/color-list-item.tpl.html',
+            data: function (searchText) {
+                if (!searchText.startsWith('#')) {
+                    searchText = '#' + searchText;
+                }
+
+                searchText = searchText.toUpperCase();
+
+                return _.filter(CSS_COLORS, function (color) {
+                    return color.code.startsWith(searchText);
+                });
+            },
             itemSelected: function (e) {
                 that.selectedColor = e.item;
             }

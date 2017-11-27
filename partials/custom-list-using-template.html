@@ -1,11 +1,15 @@
 <div class="scenario">
     <div ng-controller="CustomListUsingTemplateCtrl as vm">
-        <h3 class="config-title">Custom List</h3>
+        <h3 class="config-title">
+            <a class="anchor" id="custom-list">
+                Custom List
+            </a>
+        </h3>
         <input type="text"
                ng-model="vm.colorName"
                class="form-control"
                style="width:200px"
-               placeholder="Color Name"
+               placeholder="Color Name. Try 'r' or 'b'"
                auto-complete="vm.autoCompleteOptions" />
         <div ng-show="vm.selectedColor">
             <pre>{{vm.selectedColor | json}}</pre>
@@ -18,7 +22,7 @@
     &lt;div ng-controller="MainCtrl as vm">
         &lt;input type="text" 
             ng-model="vm.colorName"   
-            placeholder="Color Name"
+            placeholder="Color Name. Try 'r' or 'b'"
             auto-complete="vm.autoCompleteOptions" />
     &lt;/div>
 &lt;/body>
@@ -34,16 +38,17 @@
 
         that.autoCompleteOptions = {
             minimumChars: 1,
-            data: function (term) {
-                term = term.toUpperCase();
-                return _.filter(CSS_COLORS, function (color) {
-                    return color.name.startsWith(term);
-                });
-            },
             dropdownWidth: '400px',
             containerCssClass: 'color-codes',
             selectedTextAttr: 'name',
             itemTemplateUrl : 'templates/color-list-item.tpl.html',
+            data: function (searchText) {
+                searchText = searchText.toUpperCase();
+
+                return _.filter(CSS_COLORS, function (color) {
+                    return color.name.startsWith(searchText);
+                });
+            },
             itemSelected: function (item) {
                 that.selectedColor = item;
             }

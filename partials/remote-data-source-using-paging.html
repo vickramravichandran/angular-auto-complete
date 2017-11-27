@@ -1,20 +1,18 @@
 <div class="scenario">
-    <div ng-controller="RemoteDataUsingRenderItemCtrl as vm">
+    <div ng-controller="SimplePagedListRemoteDataCtrl as vm">
         <h3 class="config-title">
-            <a class="anchor" id="scrollable-list-using-render-item-callback">
-                Scrollable List Using renderItem Callback
+            <a class="anchor" id="remote-data-source-with-paging">
+                Remote Data Source with Paging
             </a>
         </h3>
-        <div>
+        <div style="position:relative">
             <input type="text"
                    ng-model="vm.airportName"
                    class="form-control"
                    style="width:300px"
-                   placeholder="Airport Name. Try 'a' or 'g'"
+                   placeholder="Airport Name. Try 'p' or 'c'"
                    auto-complete="vm.autoCompleteOptions" />
-        </div>
-        <div ng-show="vm.airport">
-            <pre>{{vm.airport | json}}</pre>
+            <span class="loading" ng-show="vm.loading"></span>
         </div>
     </div>
     <div class="code-container">
@@ -22,10 +20,9 @@
         <div>
 <pre><code ng-prism class="language-markup">&lt;body ng-app="mainApp">
     &lt;div ng-controller="MainCtrl as vm">
-        &lt;input type="text"
+        &lt;input type="text" 
             ng-model="vm.airportName"
-            style="width: 400px;"
-            placeholder="Airport Name. Try 'a' or 'g'"
+            placeholder="Airport Name. Try 'p' or 'c'"
             auto-complete="vm.autoCompleteOptions" />
     &lt;/div>
 &lt;/body>
@@ -37,41 +34,39 @@
     .module('mainApp', ['autoCompleteModule'])
     .controller('MainCtrl', MainCtrl);
     
-    MainCtrl.$inject = ['$http', '$sce'];
-    function MainCtrl($http, $sce) {
+    MainCtrl.$inject = ['$http'];
+    function MainCtrl($http) {
         var that = this;
         that.airportName = null;
-        that.airport = null;
-
+        
         that.autoCompleteOptions = {
             minimumChars: 1,
             dropdownWidth: '500px',
             dropdownHeight: '200px',
-            data: function (searchText) {
+            pagingEnabled: true,
+            pageSize: 5,
+            data: function (searchText, pagingParams) {
                 return $http.get('airports.json')
                     .then(function (response) {
-                        // ideally filtering should be done on server
+                        // ideally filtering/paging should be done on server
                         searchText = searchText.toUpperCase();
 
-                        return _.filter(response.data, function (airport){
-                            return airport.iata == searchText
-                                || airport.name.startsWith(searchText);
+                        var airports = _.filter(response.data, function (airport) {
+                            return airport.name.startsWith(searchText);
                         });
+                        airports = getPage(airports, pagingParams.pageIndex, pagingParams.pageSize);
+
+                        return _.pluck(airports, 'name');
                     });
-            },
-            renderItem: function (item) {
-                return {
-                    value: item.name,
-                    label: $sce.trustAsHtml(
-                    "&lt;p class='auto-complete'>" 
-                    + item.name + 
-                    "&lt;/p>")
-                };
-            },
-            itemSelected: function (item) {
-                that.airport = item;
             }
         }
+    }
+    
+    function getPage(airports, pageIndex, pageSize) {
+        var startIndex = pageIndex * pageSize;
+        var endIndex = startIndex + pageSize;
+
+        return airports.slice(startIndex, endIndex);
     }
 </code></pre>
         </div>

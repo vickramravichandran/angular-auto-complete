@@ -1,10 +1,10 @@
 html {
-	font-size: initial;
+    font-size: initial;
 }
 
 h1.post-title {
-	font-size: 2.7em;
-	font-weight: bold;
+    font-size: 2.7em;
+    font-weight: bold;
 }
 
 /*
@@ -14,21 +14,21 @@ h1.post-title {
 */
 
 div.code-container {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
-	div.code-container h6 {
-		margin-top: 10px;
-	}
+    div.code-container h6 {
+        margin-top: 10px;
+    }
 
 div.scenario {
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
-	div.scenario input[type=text] {
-		font-weight: bold;
-		background-color: rgb(255, 248, 182);
-	}
+    div.scenario input[type=text] {
+        font-weight: bold;
+        background-color: rgb(255, 248, 182);
+    }
 
 p.auto-complete {
     padding: 0px 2px;
@@ -36,44 +36,76 @@ p.auto-complete {
 }
 
 h3.config-title {
-	margin-top: 20px;
+    margin-top: 20px;
+}
+
+a.anchor {
+    text-decoration: none;
+    color: inherit;
 }
 
 div.config-options {
-	margin-top:20px;
-	hyphens: initial;
+    margin-top: 20px;
+    hyphens: initial;
 }
 
-div.config-options div.default {
-	margin-top: 10px;
-	font-style: italic;
-}
+    div.config-options div.default {
+        margin-top: 10px;
+        font-style: italic;
+    }
 
-div.config-options > ul {
-	padding: 0px;
-}
-div.config-options > ul > li {
-	padding: 8px;
-	list-style: none;
-	border-top: 1px solid #dddddd;
-	padding-bottom: 20px;
-}
+    div.config-options > ul {
+        padding: 0px;
+    }
 
-div.config-options > ul > li:nth-child(odd) {
-	background-color: #f6f6f6;
-}
+        div.config-options > ul > li {
+            padding: 8px;
+            list-style: none;
+            border-top: 1px solid #dddddd;
+            padding-bottom: 20px;
+        }
 
-div.config-options > ul > li a {
-	color: blue;
-}
+            div.config-options > ul > li:nth-child(odd) {
+                background-color: #f6f6f6;
+            }
+
+            div.config-options > ul > li a {
+                color: blue;
+            }
 
 div.color-codes ul.auto-complete-results li.auto-complete-item {
-	background-color: white;
+    background-color: white;
 }
 
-	div.color-codes ul.auto-complete-results li.auto-complete-item:hover,
-	div.color-codes ul.auto-complete-results li.auto-complete-item-selected {
-		/*	background-color: #6699FF;*/
-		background-color: black;
-		color: White;
-	}
+    div.color-codes ul.auto-complete-results li.auto-complete-item:hover,
+    div.color-codes ul.auto-complete-results li.auto-complete-item-selected {
+        /*	background-color: #6699FF;*/
+        background-color: black;
+        color: White;
+    }
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    position: absolute;
+    top: 16px;
+    left: 305px;
+}
+
+    .loading:before {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+        border-top-color: #333;
+        animation: spinner .6s linear infinite;
+    }

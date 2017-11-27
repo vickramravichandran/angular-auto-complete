@@ -13,12 +13,12 @@
         factory(global.angular);
     }
 }(this, function (angular) {
+    'use strict';
 
     var internalService = new InternalService();
 
     angular
         .module('autoCompleteModule', ['ngSanitize'])
-        .service('autoCompleteService', autoCompleteService)
         .directive('autoComplete', autoCompleteDirective);
 
     autoCompleteDirective.$inject = ['$compile', '$document', '$window', '$timeout'];
@@ -57,8 +57,7 @@
             });
 
             function _initContainer() {
-                var templateFn = $compile(_getTemplate());
-                ctrl.container = templateFn(scope);
+                ctrl.container = _getContainer();
 
                 if (ctrl.options.containerCssClass) {
                     ctrl.container.addClass(ctrl.options.containerCssClass);
@@ -78,20 +77,53 @@
                 ctrl.elementUL = angular.element(ctrl.container[0].querySelector('ul.auto-complete-results'));
             }
 
-            function _getTemplate() {
+            function _getContainer() {
+                if (angular.isElement(ctrl.options.dropdownParent)) {
+                    return _getCustomContainer();
+                }
+
+                return _getDefaultContainer();
+            }
+
+            function _getCustomContainer() {
+                var container = ctrl.options.dropdownParent;
+
+                container.addClass('auto-complete-container unselectable');
+                container.attr('data-instance-id', ctrl.instanceId);
+
+                var templateFn = $compile(_getDropdownListTemplate());
+                var elementUL = templateFn(scope);
+                container.append(elementUL);
+
+                return container;
+            }
+
+            function _getDefaultContainer() {
+                var templateFn = $compile(_getContainerTemplate());
+                return templateFn(scope);
+            }
+
+            function _getContainerTemplate() {
                 var html = '';
                 html += '<div class="auto-complete-container unselectable"';
                 html += '     data-instance-id="{{ ctrl.instanceId }}"';
                 html += '     ng-show="ctrl.containerVisible">';
+                html += _getDropdownListTemplate();
+                html += '</div>';
+
+                return html;
+            }
+
+            function _getDropdownListTemplate() {
+                var html = '';
                 html += '     <ul class="auto-complete-results">';
                 html += '         <li ng-repeat="item in ctrl.renderItems track by $index"';
                 html += '             ng-click="ctrl.selectItem($index, true)"';
                 html += '             class="auto-complete-item" data-index="{{ $index }}"';
                 html += '             ng-class="ctrl.getSelectedCssClass($index)">';
-                html += '                 <div ng-bind-html="item.label"></div>';
+                html += '               <div ng-bind-html="item.label"></div>';
                 html += '         </li>';
                 html += '     </ul>';
-                html += '</div>';
 
                 return html;
             }
@@ -103,13 +135,15 @@
                     scope.$evalAsync(function () {
                         ctrl.activate();
                         if (ctrl.options.activateOnFocus) {
-                            _waitAndFetch(element.val(), 100);
+                            _waitAndQuery(element.val(), 100);
                         }
                     });
                 });
 
                 element.on('input', function () {
-                    scope.$evalAsync(_fetch);
+                    scope.$evalAsync(function () {
+                        _tryQuery(element.val());
+                    });
                 });
 
                 // handle key strokes
@@ -119,6 +153,22 @@
                         _elementKeyDown($event);
                     });
                 });
+
+                if (ctrl.options.pagingEnabled) {
+                    ctrl.container.find('ul').on('scroll', function () {
+                        var list = this;
+                        scope.$evalAsync(function () {
+                            if (!ctrl.containerVisible) {
+                                return;
+                            }
+
+                            // scrolled to the bottom?
+                            if ((list.offsetHeight + list.scrollTop) >= list.scrollHeight) {
+                                ctrl.tryLoadNextPage();
+                            }
+                        });
+                    });
+                }
 
                 // hide container on ENTER
                 $document.on('keydown', function (event) {
@@ -143,14 +193,14 @@
 
                 function _ignoreKeyCode(keyCode) {
                     return [
-                            KEYCODE.TAB,
-                            KEYCODE.ALT,
-                            KEYCODE.CTRL,
-                            KEYCODE.LEFTARROW,
-                            KEYCODE.RIGHTARROW,
-                            KEYCODE.MAC_COMMAND_LEFT,
-                            KEYCODE.MAC_COMMAND_RIGHT
-                        ].indexOf(keyCode) !== -1;
+                        KEYCODE.TAB,
+                        KEYCODE.ALT,
+                        KEYCODE.CTRL,
+                        KEYCODE.LEFTARROW,
+                        KEYCODE.RIGHTARROW,
+                        KEYCODE.MAC_COMMAND_LEFT,
+                        KEYCODE.MAC_COMMAND_RIGHT
+                    ].indexOf(keyCode) !== -1;
                 }
 
                 function _elementKeyDown(event) {
@@ -161,7 +211,7 @@
                     }
 
                     if (keyCode === KEYCODE.UPARROW) {
-                        ctrl.scrollToItem(-1);
+                        ctrl.scrollToPreviousItem();
 
                         event.stopPropagation();
                         event.preventDefault();
@@ -170,7 +220,7 @@
                     }
 
                     if (keyCode === KEYCODE.DOWNARROW) {
-                        ctrl.scrollToItem(1);
+                        ctrl.scrollToNextItem();
 
                         event.stopPropagation();
                         event.preventDefault();
@@ -189,8 +239,8 @@
                     }
 
                     if (keyCode === KEYCODE.ESCAPE) {
-                        ctrl.hide();
                         ctrl.restoreOriginalText();
+                        ctrl.hide();
 
                         event.preventDefault();
                         event.stopPropagation();
@@ -199,31 +249,27 @@
                     }
                 }
 
-                function _fetch() {
-                    // fetch only if minimum number of chars are typed
-                    // else hide dropdown
-                    var term = element.val();
-                    if (term.length < ctrl.options.minimumChars) {
+                function _tryQuery(searchText) {
+                    // query only if minimum number of chars are typed; else hide dropdown
+                    if (!searchText || searchText.length < ctrl.options.minimumChars) {
                         ctrl.hide();
-                        ctrl.empty();
-
                         return;
                     }
 
-                    _waitAndFetch(term);
+                    _waitAndQuery(searchText);
                 }
 
-                function _waitAndFetch(term, delay) {
-                    // wait few millisecs before calling fetch()
-                    // this allows checking if user has stopped typing
+                function _waitAndQuery(searchText, delay) {
+                    // wait few millisecs before calling query(); this to check if the user has stopped typing
                     var promise = $timeout(function () {
-                        // is term unchanged?
-                        if (term === element.val()) {
-                            ctrl.fetch(term);
+                        // has searchText unchanged?
+                        if (searchText === element.val()) {
+                            ctrl.query(searchText);
                         }
 
                         //cancel the timeout
                         $timeout.cancel(promise);
+
                     }, (delay || 300));
                 }
 
@@ -259,7 +305,6 @@
 
                     ctrl.hide();
                 }
-
             }
 
             // cleanup on destroy
@@ -277,9 +322,14 @@
     MainCtrl.$inject = ['$q', '$window', '$document', '$sce', '$timeout', '$interpolate', '$templateRequest', '$exceptionHandler'];
     function MainCtrl($q, $window, $document, $sce, $timeout, $interpolate, $templateRequest, $exceptionHandler) {
         var that = this;
-        var originalValue = null;
+        var originalSearchText = null;
+        var queryCounter = 0;
+        var dataLoadInProgress = false;
+        var endOfPagedList = false;
+        var currentPageIndex = 0;
 
         this.target = null;
+        this.instanceId = -1;
         this.selectedIndex = -1;
         this.renderItems = [];
         this.containerVisible = false;
@@ -290,55 +340,21 @@
         };
 
         this.init = function (options) {
-            this.options = options;
-            this.instanceId = internalService.getNewInstanceId();
+            that.instanceId = internalService.getNewInstanceId();
+            that.options = options;
+            that.containerVisible = that.isInline();
         };
 
         this.activate = function () {
-            originalValue = null;
             internalService.setActiveInstanceId(that.instanceId);
+            originalSearchText = null;
         };
 
-        this.fetch = function (term) {
-            // backup original value in case we need to restore later
-            originalValue = term;
-
-            // callback
-            _safeCallback(that.options.loading);
-
-            $q.when(that.options.data(term),
-                function successCallback(result) {
-                    // there might be some lag in getting data when remote web services are involved
-                    // so check if the current value of the element is has changed
-                    var value = that.textModelCtrl.$viewValue;
-                    if (value && term !== value) {
-                        return;
-                    }
-
-                    that.renderList(result, term);
-
-                    // callback
-                    _safeCallback(that.options.loadingComplete);
-                },
-                function errorCallback(error) {
-                    that.hide();
-
-                    // callback
-                    _safeCallback(that.options.loadingComplete, {error: error});
-                });
-        };
-
-        this.renderList = function (result) {
+        this.query = function (searchText) {
             that.empty();
+            _reset();
 
-            if (!result || result.length === 0) {
-                that.hide();
-                return;
-            }
-
-            _getRenderFn().then(function (renderFn) {
-                _renderList(renderFn, result);
-            });
+            return _query(searchText, 0);
         };
 
         this.show = function () {
@@ -352,24 +368,19 @@
         };
 
         this.hide = function () {
-            if (!that.containerVisible) {
+            if (that.isInline() || !that.containerVisible) {
                 return;
             }
 
             // reset scroll position
-            that.elementUL[0].scrollTop = 0;
+            //that.elementUL[0].scrollTop = 0;
             that.containerVisible = false;
+            that.empty();
+
+            _reset();
 
             // callback
             _safeCallback(that.options.dropdownHidden);
-        };
-
-        this.restoreOriginalText = function () {
-            if (!originalValue) {
-                return;
-            }
-
-            _setTargetValue(originalValue);
         };
 
         this.empty = function () {
@@ -377,20 +388,129 @@
             that.renderItems = [];
         };
 
-        this.scrollToItem = function (offset) {
-            if (!that.containerVisible) {
+        this.restoreOriginalText = function () {
+            if (!originalSearchText) {
                 return;
             }
 
-            var index = that.selectedIndex + offset;
-            var item = that.renderItems[index];
+            _setTargetValue(originalSearchText);
+        };
+
+        this.scrollToPreviousItem = function () {
+            var itemIndex = _getItemIndexFromOffset(-1);
+            if (itemIndex === -1) {
+                return;
+            }
+
+            _scrollToItem(itemIndex);
+        };
+
+        this.scrollToNextItem = function () {
+            var itemIndex = _getItemIndexFromOffset(1);
+            if (itemIndex === -1) {
+                return;
+            }
+
+            _scrollToItem(itemIndex);
+
+            if (_shouldLoadNextPageAtItemIndex(itemIndex)) {
+                _loadNextPage();
+            }
+        };
+
+        this.selectItem = function (itemIndex, closeDropdownAndRaiseCallback) {
+            var item = that.renderItems[itemIndex];
             if (!item) {
                 return;
             }
 
-            that.selectItem(index);
+            that.selectedIndex = itemIndex;
 
-            var attrSelector = 'li[data-index="' + index + '"]';
+            _updateTarget();
+
+            if (closeDropdownAndRaiseCallback) {
+                that.hide();
+
+                _safeCallback(that.options.itemSelected, { item: item.data });
+            }
+        };
+
+        this.getSelectedCssClass = function (itemIndex) {
+            return (itemIndex === that.selectedIndex) ? that.options.selectedCssClass : '';
+        };
+
+        this.tryLoadNextPage = function () {
+            if (_shouldLoadNextPage()) {
+                _loadNextPage();
+            }
+        };
+
+
+        function _loadNextPage() {
+            return _query(originalSearchText, (currentPageIndex + 1));
+        }
+
+        function _query(searchText, pageIndex) {
+            var params = {
+                searchText: searchText,
+                paging: {
+                    pageIndex: pageIndex,
+                    pageSize: that.options.pageSize
+                },
+                queryId: ++queryCounter
+            };
+
+            var renderListFn = (that.options.pagingEnabled ? _renderPagedList : _renderList);
+
+            return _queryInternal(params, renderListFn.bind(that, params));
+        }
+
+        function _queryInternal(params, renderListFn) {
+            // backup original search term in case we need to restore if user hits ESCAPE
+            originalSearchText = params.searchText;
+            dataLoadInProgress = true;
+
+            _safeCallback(that.options.loading);
+
+            return $q.when(that.options.data(params.searchText, params.paging),
+                function successCallback(result) {
+                    // verify the queryId since there might be some lag in getting data from a remote web service.
+                    if (params.queryId !== queryCounter) {
+                        return;
+                    }
+
+                    renderListFn(result).then(that.show);
+
+                    // callback
+                    _safeCallback(that.options.loadingComplete);
+                },
+                function errorCallback(error) {
+                    that.hide();
+
+                    _safeCallback(that.options.loadingComplete, { error: error });
+                }).then(function () {
+                    dataLoadInProgress = false;
+                });
+        }
+
+        function _getItemIndexFromOffset(itemOffset) {
+            var itemIndex = that.selectedIndex + itemOffset;
+
+            if (itemIndex >= that.renderItems.length) {
+                return -1;
+            }
+
+            return itemIndex;
+        }
+
+        function _scrollToItem(itemIndex) {
+            if (!that.containerVisible) {
+                return;
+            }
+
+            that.selectItem(itemIndex);
+
+            var attrSelector = 'li[data-index="' + itemIndex + '"]';
 
             // use jquery.scrollTo plugin if available
             // http://flesler.blogspot.com/2007/10/jqueryscrollto.html
@@ -405,34 +525,7 @@
                 //    li.scrollIntoView(true);
                 that.elementUL[0].scrollTop = li.offsetTop;
             }
-        };
-
-        this.selectItem = function (index, closeDropdownAndRaiseCallback) {
-            var item = that.renderItems[index];
-            if (!item) {
-                return;
-            }
-
-            that.selectedIndex = index;
-
-            _updateTarget();
-
-            if (closeDropdownAndRaiseCallback) {
-                if (!that.isInline()) {
-                    that.hide();
-                }
-
-                _safeCallback(that.options.itemSelected, {item: item.data});
-            }
-        };
-
-        this.getSelectedCssClass = function (index) {
-            if (index === that.selectedIndex) {
-                return that.options.selectedCssClass;
-            }
-            return '';
-        };
-
+        }
 
         function _safeCallback(fn, args) {
             if (!angular.isFunction(fn)) {
@@ -453,20 +546,20 @@
                 return;
             }
 
-            var rect = that.target[0].getBoundingClientRect();
-
             if (that.options.dropdownWidth === 'auto') {
                 // same as textbox width
-                that.container.css({'width': rect.width + 'px'});
+                var rect = that.target[0].getBoundingClientRect();
+                that.container.css({ 'width': rect.width + 'px' });
             }
             else {
-                that.container.css({'width': that.options.dropdownWidth});
+                that.container.css({ 'width': that.options.dropdownWidth });
             }
 
             if (that.options.dropdownHeight !== 'auto') {
-                that.elementUL.css({'height': that.options.dropdownHeight});
+                that.elementUL.css({ 'max-height': that.options.dropdownHeight });
             }
 
+            // use the .position() function from jquery.ui if available (requires both jquery and jquery-ui)
             if (that.options.positionUsingJQuery && _hasJQueryUI()) {
                 _positionUsingJQuery();
             }
@@ -480,12 +573,6 @@
         }
 
         function _positionUsingJQuery() {
-            // use the .position() function from jquery.ui if available
-            // requires both jquery and jquery-ui
-            if (!_hasJQueryUI()) {
-                return;
-            }
-
             var defaultPosition = {
                 my: 'left top',
                 at: 'left bottom',
@@ -493,14 +580,16 @@
                 collision: 'none flip'
             };
 
-            var pos = angular.extend({}, defaultPosition, that.options.positionUsing);
+            var position = angular.extend({}, defaultPosition, that.options.positionUsing);
 
             // jquery.ui position() requires the container to be visible to calculate its position.
+            if (!that.containerVisible) {
+                that.container.css({ 'visibility': 'hidden' });
+            }
             that.containerVisible = true; // used in the template to set ng-show.
-            that.container.css({'visibility': 'hidden'});
             $timeout(function () {
-                that.container.position(pos);
-                that.container.css({'visibility': 'visible'});
+                that.container.position(position);
+                that.container.css({ 'visibility': 'visible' });
             });
         }
 
@@ -532,7 +621,36 @@
             that.textModelCtrl.$setViewValue(value);
         }
 
-        function _renderList(renderFn, result) {
+        function _renderList(params, result) {
+            if (!result || result.length === 0) {
+                that.hide();
+                return;
+            }
+
+            return _getRenderFn().then(function (renderFn) {
+                that.renderItems = _renderItems(renderFn, result);
+            });
+        }
+
+        function _renderPagedList(params, result) {
+            if (params.paging.pageIndex === 0 && (!result || result.length === 0)) {
+                that.hide();
+                return;
+            }
+
+            return _getRenderFn().then(function (renderFn) {
+                var items = _renderItems(renderFn, result);
+
+                angular.forEach(items, function (item) {
+                    that.renderItems.push(item);
+                });
+
+                currentPageIndex = params.paging.pageIndex;
+                endOfPagedList = (items.length < that.options.pageSize);
+            });
+        }
+
+        function _renderItems(renderFn, result) {
             // limit number of items rendered in the dropdown
             var maxItemsToRender = (result.length < that.options.maxItemsToRender) ? result.length : that.options.maxItemsToRender;
             var itemsToRender = result.slice(0, maxItemsToRender);
@@ -550,9 +668,7 @@
                 }
             });
 
-            that.renderItems = items;
-
-            that.show();
+            return items;
         }
 
         function _getRenderFn() {
@@ -563,7 +679,7 @@
 
             // itemTemplateUrl
             if (that.options.itemTemplateUrl) {
-                return _getRenderFn_TemplateUrl();
+                return _getRenderFnUsingTemplateUrl();
             }
 
             // itemTemplate or default
@@ -571,22 +687,40 @@
             return $q.when(_renderItem.bind(null, $interpolate(template, false)));
         }
 
-        function _getRenderFn_TemplateUrl() {
+        function _getRenderFnUsingTemplateUrl() {
             return $templateRequest(that.options.itemTemplateUrl)
                 .then(function (content) {
                     // delegate to local function
                     return _renderItem.bind(null, $interpolate(content, false));
                 })
-                .catch($exceptionHandler)
-                .catch(angular.noop);
+                .catch($exceptionHandler);
         }
 
         function _renderItem(interpolationFn, data) {
             var value = (angular.isObject(data) && that.options.selectedTextAttr) ? data[that.options.selectedTextAttr] : data;
             return {
                 value: value,
-                label: $sce.trustAsHtml(interpolationFn({item: data}))
+                label: $sce.trustAsHtml(interpolationFn({ item: data }))
             };
+        }
+
+        function _shouldLoadNextPage() {
+            return that.options.pagingEnabled && !dataLoadInProgress && !endOfPagedList;
+        }
+
+        function _shouldLoadNextPageAtItemIndex(itemIndex) {
+            if (!_shouldLoadNextPage()) {
+                return false;
+            }
+
+            var triggerIndex = that.renderItems.length - that.options.invokePageLoadWhenItemsRemaining - 1;
+            return itemIndex >= triggerIndex;
+        }
+
+        function _reset() {
+            originalSearchText = null;
+            currentPageIndex = 0;
+            endOfPagedList = false;
         }
     }
 
@@ -614,16 +748,10 @@
         this.hideAllInactive = function () {
             angular.forEach(pluginCtrls, function (ctrl) {
                 // hide if this is not the active instance
-                if (!ctrl.isInline() && ctrl.instanceId !== activeInstanceId) {
+                if (ctrl.instanceId !== activeInstanceId) {
                     ctrl.hide();
                 }
             });
-        };
-    }
-
-    function autoCompleteService() {
-        this.getDefaultOptionsDoc = function () {
-            return defaultOptionsDoc;
         };
     }
 
@@ -642,113 +770,123 @@
     };
 
     var defaultOptions = {
+        /**
+         * CSS class applied to the dropdown container.
+         * @default null
+         */
         containerCssClass: null,
+        /**
+         * CSS class applied to the selected list element.
+         * @default auto-complete-item-selected
+         */
         selectedCssClass: 'auto-complete-item-selected',
+        /**
+         * Minimum number of characters required to display the dropdown.
+         * @default 1
+         */
         minimumChars: 1,
+        /**
+         * Maximum number of items to render in the list.
+         * @default 20
+         */
         maxItemsToRender: 20,
+        /**
+         * If true displays the dropdown list when the textbox gets focus.
+         * @default false
+         */
         activateOnFocus: false,
-        //
+        /**
+         * Width in "px" of the dropddown list. This can also be applied using CSS.
+         * @default 'auto'
+         */
         dropdownWidth: 'auto',
+        /**
+         * Maximum height in "px" of the dropddown list. This can also be applied using CSS.
+         * @default 'auto'
+         */
         dropdownHeight: 'auto',
+        /**
+         * a jQuery object to append the dropddown list.
+         * @default null
+         */
         dropdownParent: null,
-        //
+        /**
+         * If the data for the dropdown is a collection of objects, this should be the name 
+         * of a property on the object. The property value will be used to update the input textbox.
+         * @default null
+         */
         selectedTextAttr: null,
+        /**
+         * A template for the dropddown list item. For example "<div>{{item.lastName}} - {{item.jobTitle}}</div>".
+         * @default null
+         */
         itemTemplate: null,
+        /**
+         * This is similar to template but the template is loaded from the specified URL, asynchronously.
+         * @default null
+         */
         itemTemplateUrl: null,
-        /*position using jQuery*/
+        /**
+         * Set to true to enable server side paging. See "data" callback for more information.
+         * @default false
+         */
+        pagingEnabled: false,
+        /**
+         * The number of items to display per page when paging is enabled.
+         * @default 5
+         */
+        pageSize: 5,
+        /**
+         * When using the keyboard arrow key to scroll down the list, the "data" callback will be invoked when at least this many items remain below the current focused item. Note that dragging the vertical scrollbar to the bottom of the list might also invoke a "data" callback.
+         * @default 1
+         */
+        invokePageLoadWhenItemsRemaining: 1,
+        /**
+         * Set to true to position the dropdown list using the position() method from the jQueryUI library. See <a href="https://api.jqueryui.com/position/">jQueryUI.position() documentation</a>
+         * @default true
+         * @bindAsHtml true                  
+         */
         positionUsingJQuery: true,
+        /**
+         * Options that will be passed to jQueryUI position() method.
+         * @default null
+         */
         positionUsing: null,
-        /*callbacks*/
+        /**
+         * Callback before the "data" callback is invoked.
+         * @default angular.noop
+         */
         loading: angular.noop,
+        /**
+         * Callback to get the data for the dropdown. The callback receives the search text as the first parameter. If paging is enabled the callback receives an object with "pageIndex" and "pageSize" properties as the second parameter. This function must return a promise.
+         * @default angular.noop
+         */
         data: angular.noop,
+        /**
+         * Callback after the items are rendered in the dropdown
+         * @default angular.noop
+         */
         loadingComplete: angular.noop,
+        /**
+         * Callback for custom rendering a list item. This is called for each item in the dropdown. This must return an object literal with "value" and "label" properties where "label" is the safe html for display and "value" is the text for the textbox.
+         * @default angular.noop
+         */
         renderItem: angular.noop,
+        /**
+         * Callback after an item is selected from the dropdown. The callback receives an object with an "item" property representing the selected item.
+         * @default angular.noop
+         */
         itemSelected: angular.noop,
+        /**
+         * Callback after the dropdown is shown.
+         * @default angular.noop
+         */
         dropdownShown: angular.noop,
+        /**
+         * Callback after the dropdown is hidden.
+         * @default angular.noop
+         */
         dropdownHidden: angular.noop
-    };
-
-    var defaultOptionsDoc = {
-        containerCssClass: {
-            def: 'null',
-            doc: 'CSS class applied to the dropdown container'
-        },
-        selectedCssClass: {
-            def: 'auto-complete-item-selected',
-            doc: 'CSS class applied to the selected list element'
-        },
-        minimumChars: {
-            def: '1',
-            doc: 'Minimum number of characters required to display the dropdown.'
-        },
-        maxItemsToRender: {
-            def: '20',
-            doc: 'Maximum number of items to render in the list.'
-        },
-        activateOnFocus: {
-            def: 'false',
-            doc: 'If true will display the dropdown list when the textbox gets focus.'
-        },
-        dropdownWidth: {
-            def: 'auto',
-            doc: 'Width in "px" of the dropddown list.'
-        },
-        dropdownHeight: {
-            def: 'auto',
-            doc: 'Height in "px" of the dropddown list.'
-        },
-        dropdownParent: {
-            def: 'null',
-            doc: 'a jQuery object to append the dropddown list.'
-        },
-        selectedTextAttr: {
-            def: 'null',
-            doc: 'If the data for the dropdown is a collection of objects, this should be the name of a property on the object. The property value will be used to update the input textbox.'
-        },
-        itemTemplate: {
-            def: 'null',
-            doc: 'A template for the dropddown list item. For example "<div>{{item.lastName}} - {{item.jobTitle}}</div>".'
-        },
-        itemTemplateUrl: {
-            def: 'null',
-            doc: 'This is similar to template but the template is loaded from the specified URL, asynchronously.'
-        },
-        positionUsingJQuery: {
-            def: 'false',
-            doc: 'If true will position the dropdown list using the position() method from the jQueryUI library. See <a href="https://api.jqueryui.com/position/">jQueryUI.position() documentation</a>'
-        },
-        positionUsing: {
-            def: 'null',
-            doc: 'Options that will be passed to jQueryUI position() method.'
-        },
-        loading: {
-            def: 'noop',
-            doc: 'Callback before getting the data for the dropdown.'
-        },
-        data: {
-            def: 'noop',
-            doc: 'Callback for data for the dropdown. Must return a promise'
-        },
-        loadingComplete: {
-            def: 'noop',
-            doc: 'Callback after the items are rendered in the dropdown.'
-        },
-        renderItem: {
-            def: 'noop',
-            doc: 'Callback for custom rendering a list item. This is called for each item in the dropdown. It must return an object literal with "value" and "label" properties, where "label" is the safe html for display and "value" is the text for the textbox'
-        },
-        itemSelected: {
-            def: 'noop',
-            doc: 'Callback after an item is selected from the dropdown.'
-        },
-        dropdownShown: {
-            def: 'noop',
-            doc: 'Callback after the dropdown is hidden.'
-        },
-        dropdownHidden: {
-            def: 'noop',
-            doc: 'Callback after the dropdown is shown.'
-        }
     };
 
 }));

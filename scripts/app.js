@@ -12,12 +12,13 @@ if (!String.prototype.startsWith) {
         .module('mainApp', ['autoCompleteModule'])
         .controller('SimpleListCtrl', SimpleListCtrl)
         .controller('CustomListUsingTemplateCtrl', CustomListUsingTemplateCtrl)
-        .controller('ActivateOnFocusCtrl', ActivateOnFocusCtrl)
         .controller('SimpleListRemoteDataCtrl', SimpleListRemoteDataCtrl)
+        .controller('SimplePagedListRemoteDataCtrl', SimplePagedListRemoteDataCtrl)
+        .controller('ActivateOnFocusCtrl', ActivateOnFocusCtrl)
         .controller('CustomListUsingTemplateUrlCtrl', CustomListUsingTemplateUrlCtrl)
         .controller('RemoteDataUsingRenderItemCtrl', RemoteDataUsingRenderItemCtrl)
         .controller('PluginOptionsCtrl', PluginOptionsCtrl)
-        .directive('ngPrism', function() {
+        .directive('ngPrism', function () {
             return {
                 restrict: 'A',
                 link: function (scope, element) {
@@ -34,7 +35,7 @@ if (!String.prototype.startsWith) {
         color.name = color.name.toUpperCase();
     });
     // sort by name
-    MOCK_CSS_COLORS = _.sortBy(MOCK_CSS_COLORS, function(color) {
+    MOCK_CSS_COLORS = _.sortBy(MOCK_CSS_COLORS, function (color) {
         return color.name;
     });
 
@@ -44,12 +45,14 @@ if (!String.prototype.startsWith) {
 
         that.autoCompleteOptions = {
             minimumChars: 1,
-            data: function (term) {
-                term = term.toUpperCase();
-                var match = _.filter(MOCK_CSS_COLORS, function (color) {
-                    return color.name.startsWith(term);
+            data: function (searchText) {
+                searchText = searchText.toUpperCase();
+
+                var colors = _.filter(MOCK_CSS_COLORS, function (color) {
+                    return color.name.startsWith(searchText);
                 });
-                return _.pluck(match, 'name');
+
+                return _.pluck(colors, 'name');
             }
         };
     }
@@ -63,20 +66,89 @@ if (!String.prototype.startsWith) {
 
         that.autoCompleteOptions = {
             minimumChars: 1,
-            data: function (term) {
-                term = term.toUpperCase();
-                return _.filter(MOCK_CSS_COLORS, function (color) {
-                    return color.name.startsWith(term);
-                });
-            },
             dropdownWidth: '400px',
             containerCssClass: 'color-codes',
             selectedTextAttr: 'name',
             itemTemplate: $templateCache.get('color-item-template'),
+            data: function (searchText) {
+                searchText = searchText.toUpperCase();
+
+                return _.filter(MOCK_CSS_COLORS, function (color) {
+                    return color.name.startsWith(searchText);
+                });
+            },
             itemSelected: function (e) {
                 that.selectedColor = e.item;
             }
         };
+    }
+
+    SimpleListRemoteDataCtrl.$inject = ['$http'];
+    function SimpleListRemoteDataCtrl($http) {
+        var that = this;
+        that.stateName = null;
+        that.loading = false;
+
+        that.autoCompleteOptions = {
+            minimumChars: 1,
+            data: function (searchText) {
+                return $http.get('data_files/usa_states.json')
+                    .then(function (response) {
+                        that.loading = true;
+
+                        // ideally filtering should be done on server
+                        searchText = searchText.toUpperCase();
+
+                        var states = _.filter(response.data, function (state) {
+                            return state.name.startsWith(searchText);
+                        });
+
+                        that.loading = false;
+
+                        return _.pluck(states, 'name');
+                    });
+            }
+        };
+    }
+
+    SimplePagedListRemoteDataCtrl.$inject = ['$http'];
+    function SimplePagedListRemoteDataCtrl($http) {
+        var that = this;
+        that.stateName = null;
+        that.loading = false;
+
+        that.autoCompleteOptions = {
+            minimumChars: 1,
+            dropdownWidth: '500px',
+            dropdownHeight: '200px',
+            pagingEnabled: true,
+            pageSize: 5,
+            data: function (searchText, pagingParams) {
+                that.loading = true;
+
+                return $http.get('data_files/airports.json')
+                    .then(function (response) {
+                        // ideally filtering/paging should be done on the server
+                        searchText = searchText.toUpperCase();
+
+                        var airports = _.filter(response.data, function (airport) {
+                            return airport.name.startsWith(searchText);
+                        });
+                        airports = getPage(airports, pagingParams.pageIndex, pagingParams.pageSize);
+
+                        that.loading = false;
+
+                        return _.pluck(airports, 'name');
+                    });
+            }
+        };
+
+        function getPage(airports, pageIndex, pageSize) {
+            var startIndex = pageIndex * pageSize;
+            var endIndex = startIndex + pageSize;
+
+            return airports.slice(startIndex, endIndex);
+        }
     }
 
     // activate on focus
@@ -87,32 +159,12 @@ if (!String.prototype.startsWith) {
         that.autoCompleteOptions = {
             minimumChars: 0,
             activateOnFocus: true,
-            data: function (term) {
-                term = term.toUpperCase();
+            data: function (searchText) {
+                searchText = searchText.toUpperCase();
+
                 return _.filter(MOCK_BREAKFAST, function (breakfast) {
-                    return breakfast.startsWith(term);
+                    return breakfast.startsWith(searchText);
                 });
-            }
-        };
-    }
-
-    SimpleListRemoteDataCtrl.$inject = ['$http'];
-    function SimpleListRemoteDataCtrl($http) {
-        var that = this;
-        that.stateName = null;
-
-        that.autoCompleteOptions = {
-            minimumChars: 1,
-            data: function (term) {
-                return $http.get('data_files/usa_states.json')
-                    .then(function (response) {
-                        // ideally filtering should be done on server
-                        term = term.toUpperCase();
-                        var match = _.filter(response.data, function (state) {
-                            return state.name.startsWith(term);
-                        });
-                        return _.pluck(match, 'name');
-                    });
             }
         };
     }
@@ -124,24 +176,26 @@ if (!String.prototype.startsWith) {
         that.selectedColor = null;
 
         // sort by code
-        var CSS_COLORS = _.sortBy(MOCK_CSS_COLORS, function(color) {
+        var CSS_COLORS = _.sortBy(MOCK_CSS_COLORS, function (color) {
             return color.code;
         });
 
         that.autoCompleteOptions = {
             minimumChars: 1,
-            data: function (term) {
-                if (!term.startsWith('#')) {
-                    term = '#' + term;
-                }
-                term = term.toUpperCase();
-                return _.filter(CSS_COLORS, function (color) {
-                    return color.code.startsWith(term);
-                });
-            },
             containerCssClass: 'color-codes',
             selectedTextAttr: 'code',
             itemTemplateUrl: 'templates/color-list-item.tpl.html',
+            data: function (searchText) {
+                if (!searchText.startsWith('#')) {
+                    searchText = '#' + searchText;
+                }
+
+                searchText = searchText.toUpperCase();
+
+                return _.filter(CSS_COLORS, function (color) {
+                    return color.code.startsWith(searchText);
+                });
+            },
             itemSelected: function (e) {
                 that.selectedColor = e.item;
             }
@@ -158,14 +212,15 @@ if (!String.prototype.startsWith) {
             minimumChars: 1,
             dropdownWidth: '500px',
             dropdownHeight: '200px',
-            data: function (term) {
+            data: function (searchText) {
                 return $http.get('data_files/airports.json')
                     .then(function (response) {
                         // ideally filtering should be done on the server
-                        term = term.toUpperCase();
+                        searchText = searchText.toUpperCase();
+
                         return _.filter(response.data, function (airport) {
-                            return airport.iata == term ||
-                                   airport.name.startsWith(term);
+                            return airport.iata === searchText ||
+                                airport.name.startsWith(searchText);
                         });
                     });
             },
@@ -181,11 +236,69 @@ if (!String.prototype.startsWith) {
         };
     }
 
-    PluginOptionsCtrl.$inject = ['autoCompleteService'];
-    function PluginOptionsCtrl(autoCompleteService) {
-        this.options = autoCompleteService.getDefaultOptionsDoc();
+    PluginOptionsCtrl.$inject = ['$http'];
+    function PluginOptionsCtrl($http) {
+        var that = this;
+        that.options = [];
 
-		this.options.positionUsingJQuery.bindAsHtml = true;
+        $http.get('docs.json')
+            .then(function (response) {
+                prepareDocs(response.data);
+            });
+
+        function prepareDocs(jsDocs) {
+            if (!jsDocs || !jsDocs.length) {
+                return;
+            }
+
+            var defaultOptions = _.filter(jsDocs, function(jsDoc){
+                return jsDoc.memberof === 'defaultOptions';
+            });
+            if (!defaultOptions || !defaultOptions.length) {
+                return;
+            }
+
+            _.each(defaultOptions, function(jsDoc) {
+                that.options.push({
+                    name: jsDoc.name,
+                    description: getDescription(jsDoc),
+                    default: getDescriptionFromTag(jsDoc, 'default'),
+                    bindAsHtml: (getDescriptionFromTag(jsDoc, 'bindAsHtml') === 'true'),
+                });
+            });
+        }
+
+        function getDescription(jsDoc) {
+            return getDescriptionFromTag(jsDoc, 'description') || getDescriptionParagraph(jsDoc);
+        }
+
+        function getDescriptionParagraph(jsDoc) {
+            if (!jsDoc || !jsDoc.description || !jsDoc.description.children || !jsDoc.description.children.length) {
+                return;
+            }
+
+            var paragraph = _.findWhere(jsDoc.description.children, {type: 'paragraph'});
+            if (!paragraph || !paragraph.children || !paragraph.children.length) {
+                return;
+            }
+
+            return _.reduce(paragraph.children, function(memo, child){
+                return memo + child.value;
+            }, '');
+        }
+
+        function getDescriptionFromTag(jsDoc, tagTitle) {
+            if (!jsDoc || !jsDoc.tags || !jsDoc.tags.length) {
+                return;
+            }
+
+            var tag = _.findWhere(jsDoc.tags, {title: tagTitle});
+            if (!tag) {
+                return;
+            }
+
+            return tag.description;
+        }
     }
-        
+
 })();

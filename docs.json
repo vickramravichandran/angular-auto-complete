@@ -1,0 +1,2637 @@
+[
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "CSS class applied to the dropdown container.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 45,
+                  "offset": 44
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 45,
+              "offset": 44
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 45,
+          "offset": 44
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "null",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 776,
+        "column": 8
+      },
+      "end": {
+        "line": 779,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 780,
+          "column": 8
+        },
+        "end": {
+          "line": 780,
+          "column": 31
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "containerCssClass",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "containerCssClass",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".containerCssClass"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "CSS class applied to the selected list element.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 48,
+                  "offset": 47
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 48,
+              "offset": 47
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 48,
+          "offset": 47
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "auto-complete-item-selected",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 781,
+        "column": 8
+      },
+      "end": {
+        "line": 784,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 785,
+          "column": 8
+        },
+        "end": {
+          "line": 785,
+          "column": 55
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "selectedCssClass",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "selectedCssClass",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".selectedCssClass"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Minimum number of characters required to display the dropdown.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 63,
+                  "offset": 62
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 63,
+              "offset": 62
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 63,
+          "offset": 62
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "1",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 786,
+        "column": 8
+      },
+      "end": {
+        "line": 789,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 790,
+          "column": 8
+        },
+        "end": {
+          "line": 790,
+          "column": 23
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "minimumChars",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "minimumChars",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".minimumChars"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Maximum number of items to render in the list.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 47,
+                  "offset": 46
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 47,
+              "offset": 46
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 47,
+          "offset": 46
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "20",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 791,
+        "column": 8
+      },
+      "end": {
+        "line": 794,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 795,
+          "column": 8
+        },
+        "end": {
+          "line": 795,
+          "column": 28
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "maxItemsToRender",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "maxItemsToRender",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".maxItemsToRender"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "If true displays the dropdown list when the textbox gets focus.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 64,
+                  "offset": 63
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 64,
+              "offset": 63
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 64,
+          "offset": 63
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "false",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 796,
+        "column": 8
+      },
+      "end": {
+        "line": 799,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 800,
+          "column": 8
+        },
+        "end": {
+          "line": 800,
+          "column": 30
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "activateOnFocus",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "activateOnFocus",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".activateOnFocus"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Width in \"px\" of the dropddown list. This can also be applied using CSS.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 73,
+                  "offset": 72
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 73,
+              "offset": 72
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 73,
+          "offset": 72
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "'auto'",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 801,
+        "column": 8
+      },
+      "end": {
+        "line": 804,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 805,
+          "column": 8
+        },
+        "end": {
+          "line": 805,
+          "column": 29
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "dropdownWidth",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "dropdownWidth",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".dropdownWidth"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Maximum height in \"px\" of the dropddown list. This can also be applied using CSS.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 82,
+                  "offset": 81
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 82,
+              "offset": 81
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 82,
+          "offset": 81
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "'auto'",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 806,
+        "column": 8
+      },
+      "end": {
+        "line": 809,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 810,
+          "column": 8
+        },
+        "end": {
+          "line": 810,
+          "column": 30
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "dropdownHeight",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "dropdownHeight",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".dropdownHeight"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "a jQuery object to append the dropddown list.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 46,
+                  "offset": 45
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 46,
+              "offset": 45
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 46,
+          "offset": 45
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "null",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 811,
+        "column": 8
+      },
+      "end": {
+        "line": 814,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 815,
+          "column": 8
+        },
+        "end": {
+          "line": 815,
+          "column": 28
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "dropdownParent",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "dropdownParent",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".dropdownParent"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "If the data for the dropdown is a collection of objects, this should be the name \nof a property on the object. The property value will be used to update the input textbox.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 2,
+                  "column": 90,
+                  "offset": 172
+                },
+                "indent": [
+                  1
+                ]
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 2,
+              "column": 90,
+              "offset": 172
+            },
+            "indent": [
+              1
+            ]
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 2,
+          "column": 90,
+          "offset": 172
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "null",
+        "lineNumber": 3
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 816,
+        "column": 8
+      },
+      "end": {
+        "line": 820,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 821,
+          "column": 8
+        },
+        "end": {
+          "line": 821,
+          "column": 30
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "selectedTextAttr",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "selectedTextAttr",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".selectedTextAttr"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "A template for the dropddown list item. For example \"",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54,
+                  "offset": 53
+                },
+                "indent": []
+              }
+            },
+            {
+              "type": "html",
+              "value": "<div>",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 54,
+                  "offset": 53
+                },
+                "end": {
+                  "line": 1,
+                  "column": 59,
+                  "offset": 58
+                },
+                "indent": []
+              }
+            },
+            {
+              "type": "text",
+              "value": "{{item.lastName}} - {{item.jobTitle}}",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 59,
+                  "offset": 58
+                },
+                "end": {
+                  "line": 1,
+                  "column": 96,
+                  "offset": 95
+                },
+                "indent": []
+              }
+            },
+            {
+              "type": "html",
+              "value": "</div>",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 96,
+                  "offset": 95
+                },
+                "end": {
+                  "line": 1,
+                  "column": 102,
+                  "offset": 101
+                },
+                "indent": []
+              }
+            },
+            {
+              "type": "text",
+              "value": "\".",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 102,
+                  "offset": 101
+                },
+                "end": {
+                  "line": 1,
+                  "column": 104,
+                  "offset": 103
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 104,
+              "offset": 103
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 104,
+          "offset": 103
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "null",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 822,
+        "column": 8
+      },
+      "end": {
+        "line": 825,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 826,
+          "column": 8
+        },
+        "end": {
+          "line": 826,
+          "column": 26
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "itemTemplate",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "itemTemplate",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".itemTemplate"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "This is similar to template but the template is loaded from the specified URL, asynchronously.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 95,
+                  "offset": 94
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 95,
+              "offset": 94
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 95,
+          "offset": 94
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "null",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 827,
+        "column": 8
+      },
+      "end": {
+        "line": 830,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 831,
+          "column": 8
+        },
+        "end": {
+          "line": 831,
+          "column": 29
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "itemTemplateUrl",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "itemTemplateUrl",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".itemTemplateUrl"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Set to true to enable server side paging. See \"data\" callback for more information.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 84,
+                  "offset": 83
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 84,
+              "offset": 83
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 84,
+          "offset": 83
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "false",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 832,
+        "column": 8
+      },
+      "end": {
+        "line": 835,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 836,
+          "column": 8
+        },
+        "end": {
+          "line": 836,
+          "column": 28
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "pagingEnabled",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "pagingEnabled",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".pagingEnabled"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "The number of items to display per page when paging is enabled.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 64,
+                  "offset": 63
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 64,
+              "offset": 63
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 64,
+          "offset": 63
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "5",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 837,
+        "column": 8
+      },
+      "end": {
+        "line": 840,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 841,
+          "column": 8
+        },
+        "end": {
+          "line": 841,
+          "column": 19
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "pageSize",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "pageSize",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".pageSize"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "When using the keyboard arrow key to scroll down the list, the \"data\" callback will be invoked when at least this many items remain below the current focused item. Note that dragging the vertical scrollbar to the bottom of the list might also invoke a \"data\" callback.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 269,
+                  "offset": 268
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 269,
+              "offset": 268
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 269,
+          "offset": 268
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "1",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 842,
+        "column": 8
+      },
+      "end": {
+        "line": 845,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 846,
+          "column": 8
+        },
+        "end": {
+          "line": 846,
+          "column": 43
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "invokePageLoadWhenItemsRemaining",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "invokePageLoadWhenItemsRemaining",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".invokePageLoadWhenItemsRemaining"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Set to true to position the dropdown list using the position() method from the jQueryUI library. See ",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 102,
+                  "offset": 101
+                },
+                "indent": []
+              }
+            },
+            {
+              "type": "html",
+              "value": "<a href=\"https://api.jqueryui.com/position/\">",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 102,
+                  "offset": 101
+                },
+                "end": {
+                  "line": 1,
+                  "column": 147,
+                  "offset": 146
+                },
+                "indent": []
+              }
+            },
+            {
+              "type": "text",
+              "value": "jQueryUI.position() documentation",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 147,
+                  "offset": 146
+                },
+                "end": {
+                  "line": 1,
+                  "column": 180,
+                  "offset": 179
+                },
+                "indent": []
+              }
+            },
+            {
+              "type": "html",
+              "value": "</a>",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 180,
+                  "offset": 179
+                },
+                "end": {
+                  "line": 1,
+                  "column": 184,
+                  "offset": 183
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 184,
+              "offset": 183
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 184,
+          "offset": 183
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "true",
+        "lineNumber": 2
+      },
+      {
+        "title": "bindAsHtml",
+        "description": "true",
+        "lineNumber": 3
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 847,
+        "column": 8
+      },
+      "end": {
+        "line": 851,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 852,
+          "column": 8
+        },
+        "end": {
+          "line": 852,
+          "column": 33
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "positionUsingJQuery",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "positionUsingJQuery",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".positionUsingJQuery"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Options that will be passed to jQueryUI position() method.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 59,
+                  "offset": 58
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 59,
+              "offset": 58
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 59,
+          "offset": 58
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "null",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 853,
+        "column": 8
+      },
+      "end": {
+        "line": 856,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 857,
+          "column": 8
+        },
+        "end": {
+          "line": 857,
+          "column": 27
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "positionUsing",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "positionUsing",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".positionUsing"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Callback before the \"data\" callback is invoked.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 48,
+                  "offset": 47
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 48,
+              "offset": 47
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 48,
+          "offset": 47
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "angular.noop",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 858,
+        "column": 8
+      },
+      "end": {
+        "line": 861,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 862,
+          "column": 8
+        },
+        "end": {
+          "line": 862,
+          "column": 29
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "loading",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "loading",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".loading"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Callback to get the data for the dropdown. The callback receives the search text as the first parameter. If paging is enabled the callback receives an object with \"pageIndex\" and \"pageSize\" properties as the second parameter. This function must return a promise.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 263,
+                  "offset": 262
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 263,
+              "offset": 262
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 263,
+          "offset": 262
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "angular.noop",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 863,
+        "column": 8
+      },
+      "end": {
+        "line": 866,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 867,
+          "column": 8
+        },
+        "end": {
+          "line": 867,
+          "column": 26
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "data",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "data",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".data"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Callback after the items are rendered in the dropdown",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 54,
+                  "offset": 53
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 54,
+              "offset": 53
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 54,
+          "offset": 53
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "angular.noop",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 868,
+        "column": 8
+      },
+      "end": {
+        "line": 871,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 872,
+          "column": 8
+        },
+        "end": {
+          "line": 872,
+          "column": 37
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "loadingComplete",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "loadingComplete",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".loadingComplete"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Callback for custom rendering a list item. This is called for each item in the dropdown. This must return an object literal with \"value\" and \"label\" properties where \"label\" is the safe html for display and \"value\" is the text for the textbox.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 244,
+                  "offset": 243
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 244,
+              "offset": 243
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 244,
+          "offset": 243
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "angular.noop",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 873,
+        "column": 8
+      },
+      "end": {
+        "line": 876,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 877,
+          "column": 8
+        },
+        "end": {
+          "line": 877,
+          "column": 32
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "renderItem",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "renderItem",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".renderItem"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Callback after an item is selected from the dropdown. The callback receives an object with an \"item\" property representing the selected item.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 142,
+                  "offset": 141
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 142,
+              "offset": 141
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 142,
+          "offset": 141
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "angular.noop",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 878,
+        "column": 8
+      },
+      "end": {
+        "line": 881,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 882,
+          "column": 8
+        },
+        "end": {
+          "line": 882,
+          "column": 34
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "itemSelected",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "itemSelected",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".itemSelected"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Callback after the dropdown is shown.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 38,
+                  "offset": 37
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 38,
+              "offset": 37
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 38,
+          "offset": 37
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "angular.noop",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 883,
+        "column": 8
+      },
+      "end": {
+        "line": 886,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 887,
+          "column": 8
+        },
+        "end": {
+          "line": 887,
+          "column": 35
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "dropdownShown",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "dropdownShown",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".dropdownShown"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Callback after the dropdown is hidden.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 39,
+                  "offset": 38
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 39,
+              "offset": 38
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 39,
+          "offset": 38
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "angular.noop",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 888,
+        "column": 8
+      },
+      "end": {
+        "line": 891,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 892,
+          "column": 8
+        },
+        "end": {
+          "line": 892,
+          "column": 36
+        }
+      },
+      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "dropdownHidden",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "dropdownHidden",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".dropdownHidden"
+  }
+]

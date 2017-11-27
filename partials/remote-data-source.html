@@ -1,13 +1,18 @@
 <div class="scenario">
     <div ng-controller="SimpleListRemoteDataCtrl as vm">
-        <h3 class="config-title">Remote Data Source</h3>
-        <div>
+        <h3 class="config-title">
+            <a class="anchor" id="remote-data-source">
+                Remote Data Source
+            </a>
+        </h3>
+        <div style="position:relative">
             <input type="text"
                    ng-model="vm.stateName"
                    class="form-control"
                    style="width:300px"
-                   placeholder="State Name"
+                   placeholder="USA State Name. Try 'a' or 'n'"
                    auto-complete="vm.autoCompleteOptions" />
+            <span class="loading" ng-show="vm.loading"></span>
         </div>
     </div>
     <div class="code-container">
@@ -17,7 +22,7 @@
     &lt;div ng-controller="MainCtrl as vm">
         &lt;input type="text" 
             ng-model="vm.stateName"   
-            placeholder="State Name"
+            placeholder="USA State Name. Try 'a' or 'n'"
             auto-complete="vm.autoCompleteOptions" />
     &lt;/div>
 &lt;/body>
@@ -36,15 +41,17 @@
         
         that.autoCompleteOptions = {
             minimumChars: 1,
-            data: function (term) {
+            data: function (searchText) {
                 return $http.get('usa_states.json')
                     .then(function (response) {
-                        // ideally filtering should be done on server
-                        term = term.toUpperCase();
-                        var match = _.filter(response.data, function (state) {
-                            return state.name.startsWith(term);
+                        searchText = searchText.toUpperCase();
+
+                        // ideally filtering should be done on the server
+                        var states = _.filter(response.data, function (state) {
+                            return state.name.startsWith(searchText);
                         });
-                        return _.pluck(match, 'name');
+
+                        return _.pluck(states, 'name');
                     });
             }
         }

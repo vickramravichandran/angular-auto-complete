@@ -1,12 +1,16 @@
 <div class="scenario">
     <div ng-controller="SimpleListCtrl as vm">
-        <h3 class="config-title">Simple List</h3>
+        <h3 class="config-title">
+            <a class="anchor" id="simple-list">
+                Simple List
+            </a>
+        </h3>
         <div>
             <input type="text"
                    ng-model="vm.colorName"
                    class="form-control"
                    style="width:200px"
-                   placeholder="Color Name"
+                   placeholder="Color Name. Try 'r' or 'b'"
                    auto-complete="vm.autoCompleteOptions" />
         </div>
     </div>
@@ -17,7 +21,7 @@
     &lt;div ng-controller="MainCtrl as vm">
         &lt;input type="text"
             ng-model="vm.colorName"
-            placeholder="Color Name"
+            placeholder="Color Name. Try 'r' or 'b'"
             auto-complete="vm.autoCompleteOptions" />
     &lt;/div>
 &lt;/body>
@@ -33,12 +37,14 @@
         
         that.autoCompleteOptions = {
             minimumChars: 1,
-            data: function (term) {
-                term = term.toUpperCase();
-                var match = _.filter(CSS_COLORS, function (color) {
-                    return color.name.startsWith(term);
+            data: function (searchText) {
+                searchText = searchText.toUpperCase();
+
+                var colors = _.filter(CSS_COLORS, function (color) {
+                    return color.name.startsWith(searchText);
                 });
-                return _.pluck(match, 'name');
+
+                return _.pluck(colors, 'name');
             }
         }
     });
