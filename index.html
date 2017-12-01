@@ -9,7 +9,13 @@
 <!--<![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
-<script>if (/*@cc_on!@*/false) { document.documentElement.className += 'ie10'; }</script><!--<![endif]-->
+<script>
+    if (/*@cc_on!@*/false) {
+        document.documentElement.className += 'ie10';
+    }
+</script>
+<!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -19,12 +25,12 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@7.0.0/normalize.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="assets/main.css?d=201702251343">
     <link rel="stylesheet" href="assets/prism-okaidia.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vickramravichandran/angular-auto-complete@1.5.1/angular-auto-complete.min.css" />
-    <link rel="stylesheet" href="assets/app.css?d=201711271400" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vickramravichandran/angular-auto-complete@1.5.1/angular-auto-complete.min.css">
+    <link rel="stylesheet" href="assets/app.css?d=201711271400">
 
     <script type="text/javascript" src="scripts/prism-okaidia.js"></script>
 
@@ -41,19 +47,25 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
+
 <body ng-app="mainApp">
 
-    
     <div class="sidebar">
         <header class="header" role="banner">
-            <a href="http://www.vickram.me/"><img id="blog" class="logo" src="https://vickram.blob.core.windows.net/images/vickram-ravichandran.png?sv=2017-04-17&amp;ss=b&amp;srt=o&amp;sp=r&amp;se=2050-10-15T01:20:16Z&amp;st=2017-10-14T17:20:16Z&amp;spr=https&amp;sig=HW39593GSHaPDTL%2F1BqWDWOaNQczc5ZGnPLRzUswd8k%3D"></a>
-            <h1 class="title"><a href="http://www.vickram.me/" style="text-decoration:none">Vickram Ravichandran</a></h1>
+            <a href="http://www.vickram.me/">
+                <img id="blog" class="logo" src="https://vickram.blob.core.windows.net/images/vickram-ravichandran.png?sv=2017-04-17&amp;ss=b&amp;srt=o&amp;sp=r&amp;se=2050-10-15T01:20:16Z&amp;st=2017-10-14T17:20:16Z&amp;spr=https&amp;sig=HW39593GSHaPDTL%2F1BqWDWOaNQczc5ZGnPLRzUswd8k%3D">
+            </a>
+            <h1 class="title">
+                <a href="http://www.vickram.me/" style="text-decoration:none">Vickram Ravichandran</a>
+            </h1>
             <p class="description"></p>
             <div class="separator"></div>
-            
+
             <nav class="main-nav responsive" role="navigation">
                 <ul>
-                    <li><a class="" href="http://www.vickram.me/">Home</a></li>
+                    <li>
+                        <a href="http://www.vickram.me/">Home</a>
+                    </li>
                 </ul>
             </nav>
 
@@ -79,32 +91,45 @@
             <article class="post" role="article" itemscope="" itemtype="http://schema.org/Article">
                 <h1 class="post-title">angular-auto-complete</h1>
 
-                <div style="margin-top:20px; padding: 10px 0px">
+                <div style="margin-top:5px; padding: 10px 0px">
                     <a role="button" class="btn btn-primary btn-lg" href="https://github.com/vickramravichandran/angular-auto-complete/archive/demo.zip">Download</a>
                     <a role="button" class="btn btn-primary btn-lg" target="_blank" href="https://github.com/vickramravichandran/angular-auto-complete">Source</a>
-                    <a role="button" class="btn btn-primary btn-lg" onclick="scrollToOptions()">Options</a>
+                    <a role="button" class="btn btn-primary btn-lg" href="#config-options">Options</a>
+                </div>
+
+                <div style="margin-top: 10px;">
+                    <h2>Examples</h2>
+                    <div class="list-group examples-list">
+                        <a href="#simple-list" class="list-group-item list-group-item-action">Simple List</a>
+                        <a href="#custom-list" class="list-group-item list-group-item-action">Custom List</a>
+                        <a href="#remote-data-source" class="list-group-item list-group-item-action">Remote Data Source</a>
+                        <a href="#remote-data-source-with-paging" class="list-group-item list-group-item-action">Remote Data Source with Paging</a>
+                        <a href="#activate-on-focus" class="list-group-item list-group-item-action">Activate on Focus</a>
+                        <a href="#custom-list-using-item-template-url" class="list-group-item list-group-item-action">Custom List using itemTemplateUrl</a>
+                        <a href="#custom-list-using-render-item-callback" class="list-group-item list-group-item-action">Custom List using renderItem Callback</a>
+                    </div>
                 </div>
 
                 <div class="container-fluid">
                     <div class="row" ng-include="'partials/simple-list.html'"></div>
-                    
+
                     <div class="row" ng-include="'partials/custom-list-using-template.html'"></div>
-                    
+
                     <div class="row" ng-include="'partials/remote-data-source.html'"></div>
 
                     <div class="row" ng-include="'partials/remote-data-source-using-paging.html'"></div>
 
                     <div class="row" ng-include="'partials/activate-on-focus.html'"></div>
-                    
+
                     <div class="row" ng-include="'partials/custom-list-using-template-url.html'"></div>
-                    
+
                     <div class="row" ng-include="'partials/custom-scrollable-list-using-render-item.html'"></div>
                 </div>
 
                 <div ng-include="'partials/config-options.html'"></div>
-                
+
                 <div ng-include="'partials/post-comments.html'"></div>
-                
+
             </article>
         </main>
     </div>
