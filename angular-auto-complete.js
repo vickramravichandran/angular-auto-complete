@@ -298,13 +298,33 @@
                         return;
                     }
 
-                    if (ctrl.container.has(event.target).length > 0) {
+                    if (_containerContainsTarget(event.target)) {
                         event.stopPropagation();
                         return;
                     }
 
                     ctrl.hide();
                 }
+            }
+
+            function _containerContainsTarget(target) {
+                // use native Node.contains
+                // https://developer.mozilla.org/en-US/docs/Web/API/Node/contains
+                if (angular.isFunction(ctrl.container[0].contains) &&
+                    ctrl.container[0].contains(target)) {
+
+                    return true;
+                }
+
+                // otherwise use .has() if jQuery is available
+                if (window.jQuery && angular.isFunction(ctrl.container.has) &&
+                    ctrl.container.has(target).length > 0) {
+
+                    return true;
+                }
+
+                // assume target is not in container
+                return false;
             }
 
             // cleanup on destroy
