@@ -23,7 +23,7 @@
     "url": "https://github.com/vickramravichandran/angular-auto-complete/issues"
   },
   "dependencies": {
-    "jquery": "^1.11.0"
+    "angular": "^1.5.3"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
