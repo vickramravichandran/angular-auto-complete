@@ -1,6 +1,6 @@
 {
   "name": "angular-auto-complete",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "AngularJS auto-complete plugin",
   "main": "angular-auto-complete.js",
   "homepage": "http://www.vickram.me/angular-auto-complete",
@@ -23,7 +23,8 @@
     "url": "https://github.com/vickramravichandran/angular-auto-complete/issues"
   },
   "dependencies": {
-    "angular": "^1.5.3"
+    "angular": "^1.5.3",
+    "angular-sanitize": "^1.6.2"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
