@@ -378,7 +378,7 @@
         };
 
         this.show = function () {
-            // the show gets called after the items are ready for display
+            // the show() method is called after the items are ready for display
             // the textbox position can change (ex: window resize) when it has focus
             // so reposition the dropdown before it's shown
             _positionDropdown();
@@ -494,8 +494,8 @@
 
             return $q.when(that.options.data(params.searchText, params.paging),
                 function successCallback(result) {
-                    // verify the queryId since there might be some lag in getting data from a remote web service.
-                    if (params.queryId !== queryCounter) {
+                    if (_shouldHideDropdown(params, result)) {
+                        that.hide();
                         return;
                     }
 
@@ -641,24 +641,42 @@
             that.textModelCtrl.$setViewValue(value);
         }
 
-        function _renderList(params, result) {
-            if (!result || result.length === 0) {
-                that.hide();
-                return;
+        function _shouldHideDropdown(params, result) {
+            // verify the queryId since there might be some lag when getting data from a remote web service.
+            if (params.queryId !== queryCounter) {
+                return true;
             }
 
+            // do we have results to render?
+            var hasResult = (result && result.length !== 0);
+            if (hasResult) {
+                return false;
+            }
+
+            // if paging is enabled hide the dropdown only when rendering the first page
+            if (that.options.pagingEnabled) {
+                return (params.paging.pageIndex === 0);
+            }
+
+            return true;
+        }
+
+        function _renderList(params, result) {
             return _getRenderFn().then(function (renderFn) {
+                if (!result || result.length === 0) {
+                    return;
+                }
+
                 that.renderItems = _renderItems(renderFn, result);
             });
         }
 
         function _renderPagedList(params, result) {
-            if (params.paging.pageIndex === 0 && (!result || result.length === 0)) {
-                that.hide();
-                return;
-            }
-
             return _getRenderFn().then(function (renderFn) {
+                if (!result || result.length === 0) {
+                    return;
+                }
+
                 var items = _renderItems(renderFn, result);
 
                 angular.forEach(items, function (item) {
