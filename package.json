@@ -2,6 +2,7 @@
   "name": "angular-auto-complete-demo",
   "version": "1.0.0",
   "description": "angular-auto-complete demo",
+  "main": "index.html",
   "scripts": {
     "start": "lite-server"
   },
