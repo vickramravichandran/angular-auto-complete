@@ -21,8 +21,8 @@
         .module('autoCompleteModule', ['ngSanitize'])
         .directive('autoComplete', autoCompleteDirective);
 
-    autoCompleteDirective.$inject = ['$compile', '$document', '$window', '$timeout'];
-    function autoCompleteDirective($compile, $document, $window, $timeout) {
+    autoCompleteDirective.$inject = ['$q', '$compile', '$document', '$window', '$timeout'];
+    function autoCompleteDirective($q, $compile, $document, $window, $timeout) {
 
         return {
             restrict: 'A',
@@ -30,7 +30,7 @@
             transclude: false,
             controllerAs: 'ctrl',
             bindToController: {
-                options: '&autoComplete'
+                initialOptions: '&autoComplete'
             },
             require: ['autoComplete', 'ngModel'],
             link: postLinkFn,
@@ -46,17 +46,21 @@
             // store the jquery element on the controller
             ctrl.target = element;
 
-            // wait for page load before initialization to avoid any missing selectors
             $timeout(function () {
                 // execute the options expression
-                var options = ctrl.options() || {};
-                ctrl.init(angular.extend({}, defaultOptions, options));
-
-                _initContainer();
-                _wireupEvents();
+                $q.when(ctrl.initialOptions()).then(_initialize);
             });
 
-            function _initContainer() {
+            function _initialize(options) {
+                options = options || {};
+
+                ctrl.init(angular.extend({}, defaultOptions, options));
+
+                _initializeContainer();
+                _wireupEvents();
+            }
+
+            function _initializeContainer() {
                 ctrl.container = _getContainer();
 
                 if (ctrl.options.containerCssClass) {
@@ -154,21 +158,23 @@
                     });
                 });
 
-                if (ctrl.options.pagingEnabled) {
-                    ctrl.container.find('ul').on('scroll', function () {
-                        var list = this;
-                        scope.$evalAsync(function () {
-                            if (!ctrl.containerVisible) {
-                                return;
-                            }
+                ctrl.container.find('ul').on('scroll', function () {
+                    if (!ctrl.options.pagingEnabled) {
+                        return;
+                    }
 
-                            // scrolled to the bottom?
-                            if ((list.offsetHeight + list.scrollTop) >= list.scrollHeight) {
-                                ctrl.tryLoadNextPage();
-                            }
-                        });
+                    var list = this;
+                    scope.$evalAsync(function () {
+                        if (!ctrl.containerVisible) {
+                            return;
+                        }
+
+                        // scrolled to the bottom?
+                        if ((list.offsetHeight + list.scrollTop) >= list.scrollHeight) {
+                            ctrl.tryLoadNextPage();
+                        }
                     });
-                }
+                });
 
                 // hide container on ENTER
                 $document.on('keydown', function (event) {
@@ -179,9 +185,11 @@
                 });
 
                 angular.element($window).on('resize', function () {
-                    scope.$evalAsync(function () {
-                        ctrl.hide();
-                    });
+                    if (ctrl.options.hideDropdownOnWindowResize) {
+                        scope.$evalAsync(function () {
+                            ctrl.autoHide();
+                        });
+                    }
                 });
 
                 $document.on('click', function (event) {
@@ -240,7 +248,7 @@
 
                     if (keyCode === KEYCODE.ESCAPE) {
                         ctrl.restoreOriginalText();
-                        ctrl.hide();
+                        ctrl.autoHide();
 
                         event.preventDefault();
                         event.stopPropagation();
@@ -252,7 +260,7 @@
                 function _tryQuery(searchText) {
                     // query only if minimum number of chars are typed; else hide dropdown
                     if (!searchText || searchText.length < ctrl.options.minimumChars) {
-                        ctrl.hide();
+                        ctrl.autoHide();
                         return;
                     }
 
@@ -303,7 +311,7 @@
                         return;
                     }
 
-                    ctrl.hide();
+                    ctrl.autoHide();
                 }
             }
 
@@ -363,6 +371,8 @@
             that.instanceId = internalService.getNewInstanceId();
             that.options = options;
             that.containerVisible = that.isInline();
+
+            _safeCallback(that.options.ready, publicApi);
         };
 
         this.activate = function () {
@@ -387,22 +397,12 @@
             _safeCallback(that.options.dropdownShown);
         };
 
-        this.hide = function () {
-            if (that.isInline() || !that.containerVisible) {
-                return;
+        this.autoHide = function () {
+            if (that.options.autoHideDropdown) {
+                _hideDropdown();
             }
-
-            // reset scroll position
-            //that.elementUL[0].scrollTop = 0;
-            that.containerVisible = false;
-            that.empty();
-
-            _reset();
-
-            // callback
-            _safeCallback(that.options.dropdownHidden);
         };
-
+        
         this.empty = function () {
             that.selectedIndex = -1;
             that.renderItems = [];
@@ -449,7 +449,7 @@
             _updateTarget();
 
             if (closeDropdownAndRaiseCallback) {
-                that.hide();
+                that.autoHide();
 
                 _safeCallback(that.options.itemSelected, { item: item.data });
             }
@@ -495,7 +495,7 @@
             return $q.when(that.options.data(params.searchText, params.paging),
                 function successCallback(result) {
                     if (_shouldHideDropdown(params, result)) {
-                        that.hide();
+                        that.autoHide();
                         return;
                     }
 
@@ -505,7 +505,7 @@
                     _safeCallback(that.options.loadingComplete);
                 },
                 function errorCallback(error) {
-                    that.hide();
+                    that.autoHide();
 
                     _safeCallback(that.options.loadingComplete, { error: error });
                 }).then(function () {
@@ -587,6 +587,12 @@
                 _positionUsingDomAPI();
             }
         }
+        
+        function _positionDropdownIfVisible() {
+            if (that.containerVisible) {
+                _positionDropdown();
+            }
+        }
 
         function _hasJQueryUI() {
             return (window.jQuery && window.jQuery.ui);
@@ -639,6 +645,22 @@
         function _setTargetValue(value) {
             that.target.val(value);
             that.textModelCtrl.$setViewValue(value);
+        }
+
+        function _hideDropdown () {
+            if (that.isInline() || !that.containerVisible) {
+                return;
+            }
+
+            // reset scroll position
+            //that.elementUL[0].scrollTop = 0;
+            that.containerVisible = false;
+            that.empty();
+
+            _reset();
+
+            // callback
+            _safeCallback(that.options.dropdownHidden);
         }
 
         function _shouldHideDropdown(params, result) {
@@ -760,6 +782,28 @@
             currentPageIndex = 0;
             endOfPagedList = false;
         }
+
+        function _setOptions(options) {
+            if (_.isEmpty(options)) {
+                return;
+            }
+
+            var optionsArray = _.isArray(options) ? options : [options];
+
+            angular.forEach(optionsArray, function (value, key) {
+                if (defaultOptions.hasOwnProperty(key)) {
+                    that.options[key] = value;
+                }
+            });
+        }
+
+        var publicApi = (function () {
+            return {
+                setOptions: _setOptions,
+                positionDropdown: _positionDropdownIfVisible,
+                hideDropdown: _hideDropdown
+            };
+        })();
     }
 
     function InternalService() {
@@ -787,7 +831,7 @@
             angular.forEach(pluginCtrls, function (ctrl) {
                 // hide if this is not the active instance
                 if (ctrl.instanceId !== activeInstanceId) {
-                    ctrl.hide();
+                    ctrl.autoHide();
                 }
             });
         };
@@ -875,12 +919,15 @@
          */
         pageSize: 5,
         /**
-         * When using the keyboard arrow key to scroll down the list, the "data" callback will be invoked when at least this many items remain below the current focused item. Note that dragging the vertical scrollbar to the bottom of the list might also invoke a "data" callback.
+         * When using the keyboard arrow key to scroll down the list, the "data" callback will 
+         * be invoked when at least this many items remain below the current focused item. 
+         * Note that dragging the vertical scrollbar to the bottom of the list might also invoke a "data" callback.
          * @default 1
          */
         invokePageLoadWhenItemsRemaining: 1,
         /**
-         * Set to true to position the dropdown list using the position() method from the jQueryUI library. See <a href="https://api.jqueryui.com/position/">jQueryUI.position() documentation</a>
+         * Set to true to position the dropdown list using the position() method from the jQueryUI library.
+         * See <a href="https://api.jqueryui.com/position/">jQueryUI.position() documentation</a>
          * @default true
          * @bindAsHtml true                  
          */
@@ -891,12 +938,32 @@
          */
         positionUsing: null,
         /**
+         * Set to true to let the plugin hide the dropdown list. If this option is set to false you can hide the dropdown list
+         * with the hideDropdown() method available in the ready callback.
+         * @default true
+         */
+        autoHideDropdown: true,
+        /**
+         * Set to true to hide the dropdown list when the window is resized. If this option is set to false you can hide
+         * or re-position the dropdown list with the hideDropdown() or positionDropdown() methods available in the ready.
+         * callback.
+         * @default true
+         */
+        hideDropdownOnWindowResize: true,
+        /**
+         * Callback after the plugin is initialized and ready. The callback receives an object with the following methods:
+         * @default angular.noop
+         */
+        ready: angular.noop,
+        /**
          * Callback before the "data" callback is invoked.
          * @default angular.noop
          */
         loading: angular.noop,
         /**
-         * Callback to get the data for the dropdown. The callback receives the search text as the first parameter. If paging is enabled the callback receives an object with "pageIndex" and "pageSize" properties as the second parameter. This function must return a promise.
+         * Callback to get the data for the dropdown. The callback receives the search text as the first parameter.
+         * If paging is enabled the callback receives an object with "pageIndex" and "pageSize" properties as the second parameter.
+         * This function must return a promise.
          * @default angular.noop
          */
         data: angular.noop,
@@ -906,7 +973,9 @@
          */
         loadingComplete: angular.noop,
         /**
-         * Callback for custom rendering a list item. This is called for each item in the dropdown. This must return an object literal with "value" and "label" properties where "label" is the safe html for display and "value" is the text for the textbox.
+         * Callback for custom rendering a list item. This is called for each item in the dropdown.
+         * This must return an object literal with "value" and "label" properties where "label" is the
+         * safe html for display and "value" is the text for the textbox.
          * @default angular.noop
          */
         renderItem: angular.noop,
