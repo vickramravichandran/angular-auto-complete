@@ -17,7 +17,6 @@ if (!String.prototype.startsWith) {
         .controller('ActivateOnFocusCtrl', ActivateOnFocusCtrl)
         .controller('CustomListUsingTemplateUrlCtrl', CustomListUsingTemplateUrlCtrl)
         .controller('RemoteDataUsingRenderItemCtrl', RemoteDataUsingRenderItemCtrl)
-        .controller('PluginOptionsCtrl', PluginOptionsCtrl)
         .directive('ngPrism', function () {
             return {
                 restrict: 'A',
@@ -234,11 +233,6 @@ if (!String.prototype.startsWith) {
                 that.airport = e.item;
             }
         };
-    }
-
-    PluginOptionsCtrl.$inject = ['autoCompleteService'];
-    function PluginOptionsCtrl(autoCompleteService) {
-        this.options = autoCompleteService.defaultOptionsDoc();
     }
 
 })();
