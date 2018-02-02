@@ -685,7 +685,7 @@
 
         function _renderList(params, result) {
             return _getRenderFn().then(function (renderFn) {
-                if (!result || result.length === 0) {
+                if (_.isEmpty(result)) {
                     return;
                 }
 
@@ -695,7 +695,7 @@
 
         function _renderPagedList(params, result) {
             return _getRenderFn().then(function (renderFn) {
-                if (!result || result.length === 0) {
+                if (_.isEmpty(result)) {
                     return;
                 }
 
@@ -788,9 +788,7 @@
                 return;
             }
 
-            var optionsArray = _.isArray(options) ? options : [options];
-
-            angular.forEach(optionsArray, function (value, key) {
+            angular.forEach(options, function (value, key) {
                 if (defaultOptions.hasOwnProperty(key)) {
                     that.options[key] = value;
                 }
