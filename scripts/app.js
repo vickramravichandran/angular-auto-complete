@@ -9,7 +9,7 @@ if (!String.prototype.startsWith) {
     'use strict';
 
     angular
-        .module('mainApp', ['autoCompleteModule'])
+        .module('mainApp', ['autoCompleteModule', 'configOptionsModule'])
         .controller('SimpleListCtrl', SimpleListCtrl)
         .controller('CustomListUsingTemplateCtrl', CustomListUsingTemplateCtrl)
         .controller('SimpleListRemoteDataCtrl', SimpleListRemoteDataCtrl)
@@ -17,7 +17,6 @@ if (!String.prototype.startsWith) {
         .controller('ActivateOnFocusCtrl', ActivateOnFocusCtrl)
         .controller('CustomListUsingTemplateUrlCtrl', CustomListUsingTemplateUrlCtrl)
         .controller('RemoteDataUsingRenderItemCtrl', RemoteDataUsingRenderItemCtrl)
-        .controller('PluginOptionsCtrl', PluginOptionsCtrl)
         .directive('ngPrism', function () {
             return {
                 restrict: 'A',
@@ -234,71 +233,6 @@ if (!String.prototype.startsWith) {
                 that.airport = e.item;
             }
         };
-    }
-
-    PluginOptionsCtrl.$inject = ['$http'];
-    function PluginOptionsCtrl($http) {
-        var that = this;
-        that.options = [];
-
-        $http.get('docs.json')
-            .then(function (response) {
-                prepareDocs(response.data);
-            });
-
-        function prepareDocs(jsDocs) {
-            if (!jsDocs || !jsDocs.length) {
-                return;
-            }
-
-            var defaultOptions = _.filter(jsDocs, function(jsDoc){
-                return jsDoc.memberof === 'defaultOptions';
-            });
-            if (!defaultOptions || !defaultOptions.length) {
-                return;
-            }
-
-            _.each(defaultOptions, function(jsDoc) {
-                that.options.push({
-                    name: jsDoc.name,
-                    description: getDescription(jsDoc),
-                    default: getDescriptionFromTag(jsDoc, 'default'),
-                    bindAsHtml: (getDescriptionFromTag(jsDoc, 'bindAsHtml') === 'true'),
-                });
-            });
-        }
-
-        function getDescription(jsDoc) {
-            return getDescriptionFromTag(jsDoc, 'description') || getDescriptionParagraph(jsDoc);
-        }
-
-        function getDescriptionParagraph(jsDoc) {
-            if (!jsDoc || !jsDoc.description || !jsDoc.description.children || !jsDoc.description.children.length) {
-                return;
-            }
-
-            var paragraph = _.findWhere(jsDoc.description.children, {type: 'paragraph'});
-            if (!paragraph || !paragraph.children || !paragraph.children.length) {
-                return;
-            }
-
-            return _.reduce(paragraph.children, function(memo, child){
-                return memo + child.value;
-            }, '');
-        }
-
-        function getDescriptionFromTag(jsDoc, tagTitle) {
-            if (!jsDoc || !jsDoc.tags || !jsDoc.tags.length) {
-                return;
-            }
-
-            var tag = _.findWhere(jsDoc.tags, {title: tagTitle});
-            if (!tag) {
-                return;
-            }
-
-            return tag.description;
-        }
     }
 
 })();
