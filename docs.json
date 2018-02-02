@@ -61,26 +61,26 @@
     ],
     "loc": {
       "start": {
-        "line": 776,
+        "line": 851,
         "column": 8
       },
       "end": {
-        "line": 779,
+        "line": 854,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 780,
+          "line": 855,
           "column": 8
         },
         "end": {
-          "line": 780,
+          "line": 855,
           "column": 31
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -170,26 +170,26 @@
     ],
     "loc": {
       "start": {
-        "line": 781,
+        "line": 856,
         "column": 8
       },
       "end": {
-        "line": 784,
+        "line": 859,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 785,
+          "line": 860,
           "column": 8
         },
         "end": {
-          "line": 785,
+          "line": 860,
           "column": 55
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -279,26 +279,26 @@
     ],
     "loc": {
       "start": {
-        "line": 786,
+        "line": 861,
         "column": 8
       },
       "end": {
-        "line": 789,
+        "line": 864,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 790,
+          "line": 865,
           "column": 8
         },
         "end": {
-          "line": 790,
+          "line": 865,
           "column": 23
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -388,26 +388,26 @@
     ],
     "loc": {
       "start": {
-        "line": 791,
+        "line": 866,
         "column": 8
       },
       "end": {
-        "line": 794,
+        "line": 869,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 795,
+          "line": 870,
           "column": 8
         },
         "end": {
-          "line": 795,
+          "line": 870,
           "column": 28
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -497,26 +497,26 @@
     ],
     "loc": {
       "start": {
-        "line": 796,
+        "line": 871,
         "column": 8
       },
       "end": {
-        "line": 799,
+        "line": 874,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 800,
+          "line": 875,
           "column": 8
         },
         "end": {
-          "line": 800,
+          "line": 875,
           "column": 30
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -606,26 +606,26 @@
     ],
     "loc": {
       "start": {
-        "line": 801,
+        "line": 876,
         "column": 8
       },
       "end": {
-        "line": 804,
+        "line": 879,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 805,
+          "line": 880,
           "column": 8
         },
         "end": {
-          "line": 805,
+          "line": 880,
           "column": 29
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -715,26 +715,26 @@
     ],
     "loc": {
       "start": {
-        "line": 806,
+        "line": 881,
         "column": 8
       },
       "end": {
-        "line": 809,
+        "line": 884,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 810,
+          "line": 885,
           "column": 8
         },
         "end": {
-          "line": 810,
+          "line": 885,
           "column": 30
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -824,26 +824,26 @@
     ],
     "loc": {
       "start": {
-        "line": 811,
+        "line": 886,
         "column": 8
       },
       "end": {
-        "line": 814,
+        "line": 889,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 815,
+          "line": 890,
           "column": 8
         },
         "end": {
-          "line": 815,
+          "line": 890,
           "column": 28
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -937,26 +937,26 @@
     ],
     "loc": {
       "start": {
-        "line": 816,
+        "line": 891,
         "column": 8
       },
       "end": {
-        "line": 820,
+        "line": 895,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 821,
+          "line": 896,
           "column": 8
         },
         "end": {
-          "line": 821,
+          "line": 896,
           "column": 30
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1114,26 +1114,26 @@
     ],
     "loc": {
       "start": {
-        "line": 822,
+        "line": 897,
         "column": 8
       },
       "end": {
-        "line": 825,
+        "line": 900,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 826,
+          "line": 901,
           "column": 8
         },
         "end": {
-          "line": 826,
+          "line": 901,
           "column": 26
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1223,26 +1223,26 @@
     ],
     "loc": {
       "start": {
-        "line": 827,
+        "line": 902,
         "column": 8
       },
       "end": {
-        "line": 830,
+        "line": 905,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 831,
+          "line": 906,
           "column": 8
         },
         "end": {
-          "line": 831,
+          "line": 906,
           "column": 29
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1332,26 +1332,26 @@
     ],
     "loc": {
       "start": {
-        "line": 832,
+        "line": 907,
         "column": 8
       },
       "end": {
-        "line": 835,
+        "line": 910,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 836,
+          "line": 911,
           "column": 8
         },
         "end": {
-          "line": 836,
+          "line": 911,
           "column": 28
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1441,26 +1441,26 @@
     ],
     "loc": {
       "start": {
-        "line": 837,
+        "line": 912,
         "column": 8
       },
       "end": {
-        "line": 840,
+        "line": 915,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 841,
+          "line": 916,
           "column": 8
         },
         "end": {
-          "line": 841,
+          "line": 916,
           "column": 19
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1497,7 +1497,7 @@
           "children": [
             {
               "type": "text",
-              "value": "When using the keyboard arrow key to scroll down the list, the \"data\" callback will be invoked when at least this many items remain below the current focused item. Note that dragging the vertical scrollbar to the bottom of the list might also invoke a \"data\" callback.",
+              "value": "When using the keyboard arrow key to scroll down the list, the \"data\" callback will \nbe invoked when at least this many items remain below the current focused item. \nNote that dragging the vertical scrollbar to the bottom of the list might also invoke a \"data\" callback.",
               "position": {
                 "start": {
                   "line": 1,
@@ -1505,11 +1505,14 @@
                   "offset": 0
                 },
                 "end": {
-                  "line": 1,
-                  "column": 269,
-                  "offset": 268
+                  "line": 3,
+                  "column": 105,
+                  "offset": 272
                 },
-                "indent": []
+                "indent": [
+                  1,
+                  1
+                ]
               }
             }
           ],
@@ -1520,11 +1523,14 @@
               "offset": 0
             },
             "end": {
-              "line": 1,
-              "column": 269,
-              "offset": 268
+              "line": 3,
+              "column": 105,
+              "offset": 272
             },
-            "indent": []
+            "indent": [
+              1,
+              1
+            ]
           }
         }
       ],
@@ -1535,9 +1541,9 @@
           "offset": 0
         },
         "end": {
-          "line": 1,
-          "column": 269,
-          "offset": 268
+          "line": 3,
+          "column": 105,
+          "offset": 272
         }
       }
     },
@@ -1545,31 +1551,31 @@
       {
         "title": "default",
         "description": "1",
-        "lineNumber": 2
+        "lineNumber": 4
       }
     ],
     "loc": {
       "start": {
-        "line": 842,
+        "line": 917,
         "column": 8
       },
       "end": {
-        "line": 845,
+        "line": 922,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 846,
+          "line": 923,
           "column": 8
         },
         "end": {
-          "line": 846,
+          "line": 923,
           "column": 43
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1606,7 +1612,7 @@
           "children": [
             {
               "type": "text",
-              "value": "Set to true to position the dropdown list using the position() method from the jQueryUI library. See ",
+              "value": "Set to true to position the dropdown list using the position() method from the jQueryUI library.\nSee ",
               "position": {
                 "start": {
                   "line": 1,
@@ -1614,11 +1620,13 @@
                   "offset": 0
                 },
                 "end": {
-                  "line": 1,
-                  "column": 102,
-                  "offset": 101
+                  "line": 2,
+                  "column": 5,
+                  "offset": 102
                 },
-                "indent": []
+                "indent": [
+                  1
+                ]
               }
             },
             {
@@ -1626,14 +1634,14 @@
               "value": "<a href=\"https://api.jqueryui.com/position/\">",
               "position": {
                 "start": {
-                  "line": 1,
-                  "column": 102,
-                  "offset": 101
+                  "line": 2,
+                  "column": 5,
+                  "offset": 102
                 },
                 "end": {
-                  "line": 1,
-                  "column": 147,
-                  "offset": 146
+                  "line": 2,
+                  "column": 50,
+                  "offset": 147
                 },
                 "indent": []
               }
@@ -1643,14 +1651,14 @@
               "value": "jQueryUI.position() documentation",
               "position": {
                 "start": {
-                  "line": 1,
-                  "column": 147,
-                  "offset": 146
+                  "line": 2,
+                  "column": 50,
+                  "offset": 147
                 },
                 "end": {
-                  "line": 1,
-                  "column": 180,
-                  "offset": 179
+                  "line": 2,
+                  "column": 83,
+                  "offset": 180
                 },
                 "indent": []
               }
@@ -1660,14 +1668,14 @@
               "value": "</a>",
               "position": {
                 "start": {
-                  "line": 1,
-                  "column": 180,
-                  "offset": 179
+                  "line": 2,
+                  "column": 83,
+                  "offset": 180
                 },
                 "end": {
-                  "line": 1,
-                  "column": 184,
-                  "offset": 183
+                  "line": 2,
+                  "column": 87,
+                  "offset": 184
                 },
                 "indent": []
               }
@@ -1680,11 +1688,13 @@
               "offset": 0
             },
             "end": {
-              "line": 1,
-              "column": 184,
-              "offset": 183
+              "line": 2,
+              "column": 87,
+              "offset": 184
             },
-            "indent": []
+            "indent": [
+              1
+            ]
           }
         }
       ],
@@ -1695,9 +1705,9 @@
           "offset": 0
         },
         "end": {
-          "line": 1,
-          "column": 184,
-          "offset": 183
+          "line": 2,
+          "column": 87,
+          "offset": 184
         }
       }
     },
@@ -1705,36 +1715,36 @@
       {
         "title": "default",
         "description": "true",
-        "lineNumber": 2
+        "lineNumber": 3
       },
       {
         "title": "bindAsHtml",
         "description": "true",
-        "lineNumber": 3
+        "lineNumber": 4
       }
     ],
     "loc": {
       "start": {
-        "line": 847,
+        "line": 924,
         "column": 8
       },
       "end": {
-        "line": 851,
+        "line": 929,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 852,
+          "line": 930,
           "column": 8
         },
         "end": {
-          "line": 852,
+          "line": 930,
           "column": 33
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1824,26 +1834,26 @@
     ],
     "loc": {
       "start": {
-        "line": 853,
+        "line": 931,
         "column": 8
       },
       "end": {
-        "line": 856,
+        "line": 934,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 857,
+          "line": 935,
           "column": 8
         },
         "end": {
-          "line": 857,
+          "line": 935,
           "column": 27
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1870,6 +1880,343 @@
       }
     ],
     "namespace": ".positionUsing"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Set to true to let the plugin hide the dropdown list. If this option is set to false you can hide or re-position the dropdown list with the hideDropdown() or positionDropdown() methods available in the ready callback.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 2,
+                  "column": 64,
+                  "offset": 180
+                },
+                "indent": [
+                  1
+                ]
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 2,
+              "column": 64,
+              "offset": 180
+            },
+            "indent": [
+              1
+            ]
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 2,
+          "column": 64,
+          "offset": 180
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "true",
+        "lineNumber": 3
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 936,
+        "column": 8
+      },
+      "end": {
+        "line": 940,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 941,
+          "column": 8
+        },
+        "end": {
+          "line": 941,
+          "column": 30
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "autoHideDropdown",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "autoHideDropdown",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".autoHideDropdown"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Set to true to hide the dropdown list when the window is resized. If this option is set to false you can hide\nor re-position the dropdown list with the hideDropdown() or positionDropdown() methods available in the ready callback.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 3,
+                  "column": 10,
+                  "offset": 232
+                },
+                "indent": [
+                  1,
+                  1
+                ]
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 3,
+              "column": 10,
+              "offset": 232
+            },
+            "indent": [
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 10,
+          "offset": 232
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "true",
+        "lineNumber": 4
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 942,
+        "column": 8
+      },
+      "end": {
+        "line": 947,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 948,
+          "column": 8
+        },
+        "end": {
+          "line": 948,
+          "column": 40
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "hideDropdownOnWindowResize",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "hideDropdownOnWindowResize",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".hideDropdownOnWindowResize"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Callback after the plugin is initialized and ready. The callback receives an object with the following methods:",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 112,
+                  "offset": 111
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 112,
+              "offset": 111
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 112,
+          "offset": 111
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "default",
+        "description": "angular.noop",
+        "lineNumber": 2
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 949,
+        "column": 8
+      },
+      "end": {
+        "line": 952,
+        "column": 11
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 953,
+          "column": 8
+        },
+        "end": {
+          "line": 953,
+          "column": 27
+        }
+      },
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "ready",
+    "memberof": "defaultOptions",
+    "scope": "static",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "ready",
+        "scope": "static"
+      }
+    ],
+    "namespace": ".ready"
   },
   {
     "description": {
@@ -1933,26 +2280,26 @@
     ],
     "loc": {
       "start": {
-        "line": 858,
+        "line": 954,
         "column": 8
       },
       "end": {
-        "line": 861,
+        "line": 957,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 862,
+          "line": 958,
           "column": 8
         },
         "end": {
-          "line": 862,
+          "line": 958,
           "column": 29
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1989,7 +2336,7 @@
           "children": [
             {
               "type": "text",
-              "value": "Callback to get the data for the dropdown. The callback receives the search text as the first parameter. If paging is enabled the callback receives an object with \"pageIndex\" and \"pageSize\" properties as the second parameter. This function must return a promise.",
+              "value": "Callback to get the data for the dropdown. The callback receives the search text as the first parameter.\nIf paging is enabled the callback receives an object with \"pageIndex\" and \"pageSize\" properties as the second parameter.\nThis function must return a promise.",
               "position": {
                 "start": {
                   "line": 1,
@@ -1997,11 +2344,14 @@
                   "offset": 0
                 },
                 "end": {
-                  "line": 1,
-                  "column": 263,
-                  "offset": 262
+                  "line": 3,
+                  "column": 37,
+                  "offset": 264
                 },
-                "indent": []
+                "indent": [
+                  1,
+                  1
+                ]
               }
             }
           ],
@@ -2012,11 +2362,14 @@
               "offset": 0
             },
             "end": {
-              "line": 1,
-              "column": 263,
-              "offset": 262
+              "line": 3,
+              "column": 37,
+              "offset": 264
             },
-            "indent": []
+            "indent": [
+              1,
+              1
+            ]
           }
         }
       ],
@@ -2027,9 +2380,9 @@
           "offset": 0
         },
         "end": {
-          "line": 1,
-          "column": 263,
-          "offset": 262
+          "line": 3,
+          "column": 37,
+          "offset": 264
         }
       }
     },
@@ -2037,31 +2390,31 @@
       {
         "title": "default",
         "description": "angular.noop",
-        "lineNumber": 2
+        "lineNumber": 4
       }
     ],
     "loc": {
       "start": {
-        "line": 863,
+        "line": 959,
         "column": 8
       },
       "end": {
-        "line": 866,
+        "line": 964,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 867,
+          "line": 965,
           "column": 8
         },
         "end": {
-          "line": 867,
+          "line": 965,
           "column": 26
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2151,26 +2504,26 @@
     ],
     "loc": {
       "start": {
-        "line": 868,
+        "line": 966,
         "column": 8
       },
       "end": {
-        "line": 871,
+        "line": 969,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 872,
+          "line": 970,
           "column": 8
         },
         "end": {
-          "line": 872,
+          "line": 970,
           "column": 37
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2207,7 +2560,7 @@
           "children": [
             {
               "type": "text",
-              "value": "Callback for custom rendering a list item. This is called for each item in the dropdown. This must return an object literal with \"value\" and \"label\" properties where \"label\" is the safe html for display and \"value\" is the text for the textbox.",
+              "value": "Callback for custom rendering a list item. This is called for each item in the dropdown.\nThis must return an object literal with \"value\" and \"label\" properties where \"label\" is the\nsafe html for display and \"value\" is the text for the textbox.",
               "position": {
                 "start": {
                   "line": 1,
@@ -2215,11 +2568,14 @@
                   "offset": 0
                 },
                 "end": {
-                  "line": 1,
-                  "column": 244,
-                  "offset": 243
+                  "line": 3,
+                  "column": 63,
+                  "offset": 245
                 },
-                "indent": []
+                "indent": [
+                  1,
+                  1
+                ]
               }
             }
           ],
@@ -2230,11 +2586,14 @@
               "offset": 0
             },
             "end": {
-              "line": 1,
-              "column": 244,
-              "offset": 243
+              "line": 3,
+              "column": 63,
+              "offset": 245
             },
-            "indent": []
+            "indent": [
+              1,
+              1
+            ]
           }
         }
       ],
@@ -2245,9 +2604,9 @@
           "offset": 0
         },
         "end": {
-          "line": 1,
-          "column": 244,
-          "offset": 243
+          "line": 3,
+          "column": 63,
+          "offset": 245
         }
       }
     },
@@ -2255,31 +2614,31 @@
       {
         "title": "default",
         "description": "angular.noop",
-        "lineNumber": 2
+        "lineNumber": 4
       }
     ],
     "loc": {
       "start": {
-        "line": 873,
+        "line": 971,
         "column": 8
       },
       "end": {
-        "line": 876,
+        "line": 976,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 877,
+          "line": 977,
           "column": 8
         },
         "end": {
-          "line": 877,
+          "line": 977,
           "column": 32
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2369,26 +2728,26 @@
     ],
     "loc": {
       "start": {
-        "line": 878,
+        "line": 978,
         "column": 8
       },
       "end": {
-        "line": 881,
+        "line": 981,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 882,
+          "line": 982,
           "column": 8
         },
         "end": {
-          "line": 882,
+          "line": 982,
           "column": 34
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2478,26 +2837,26 @@
     ],
     "loc": {
       "start": {
-        "line": 883,
+        "line": 983,
         "column": 8
       },
       "end": {
-        "line": 886,
+        "line": 986,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 887,
+          "line": 987,
           "column": 8
         },
         "end": {
-          "line": 887,
+          "line": 987,
           "column": 35
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2587,26 +2946,26 @@
     ],
     "loc": {
       "start": {
-        "line": 888,
+        "line": 988,
         "column": 8
       },
       "end": {
-        "line": 891,
+        "line": 991,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 892,
+          "line": 992,
           "column": 8
         },
         "end": {
-          "line": 892,
+          "line": 992,
           "column": 36
         }
       },
-      "file": "C:\\source\\New folder\\angular-auto-complete\\scripts\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\scripts\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
