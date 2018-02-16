@@ -14,13 +14,19 @@ body {
 }
 
 .content {
-    padding: 20px 60px 0 300px;
+    padding: 20px 60px 0 100px;
     float: left;
 }
 
 h1.title {
     font-size: 2.7em;
     font-weight: bold;
+}
+
+h1.title.post-title {
+    background: rgba(255, 255, 255, 0) url(./../images/angularjs-logo.png) left center no-repeat;
+    background-size: 45px;
+    padding: 15px 0px 19px 50px;
 }
 
 h3.title {
