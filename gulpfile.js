@@ -21,6 +21,8 @@ gulp.task('documentation', function () {
         .pipe(gulp.dest(DEST));
 });
 
-gulp.task('watch', ['scripts', 'documentation']);
-
 gulp.task('default', ['scripts', 'documentation']);
+
+gulp.task('watch', function () {
+    gulp.watch(file, ['default']);
+});
