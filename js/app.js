@@ -158,6 +158,7 @@ if (!String.prototype.startsWith) {
         that.autoCompleteOptions = {
             minimumChars: 0,
             activateOnFocus: true,
+            hideDropdownOnWindowResize: false,
             data: function (searchText) {
                 searchText = searchText.toUpperCase();
 

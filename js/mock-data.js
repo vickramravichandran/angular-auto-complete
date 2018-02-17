@@ -1,4 +1,6 @@
-﻿var MOCK_CSS_COLORS = [
+﻿/* exported MOCK_CSS_COLORS */
+
+var MOCK_CSS_COLORS = [
   {
     "name": "ANTIQUEWHITE",
     "code": "#faebd7"
@@ -440,6 +442,8 @@
     "code": "#9acd32"
   }
 ];
+
+/* exported MOCK_BREAKFAST */
 
 var MOCK_BREAKFAST = [
     "BAGELS",

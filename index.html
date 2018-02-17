@@ -27,12 +27,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@7.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="assets/main.css?d=201702251343">
-    <link rel="stylesheet" href="assets/prism-okaidia.css">
+    <link rel="stylesheet" href="css/main.css?d=201802181400">
+    <link rel="stylesheet" href="css/vendor/prism-okaidia.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/angular-auto-complete/angular-auto-complete.min.css">
-    <link rel="stylesheet" href="assets/app.css?d=201711271400">
+    <link rel="stylesheet" href="css/app.css?d=201802181400">
 
-    <script type="text/javascript" src="scripts/prism-okaidia.js"></script>
+    <script type="text/javascript" src="js/vendor/scale.fix.js"></script>
+    <script type="text/javascript" src="js/vendor/prism-okaidia.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -42,9 +43,9 @@
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/angular-auto-complete@1.6.0/angular-auto-complete.min.js"></script>
     <!-- <script type="text/javascript" src="scripts/angular-auto-complete.js"></script> -->
-    <script type="text/javascript" src="scripts/mock-data.js?d=201802021000"></script>
-    <script type="text/javascript" src="scripts/app.js?d=201802021000"></script>
-    <script type="text/javascript" src="scripts/config-options.js?d=201802021000"></script>
+    <script type="text/javascript" src="js/mock-data.js?d=201802181400"></script>
+    <script type="text/javascript" src="js/app.js?d=201802181400"></script>
+    <script type="text/javascript" src="js/config-options.js?d=201802181400"></script>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -149,13 +150,13 @@
         </table>
     </script>
 
+    <script type="text/javascript">
+        function scrollToOptions() {
+            document.getElementById('options').scrollIntoView();
+        }
+    </script>
+
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
 </body>
-
-<script type="text/javascript">
-    function scrollToOptions() {
-        document.getElementById('options').scrollIntoView();
-    }
-</script>
-
 
 </html>
