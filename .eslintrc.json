@@ -1,0 +1,11 @@
+{
+    "extends": "eslint:recommended",
+    "globals": {
+        "module": false,
+        "require": false,
+        "define": false,
+        "window": false,
+        "_": false,
+        "$": false
+    }
+}
