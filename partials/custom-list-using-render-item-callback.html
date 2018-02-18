@@ -1,30 +1,30 @@
 <div class="scenario">
-    <div ng-controller="RemoteDataUsingRenderItemCtrl as vm">
+    <div ng-controller="RemoteDataUsingRenderItemCtrl as ctrl">
         <h3 class="config-title">
             Custom List Using renderItem Callback
         </h3>
         <div>
             <input type="text"
-                   ng-model="vm.airportName"
+                   ng-model="ctrl.airportName"
                    class="form-control"
                    style="width:300px"
                    placeholder="Airport Name. Try 'a' or 'g'"
-                   auto-complete="vm.autoCompleteOptions" />
+                   auto-complete="ctrl.autoCompleteOptions" />
         </div>
-        <div ng-show="vm.airport">
-            <pre>{{vm.airport | json}}</pre>
+        <div ng-show="ctrl.airport">
+            <pre>{{ctrl.airport | json}}</pre>
         </div>
     </div>
     <div class="code-container">
         <h6>HTML</h6>
         <div>
 <pre><code ng-prism class="language-markup">&lt;body ng-app="mainApp">
-    &lt;div ng-controller="MainCtrl as vm">
+    &lt;div ng-controller="MainCtrl as ctrl">
         &lt;input type="text"
-            ng-model="vm.airportName"
+            ng-model="ctrl.airportName"
             style="width: 400px;"
             placeholder="Airport Name. Try 'a' or 'g'"
-            auto-complete="vm.autoCompleteOptions" />
+            auto-complete="ctrl.autoCompleteOptions" />
     &lt;/div>
 &lt;/body>
 </code></pre>
@@ -35,8 +35,8 @@
     .module('mainApp', ['autoCompleteModule'])
     .controller('MainCtrl', MainCtrl);
     
-    MainCtrl.$inject = ['$http', '$sce'];
-    function MainCtrl($http, $sce) {
+    MainCtrl.$inject = ['$http'];
+    function MainCtrl($http) {
         var that = this;
         that.airportName = null;
         that.airport = null;
@@ -60,10 +60,7 @@
             renderItem: function (item) {
                 return {
                     value: item.name,
-                    label: $sce.trustAsHtml(
-                    "&lt;p class='auto-complete'>" 
-                    + item.name + 
-                    "&lt;/p>")
+                    label: "&lt;p class='auto-complete' ng-bind-html='entry.item.name'>&lt;/p>"
                 };
             },
             itemSelected: function (e) {

@@ -10,6 +10,12 @@ gulp.task('lintjs', function () {
         .pipe(plugins.eslint.format());
 });
 
+gulp.task('documentation', function () {
+    return gulp.src('js/angular-auto-complete.js')
+        .pipe(plugins.documentation('json', { filename: 'docs.json' }))
+        .pipe(gulp.dest('.'));
+});
+
 gulp.task('watch', function () {
     gulp.watch(jsFiles, ['lintjs']);
 });

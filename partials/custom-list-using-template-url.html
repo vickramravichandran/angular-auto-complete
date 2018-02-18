@@ -1,30 +1,30 @@
 <div class="scenario">
-    <div ng-controller="CustomListUsingTemplateUrlCtrl as vm">
+    <div ng-controller="CustomListUsingTemplateUrlCtrl as ctrl">
         <h3 class="config-title">
             Custom List Using itemTemplateUrl
         </h3>
         <div>
             <input type="text"
-                   ng-model="vm.colorName"
+                   ng-model="ctrl.colorName"
                    class="form-control"
                    style="width:300px"
                    placeholder="Hex Color Code. Try 'a' or '0'"
-                   auto-complete="vm.autoCompleteOptions" />
+                   auto-complete="ctrl.autoCompleteOptions" />
         </div>
-        <div ng-if="vm.selectedColor">
-            <pre>{{vm.selectedColor | json}}</pre>
+        <div ng-if="ctrl.selectedColor">
+            <pre>{{ctrl.selectedColor | json}}</pre>
         </div>
     </div>
     <div class="code-container">
         <h6>HTML</h6>
         <div>
 <pre><code ng-prism class="language-markup">&lt;body ng-app="mainApp">
-    &lt;div ng-controller="MainCtrl as vm">
+    &lt;div ng-controller="MainCtrl as ctrl">
         &lt;input type="text"
-            ng-model="vm.colorName"
+            ng-model="ctrl.colorName"
             style="width: 400px;"
             placeholder="Hex Color Code. Try 'a' or '0'"
-            auto-complete="vm.autoCompleteOptions" />
+            auto-complete="ctrl.autoCompleteOptions" />
     &lt;/div>
 &lt;/body>
 </code></pre>
@@ -40,6 +40,7 @@
 
         that.autoCompleteOptions = {
             minimumChars: 1,
+            maxItemsToRender: 10,
             containerCssClass: 'color-codes',
             selectedTextAttr: 'code',
             itemTemplateUrl: 'templates/color-list-item.tpl.html',

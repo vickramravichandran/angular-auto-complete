@@ -1,27 +1,27 @@
 <div class="scenario">
-    <div ng-controller="SimplePagedListRemoteDataCtrl as vm">
+    <div ng-controller="SimplePagedListRemoteDataCtrl as ctrl">
         <h3 class="config-title">
             Remote Data Source with Paging
         </h3>
         <div style="position:relative">
             <input type="text"
-                   ng-model="vm.airportName"
+                   ng-model="ctrl.airportName"
                    class="form-control"
                    style="width:300px"
                    placeholder="Airport Name. Try 'p' or 'c'"
-                   auto-complete="vm.autoCompleteOptions" />
-            <span class="loading" ng-show="vm.loading"></span>
+                   auto-complete="ctrl.autoCompleteOptions" />
+            <span class="loading" ng-show="ctrl.loading"></span>
         </div>
     </div>
     <div class="code-container">
         <h6>HTML</h6>
         <div>
 <pre><code ng-prism class="language-markup">&lt;body ng-app="mainApp">
-    &lt;div ng-controller="MainCtrl as vm">
+    &lt;div ng-controller="MainCtrl as ctrl">
         &lt;input type="text" 
-            ng-model="vm.airportName"
+            ng-model="ctrl.airportName"
             placeholder="Airport Name. Try 'p' or 'c'"
-            auto-complete="vm.autoCompleteOptions" />
+            auto-complete="ctrl.autoCompleteOptions" />
     &lt;/div>
 &lt;/body>
 </code></pre>

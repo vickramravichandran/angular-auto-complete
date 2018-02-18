@@ -2,27 +2,30 @@ html {
   font-size: initial;
 }
 
+/* .form-control, .btn-group-lg>.btn, .btn-lg, pre[class*="language-"] {
+  border-radius: 0px
+} */
+
+.form-control, .btn-group-lg>.btn, .btn-lg {
+  border-radius: 0px
+}
+
 h1.post-title {
   font-size: 2.7em;
   font-weight: bold;
   background: rgba(255, 255, 255, 0) url(./../images/angularjs-logo.png) left center no-repeat;
   background-size: 40px;
-  padding: 10px 0px 20px 50px;
+  padding: 10px 0px 20px 45px;
 }
 
 @media (max-width: 480px) {
   h1.post-title {
     font-size: 2.1em;
-    background-size: 35px;
-    padding: 16px 0px 20px 38px;
+    background-image: none;
+    padding: 0px 0px 5px 0px;
+    /* background-size: 35px;
+    padding: 0px 0px 5px 38px; */
   }
-}
-
-div.examples-list a {
-  font-weight: bold;
-  font-size: 16px;
-  letter-spacing: 1px;
-  color: #42617b;
 }
 
 /*
@@ -92,13 +95,19 @@ div.config-options>ul>li a {
 }
 
 div.color-codes ul.auto-complete-results li.auto-complete-item {
-  background-color: white;
+  font-weight: normal;
 }
 
-div.color-codes ul.auto-complete-results li.auto-complete-item:hover, div.color-codes ul.auto-complete-results li.auto-complete-item-selected {
-  /*	background-color: #6699FF;*/
-  background-color: black;
-  color: White;
+div.color-codes ul.auto-complete-results li.auto-complete-item:hover,
+div.color-codes ul.auto-complete-results li.auto-complete-item-selected {
+  background-color:black;
+  color: white;
+}
+
+div.color-codes ul.auto-complete-results li.auto-complete-item .search-text-highlight {
+  font-weight: bold;
+  text-decoration: underline;
+
 }
 
 @keyframes spinner {

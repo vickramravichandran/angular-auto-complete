@@ -59,7 +59,7 @@
                 return;
             }
 
-            var paragraph = _.findWhere(jsDoc.description.children, { type: 'paragraph' });
+            var paragraph = _.find(jsDoc.description.children, { type: 'paragraph' });
             if (!paragraph || _.isEmpty(paragraph.children)) {
                 return;
             }
@@ -74,7 +74,7 @@
                 return;
             }
 
-            var tag = _.findWhere(jsDoc.tags, { title: tagTitle });
+            var tag = _.find(jsDoc.tags, { title: tagTitle });
             if (!tag) {
                 return;
             }

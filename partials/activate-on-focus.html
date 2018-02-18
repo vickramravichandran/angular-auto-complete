@@ -1,26 +1,26 @@
 <div class="scenario">
-    <div ng-controller="ActivateOnFocusCtrl as vm">
+    <div ng-controller="ActivateOnFocusCtrl as ctrl">
         <h3 class="config-title">
             Activate on Focus
         </h3>
         <div>
             <input type="text"
-                   ng-model="vm.breakfast"
+                   ng-model="ctrl.breakfast"
                    class="form-control"
                    style="width:200px"
                    placeholder="Breakfast"
-                   auto-complete="vm.autoCompleteOptions" />
+                   auto-complete="ctrl.autoCompleteOptions" />
         </div>
     </div>
 <div class="code-container">
         <h6>HTML</h6>
         <div>
 <pre><code ng-prism class="language-markup">&lt;body ng-app="mainApp">
-    &lt;div ng-controller="MainCtrl as vm">
+    &lt;div ng-controller="MainCtrl as ctrl">
         &lt;input type="text"
-            ng-model="vm.breakfast"
+            ng-model="ctrl.breakfast"
             placeholder="Breakfast"
-            auto-complete="vm.autoCompleteOptions" />
+            auto-complete="ctrl.autoCompleteOptions" />
     &lt;/div>
 &lt;/body>
 </code></pre>

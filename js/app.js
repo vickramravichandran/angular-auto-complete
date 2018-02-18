@@ -1,7 +1,23 @@
 if (!String.prototype.startsWith) {
     String.prototype.startsWith = function (searchString, position) {
+        'use strict';
         position = position || 0;
         return this.substr(position, searchString.length) === searchString;
+    };
+}
+
+if (!String.prototype.includes) {
+    String.prototype.includes = function (search, start) {
+        'use strict';
+        if (typeof start !== 'number') {
+            start = 0;
+        }
+
+        if (start + search.length > this.length) {
+            return false;
+        } else {
+            return this.indexOf(search, start) !== -1;
+        }
     };
 }
 
@@ -25,6 +41,23 @@ if (!String.prototype.startsWith) {
                         Prism.highlightElement(element[0]);
                     });
                 }
+            };
+        })
+        /**
+         * Highlights text that matches entry.searchText
+         * Taken from AngularUI Bootstrap Typeahead
+         * See https://github.com/angular-ui/bootstrap/blob/master/src/typeahead/typeahead.js#L669
+         */
+        .filter('highlight', function () {
+            function escapeRegexp(queryToEscape) {
+                // Regex: capture the whole query string and replace it with the string that will be used to match
+                // the results, for example if the capture is "a" the result will be \a
+                return ('' + queryToEscape).replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
+            }
+
+            return function (matchItem, query) {
+                // Replaces the capture string with a the same string inside of a "<span>" tag
+                return query && matchItem ? ('' + matchItem).replace(new RegExp(escapeRegexp(query), 'gi'), '<span class="search-text-highlight">$&</span>') : matchItem;
             };
         });
 
@@ -51,7 +84,7 @@ if (!String.prototype.startsWith) {
                     return color.name.startsWith(searchText);
                 });
 
-                return _.pluck(colors, 'name');
+                return _.map(colors, 'name');
             }
         };
     }
@@ -65,7 +98,7 @@ if (!String.prototype.startsWith) {
 
         that.autoCompleteOptions = {
             minimumChars: 1,
-            dropdownWidth: '400px',
+            maxItemsToRender: 10,
             containerCssClass: 'color-codes',
             selectedTextAttr: 'name',
             itemTemplate: $templateCache.get('color-item-template'),
@@ -73,7 +106,7 @@ if (!String.prototype.startsWith) {
                 searchText = searchText.toUpperCase();
 
                 return _.filter(MOCK_CSS_COLORS, function (color) {
-                    return color.name.startsWith(searchText);
+                    return color.name.includes(searchText);
                 });
             },
             itemSelected: function (e) {
@@ -104,7 +137,7 @@ if (!String.prototype.startsWith) {
 
                         that.loading = false;
 
-                        return _.pluck(states, 'name');
+                        return _.map(states, 'name');
                     });
             }
         };
@@ -137,7 +170,7 @@ if (!String.prototype.startsWith) {
 
                         that.loading = false;
 
-                        return _.pluck(airports, 'name');
+                        return _.map(airports, 'name');
                     });
             }
         };
@@ -182,6 +215,7 @@ if (!String.prototype.startsWith) {
 
         that.autoCompleteOptions = {
             minimumChars: 1,
+            maxItemsToRender: 10,
             containerCssClass: 'color-codes',
             selectedTextAttr: 'code',
             itemTemplateUrl: 'templates/color-list-item.tpl.html',
@@ -193,7 +227,7 @@ if (!String.prototype.startsWith) {
                 searchText = searchText.toUpperCase();
 
                 return _.filter(CSS_COLORS, function (color) {
-                    return color.code.startsWith(searchText);
+                    return color.code.includes(searchText);
                 });
             },
             itemSelected: function (e) {
@@ -203,8 +237,8 @@ if (!String.prototype.startsWith) {
     }
 
     // Using renderItem Callback
-    RemoteDataUsingRenderItemCtrl.$inject = ['$http', '$sce'];
-    function RemoteDataUsingRenderItemCtrl($http, $sce) {
+    RemoteDataUsingRenderItemCtrl.$inject = ['$http'];
+    function RemoteDataUsingRenderItemCtrl($http) {
         var that = this;
         that.airport = null;
 
@@ -227,7 +261,7 @@ if (!String.prototype.startsWith) {
             renderItem: function (item) {
                 return {
                     value: item.name,
-                    label: $sce.trustAsHtml("<p class='auto-complete'>" + item.name + "</p>")
+                    label: "<p class='auto-complete' ng-bind-html='entry.item.name'></p>"
                 };
             },
             itemSelected: function (e) {

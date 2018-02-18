@@ -11,10 +11,11 @@
     "url": "https://github.com/vickramravichandran/angular-auto-complete.git#gh-pages"
   },
   "devDependencies": {
+    "documentation": "^5.5.0",
     "eslint": "^4.18.0",
     "eslint-config-recommended": "^2.0.0",
-    "documentation": "^5.3.3",
     "gulp": "^3.9.1",
+    "gulp-documentation": "^3.2.1",
     "gulp-eslint": "^4.0.2",
     "gulp-load-plugins": "^1.5.0"
   }
