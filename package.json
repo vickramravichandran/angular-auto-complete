@@ -2,23 +2,20 @@
   "name": "angular-auto-complete-gh-pages",
   "version": "1.0.0",
   "description": "angular-auto-complete gh-pages",
-  "scripts": {
-    "start": "lite-server"
-  },
   "keywords": [],
   "homepage": "http://www.vickram.me/angular-auto-complete",
   "author": "Vickram Ravichandran (http://www.vickram.me)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vickramravichandran/angular-auto-complete.git#gh-pages"
+  },
   "devDependencies": {
+    "eslint": "^4.18.0",
+    "eslint-config-recommended": "^2.0.0",
     "documentation": "^5.3.3",
     "gulp": "^3.9.1",
-    "gulp-documentation": "^3.2.1",
-    "gulp-jshint": "^2.0.4",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^2.1.2",
-    "jshint": "^2.9.4",
-    "jshint-stylish": "^2.2.1",
-    "lite-server": "^2.2.2"
+    "gulp-eslint": "^4.0.2",
+    "gulp-load-plugins": "^1.5.0"
   }
 }

@@ -1,0 +1,15 @@
+{
+    "extends": "eslint:recommended",
+    "globals": {
+        "angular": false,
+        "Prism": false,
+        "MOCK_CSS_COLORS": true,
+        "MOCK_BREAKFAST": false,
+        "module": false,
+        "require": false,
+        "define": false,
+        "window": false,
+        "_": false,
+        "$": false
+    }
+}

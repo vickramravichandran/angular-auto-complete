@@ -2,35 +2,16 @@
 
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
-var stylish = require('jshint-stylish');
-var gulpDocumentation = require('gulp-documentation');
+var jsFiles = ['js/**/*.js', '!js/vendor/*'];
 
-gulp.task('scripts', function () {
-    return gulp.src(
-        [
-            'scripts/angular-auto-complete.js',
-            'scripts/app.js'
-        ])
-        .pipe(plugins.jshint({camelcase: true, unused: 'strict'}))
-        .pipe(plugins.jshint.reporter(stylish))
-        .pipe(plugins.uglify())
-        .pipe(plugins.rename({extname: '.min.js'}))
-        .pipe(gulp.dest('./dist'));
+gulp.task('lintjs', function () {
+    return gulp.src(jsFiles)
+        .pipe(plugins.eslint())
+        .pipe(plugins.eslint.format());
 });
 
-gulp.task('documentation', function () {
-    return gulp.src('./scripts/angular-auto-complete.js')
-        .pipe(gulpDocumentation('json', {filename: 'docs.json'}))
-        .pipe(gulp.dest('./'));
-});
-
-// Rerun the task when a file changes
 gulp.task('watch', function () {
-    gulp.watch([
-        'scripts/angular-auto-complete.js',
-        'scripts/app.js'
-    ], ['scripts', 'documentation']);
+    gulp.watch(jsFiles, ['lintjs']);
 });
 
-gulp.task('default', ['scripts', 'documentation', 'watch']);
-
+gulp.task('default', ['lintjs', 'watch']);
