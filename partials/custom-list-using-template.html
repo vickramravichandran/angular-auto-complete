@@ -1,9 +1,7 @@
 <div class="scenario">
     <div ng-controller="CustomListUsingTemplateCtrl as vm">
         <h3 class="config-title">
-            <a class="anchor" id="custom-list">
-                Custom List
-            </a>
+            Custom List
         </h3>
         <input type="text"
                ng-model="vm.colorName"
@@ -49,8 +47,8 @@
                     return color.name.startsWith(searchText);
                 });
             },
-            itemSelected: function (item) {
-                that.selectedColor = item;
+            itemSelected: function (e) {
+                that.selectedColor = e.item;
             }
         }
     });

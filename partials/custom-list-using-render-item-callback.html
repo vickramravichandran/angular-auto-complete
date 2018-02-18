@@ -1,9 +1,7 @@
 <div class="scenario">
     <div ng-controller="RemoteDataUsingRenderItemCtrl as vm">
         <h3 class="config-title">
-            <a class="anchor" id="custom-list-using-render-item-callback">
-                Custom List Using renderItem Callback
-            </a>
+            Custom List Using renderItem Callback
         </h3>
         <div>
             <input type="text"
@@ -68,8 +66,8 @@
                     "&lt;/p>")
                 };
             },
-            itemSelected: function (item) {
-                that.airport = item;
+            itemSelected: function (e) {
+                that.airport = e.item;
             }
         }
     }

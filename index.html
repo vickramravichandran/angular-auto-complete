@@ -113,7 +113,8 @@
     <div class="content">
         <main role="main">
             <article class="post" role="article" itemscope="" itemtype="http://schema.org/Article">
-                <h1 class="post-title">angular-auto-complete</h1>
+                <h1 class="post-title">
+                    angular-auto-complete</h1>
 
                 <div style="margin-top:5px; padding: 10px 0px">
                     <a role="button" class="btn btn-primary btn-lg" href="https://github.com/vickramravichandran/angular-auto-complete/archive/demo.zip">Download</a>
@@ -135,19 +136,21 @@
                 </div>
 
                 <div class="container-fluid">
-                    <div class="row" ng-include="'partials/simple-list.html'"></div>
 
-                    <div class="row" ng-include="'partials/custom-list-using-template.html'"></div>
+                    <div id="simple-list" class="row" ng-include="'partials/simple-list.html'"></div>
 
-                    <div class="row" ng-include="'partials/remote-data-source.html'"></div>
+                    <div id="custom-list" class="row" ng-include="'partials/custom-list-using-template.html'"></div>
 
-                    <div class="row" ng-include="'partials/remote-data-source-using-paging.html'"></div>
+                    <div id="remote-data-source" class="row" ng-include="'partials/remote-data-source.html'"></div>
 
-                    <div class="row" ng-include="'partials/activate-on-focus.html'"></div>
+                    <div id="remote-data-source-with-paging" class="row" ng-include="'partials/remote-data-source-with-paging.html'"></div>
 
-                    <div class="row" ng-include="'partials/custom-list-using-template-url.html'"></div>
+                    <div id="activate-on-focus" class="row" ng-include="'partials/activate-on-focus.html'"></div>
 
-                    <div class="row" ng-include="'partials/custom-scrollable-list-using-render-item.html'"></div>
+                    <div id="custom-list-using-item-template-url" class="row" ng-include="'partials/custom-list-using-template-url.html'"></div>
+
+                    <div id="custom-list-using-render-item-callback" class="row" ng-include="'partials/custom-list-using-render-item-callback.html'"></div>
+
                 </div>
 
                 <div ng-include="'partials/config-options.html'"></div>
