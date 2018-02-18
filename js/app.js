@@ -51,7 +51,7 @@ if (!String.prototype.startsWith) {
                     return color.name.startsWith(searchTerm);
                 });
 
-                return _.pluck(colors, 'name');
+                return _.map(colors, 'name');
             }
         };
     }
@@ -104,7 +104,7 @@ if (!String.prototype.startsWith) {
 
                         that.loading = false;
 
-                        return _.pluck(match, 'name');
+                        return _.map(match, 'name');
                     });
             }
         };
@@ -137,7 +137,7 @@ if (!String.prototype.startsWith) {
 
                         that.loading = false;
 
-                        return _.pluck(airports, 'name');
+                        return _.map(airports, 'name');
                     });
             }
         };
