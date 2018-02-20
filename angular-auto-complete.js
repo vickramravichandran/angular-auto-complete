@@ -258,13 +258,18 @@
                 }
 
                 function _tryQuery(searchText) {
-                    // query only if minimum number of chars are typed; else hide dropdown
-                    if (!searchText || searchText.length < ctrl.options.minimumChars) {
-                        ctrl.autoHide();
+                    if (ctrl.options.minimumChars === 0) {
+                        _waitAndQuery(searchText);
                         return;
                     }
 
-                    _waitAndQuery(searchText);
+                    // query only if minimum number of chars are typed; else hide dropdown
+                    if (searchText && searchText.length >= ctrl.options.minimumChars) {
+                        _waitAndQuery(searchText);
+                        return;
+                    }
+
+                    ctrl.autoHide();
                 }
 
                 function _waitAndQuery(searchText, delay) {
