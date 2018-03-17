@@ -1,23 +1,26 @@
 ﻿'use strict';
 
 var gulp = require('gulp');
-var rename = require('gulp-rename');
-var uglify = require('gulp-uglify');
-//var jslint = require('gulp-jslint');
+var plugins = require('gulp-load-plugins')();
 
 var DEST = '.';
+var file = 'angular-auto-complete.js';
 
 gulp.task('scripts', function () {
-    return gulp.src('angular-auto-complete.js')
-  //      .pipe(jslint())
-        .pipe(uglify())
-        .pipe(rename({ extname: '.min.js' }))
+    return gulp.src(file)
+        .pipe(plugins.eslint())
+        .pipe(plugins.eslint.format());
+    //.pipe(plugins.uglify())
+    //.pipe(plugins.rename({ extname: '.min.js' }))
+    //.pipe(gulp.dest(DEST));
+});
+
+gulp.task('documentation', function () {
+    return gulp.src(file)
+        .pipe(plugins.documentation('json', { filename: 'docs.json' }))
         .pipe(gulp.dest(DEST));
 });
 
-// Rerun the task when a file changes
-gulp.task('watch', function () {
-    gulp.watch('angular-auto-complete.js', ['scripts']);
-});
+gulp.task('watch', ['scripts', 'documentation']);
 
-gulp.task('default', ['scripts', 'watch']);
+gulp.task('default', ['scripts', 'documentation']);

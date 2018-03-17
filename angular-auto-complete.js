@@ -1,4 +1,6 @@
 (function (global, factory) {
+    'use strict';
+
     if (typeof exports === 'object' && typeof module !== 'undefined') {
         // commonJS
         module.exports = factory(require('angular'));
@@ -15,11 +17,12 @@
 }(this, function (angular) {
     'use strict';
 
-    var internalService = new InternalService();
+    var helperService = new HelperService();
 
     angular
         .module('autoCompleteModule', ['ngSanitize'])
-        .directive('autoComplete', autoCompleteDirective);
+        .directive('autoComplete', autoCompleteDirective)
+        .directive('autoCompleteRenderItem', autoCompleteRenderItemDirective);
 
     autoCompleteDirective.$inject = ['$q', '$compile', '$document', '$window', '$timeout'];
     function autoCompleteDirective($q, $compile, $document, $window, $timeout) {
@@ -40,8 +43,6 @@
         function postLinkFn(scope, element, attrs, ctrls) {
             var ctrl = ctrls[0]; //directive controller
             ctrl.textModelCtrl = ctrls[1]; // textbox model controller
-
-            internalService.addDirectiveCtrl(ctrl);
 
             // store the jquery element on the controller
             ctrl.target = element;
@@ -95,16 +96,16 @@
                 container.addClass('auto-complete-container unselectable');
                 container.attr('data-instance-id', ctrl.instanceId);
 
-                var templateFn = $compile(_getDropdownListTemplate());
-                var elementUL = templateFn(scope);
+                var linkFn = $compile(_getDropdownListTemplate());
+                var elementUL = linkFn(scope);
                 container.append(elementUL);
 
                 return container;
             }
 
             function _getDefaultContainer() {
-                var templateFn = $compile(_getContainerTemplate());
-                return templateFn(scope);
+                var linkFn = $compile(_getContainerTemplate());
+                return linkFn(scope);
             }
 
             function _getContainerTemplate() {
@@ -121,11 +122,13 @@
             function _getDropdownListTemplate() {
                 var html = '';
                 html += '     <ul class="auto-complete-results">';
-                html += '         <li ng-repeat="item in ctrl.renderItems track by $index"';
+                html += '         <li ng-repeat="renderItem in ctrl.renderItems track by renderItem.id"';
                 html += '             ng-click="ctrl.selectItem($index, true)"';
                 html += '             class="auto-complete-item" data-index="{{ $index }}"';
                 html += '             ng-class="ctrl.getSelectedCssClass($index)">';
-                html += '               <div ng-bind-html="item.label"></div>';
+                html += '               <auto-complete-render-item index="$index"';
+                html += '                      render-item="renderItem"';
+                html += '                      search-text="ctrl.searchText" />';
                 html += '         </li>';
                 html += '     </ul>';
 
@@ -135,7 +138,7 @@
             function _wireupEvents() {
 
                 // when the target(textbox) gets focus activate the corresponding container
-                element.on('focus', function () {
+                element.on(DOM_EVENT.FOCUS, function () {
                     scope.$evalAsync(function () {
                         ctrl.activate();
                         if (ctrl.options.activateOnFocus) {
@@ -144,21 +147,21 @@
                     });
                 });
 
-                element.on('input', function () {
+                element.on(DOM_EVENT.INPUT, function () {
                     scope.$evalAsync(function () {
                         _tryQuery(element.val());
                     });
                 });
 
                 // handle key strokes
-                element.on('keydown', function (event) {
+                element.on(DOM_EVENT.KEYDOWN, function (event) {
                     var $event = event;
                     scope.$evalAsync(function () {
-                        _elementKeyDown($event);
+                        _handleElementKeyDown($event);
                     });
                 });
 
-                ctrl.container.find('ul').on('scroll', function () {
+                ctrl.container.find('ul').on(DOM_EVENT.SCROLL, function () {
                     if (!ctrl.options.pagingEnabled) {
                         return;
                     }
@@ -177,14 +180,14 @@
                 });
 
                 // hide container on ENTER
-                $document.on('keydown', function (event) {
+                $document.on(DOM_EVENT.KEYDOWN, function (event) {
                     var $event = event;
                     scope.$evalAsync(function () {
-                        _documentKeyDown($event);
+                        _handleDocumentKeyDown($event);
                     });
                 });
 
-                angular.element($window).on('resize', function () {
+                angular.element($window).on(DOM_EVENT.RESIZE, function () {
                     if (ctrl.options.hideDropdownOnWindowResize) {
                         scope.$evalAsync(function () {
                             ctrl.autoHide();
@@ -192,140 +195,134 @@
                     }
                 });
 
-                $document.on('click', function (event) {
+                $document.on(DOM_EVENT.CLICK, function (event) {
                     var $event = event;
                     scope.$evalAsync(function () {
-                        _documentClick($event);
+                        _handleDocumentClick($event);
                     });
                 });
+            }
 
-                function _ignoreKeyCode(keyCode) {
-                    return [
-                        KEYCODE.TAB,
-                        KEYCODE.ALT,
-                        KEYCODE.CTRL,
-                        KEYCODE.LEFTARROW,
-                        KEYCODE.RIGHTARROW,
-                        KEYCODE.MAC_COMMAND_LEFT,
-                        KEYCODE.MAC_COMMAND_RIGHT
-                    ].indexOf(keyCode) !== -1;
+            function _ignoreKeyCode(keyCode) {
+                return [
+                    KEYCODE.TAB,
+                    KEYCODE.ALT,
+                    KEYCODE.CTRL,
+                    KEYCODE.LEFTARROW,
+                    KEYCODE.RIGHTARROW,
+                    KEYCODE.MAC_COMMAND_LEFT,
+                    KEYCODE.MAC_COMMAND_RIGHT
+                ].indexOf(keyCode) !== -1;
+            }
+
+            function _handleElementKeyDown(event) {
+                var keyCode = event.charCode || event.keyCode || 0;
+
+                if (_ignoreKeyCode(keyCode)) {
+                    return;
                 }
 
-                function _elementKeyDown(event) {
-                    var keyCode = event.charCode || event.keyCode || 0;
-
-                    if (_ignoreKeyCode(keyCode)) {
-                        return;
-                    }
-
-                    if (keyCode === KEYCODE.UPARROW) {
+                switch (keyCode) {
+                    case KEYCODE.UPARROW:
                         ctrl.scrollToPreviousItem();
-
                         event.stopPropagation();
                         event.preventDefault();
 
-                        return;
-                    }
+                        break;
 
-                    if (keyCode === KEYCODE.DOWNARROW) {
+                    case KEYCODE.DOWNARROW:
                         ctrl.scrollToNextItem();
 
                         event.stopPropagation();
                         event.preventDefault();
 
-                        return;
-                    }
+                        break;
 
-                    if (keyCode === KEYCODE.ENTER) {
+                    case keyCode:
                         ctrl.selectItem(ctrl.selectedIndex, true);
 
                         //prevent postback upon hitting enter
                         event.preventDefault();
                         event.stopPropagation();
 
-                        return;
-                    }
+                        break;
 
-                    if (keyCode === KEYCODE.ESCAPE) {
+                    case KEYCODE.ESCAPE:
                         ctrl.restoreOriginalText();
                         ctrl.autoHide();
 
                         event.preventDefault();
                         event.stopPropagation();
 
-                        return;
-                    }
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            function _handleDocumentKeyDown() {
+                // hide inactive dropdowns when multiple auto complete exist on a page
+                helperService.hideAllInactive();
+            }
+
+            function _handleDocumentClick(event) {
+                // hide inactive dropdowns when multiple auto complete exist on a page
+                helperService.hideAllInactive();
+
+                // ignore inline
+                if (ctrl.isInline()) {
+                    return;
                 }
 
-                function _tryQuery(searchText) {
-                    if (ctrl.options.minimumChars === 0) {
-                        _waitAndQuery(searchText);
-                        return;
-                    }
-
-                    // query only if minimum number of chars are typed; else hide dropdown
-                    if (searchText && searchText.length >= ctrl.options.minimumChars) {
-                        _waitAndQuery(searchText);
-                        return;
-                    }
-
-                    ctrl.autoHide();
+                // no container. probably destroyed in scope $destroy
+                if (!ctrl.container) {
+                    return;
                 }
 
-                function _waitAndQuery(searchText, delay) {
-                    // wait few millisecs before calling query(); this to check if the user has stopped typing
-                    var promise = $timeout(function () {
-                        // has searchText unchanged?
-                        if (searchText === element.val()) {
-                            ctrl.query(searchText);
-                        }
-
-                        //cancel the timeout
-                        $timeout.cancel(promise);
-
-                    }, (delay || 300));
+                // ignore target click
+                if (event.target === ctrl.target[0]) {
+                    event.stopPropagation();
+                    return;
                 }
 
-                function _documentKeyDown() {
-                    // hide inactive dropdowns when multiple auto complete exist on a page
-                    internalService.hideAllInactive();
+                if (_containerContainsTarget(event.target)) {
+                    event.stopPropagation();
+                    return;
                 }
 
-                function _documentClick(event) {
-                    // hide inactive dropdowns when multiple auto complete exist on a page
-                    internalService.hideAllInactive();
+                ctrl.autoHide();
+            }
 
-                    // ignore inline
-                    if (ctrl.isInline()) {
-                        return;
-                    }
-
-                    // no container. probably destroyed in scope $destroy
-                    if (!ctrl.container) {
-                        return;
-                    }
-
-                    // ignore target click
-                    if (event.target === ctrl.target[0]) {
-                        event.stopPropagation();
-                        return;
-                    }
-
-                    if (_containerContainsTarget(event.target)) {
-                        event.stopPropagation();
-                        return;
-                    }
-
-                    ctrl.autoHide();
+            function _tryQuery(searchText) {
+                // query only if minimum number of chars are typed; else hide dropdown
+                if ((ctrl.options.minimumChars === 0) || (searchText && searchText.length >= ctrl.options.minimumChars)) {
+                    _waitAndQuery(searchText);
+                    return;
                 }
+
+                ctrl.autoHide();
+            }
+
+            function _waitAndQuery(searchText, delay) {
+                // wait few millisecs before calling query(); this to check if the user has stopped typing
+                var promise = $timeout(function () {
+                    // has searchText unchanged?
+                    if (searchText === element.val()) {
+                        ctrl.query(searchText);
+                    }
+
+                    //cancel the timeout
+                    $timeout.cancel(promise);
+
+                }, (delay || 300));
             }
 
             function _containerContainsTarget(target) {
                 // use native Node.contains
                 // https://developer.mozilla.org/en-US/docs/Web/API/Node/contains
-                if (angular.isFunction(ctrl.container[0].contains) &&
-                    ctrl.container[0].contains(target)) {
-
+                var container = ctrl.container[0];
+                if (angular.isFunction(container.contains) && container.contains(target)) {
                     return true;
                 }
 
@@ -352,8 +349,8 @@
         }
     }
 
-    MainCtrl.$inject = ['$q', '$window', '$document', '$sce', '$timeout', '$interpolate', '$templateRequest', '$exceptionHandler'];
-    function MainCtrl($q, $window, $document, $sce, $timeout, $interpolate, $templateRequest, $exceptionHandler) {
+    MainCtrl.$inject = ['$q', '$window', '$document', '$timeout', '$interpolate', '$templateRequest', '$exceptionHandler'];
+    function MainCtrl($q, $window, $document, $timeout, $interpolate, $templateRequest, $exceptionHandler) {
         var that = this;
         var originalSearchText = null;
         var queryCounter = 0;
@@ -373,7 +370,7 @@
         };
 
         this.init = function (options) {
-            that.instanceId = internalService.getNewInstanceId();
+            that.instanceId = helperService.registerInstance(that);
             that.options = options;
             that.containerVisible = that.isInline();
 
@@ -381,7 +378,7 @@
         };
 
         this.activate = function () {
-            internalService.setActiveInstanceId(that.instanceId);
+            helperService.setActiveInstanceId(that.instanceId);
             originalSearchText = null;
         };
 
@@ -407,7 +404,7 @@
                 _hideDropdown();
             }
         };
-        
+
         this.empty = function () {
             that.selectedIndex = -1;
             that.renderItems = [];
@@ -492,7 +489,8 @@
 
         function _queryInternal(params, renderListFn) {
             // backup original search term in case we need to restore if user hits ESCAPE
-            originalSearchText = params.searchText;
+            that.searchText = originalSearchText = params.searchText;
+
             dataLoadInProgress = true;
 
             _safeCallback(that.options.loading);
@@ -564,6 +562,12 @@
             }
         }
 
+        function _positionDropdownIfVisible() {
+            if (that.containerVisible) {
+                _positionDropdown();
+            }
+        }
+
         function _positionDropdown() {
             // no need to position if container has been appended to
             // parent specified in options
@@ -571,36 +575,28 @@
                 return;
             }
 
-            if (that.options.dropdownWidth === 'auto') {
-                // same as textbox width
-                var rect = that.target[0].getBoundingClientRect();
-                that.container.css({ 'width': rect.width + 'px' });
+            var dropdownWidth = null;
+            if (that.options.dropdownWidth && that.options.dropdownWidth !== 'auto') {
+                dropdownWidth = that.options.dropdownWidth;
             }
             else {
-                that.container.css({ 'width': that.options.dropdownWidth });
+                // same as textbox width
+                dropdownWidth = that.target[0].getBoundingClientRect().width + 'px';
             }
+            that.container.css({ 'width': dropdownWidth });
 
-            if (that.options.dropdownHeight !== 'auto') {
+            if (that.options.dropdownHeight && that.options.dropdownHeight !== 'auto') {
                 that.elementUL.css({ 'max-height': that.options.dropdownHeight });
             }
 
             // use the .position() function from jquery.ui if available (requires both jquery and jquery-ui)
-            if (that.options.positionUsingJQuery && _hasJQueryUI()) {
+            var hasJQueryUI = !!(window.jQuery && window.jQuery.ui);
+            if (that.options.positionUsingJQuery && hasJQueryUI) {
                 _positionUsingJQuery();
             }
             else {
                 _positionUsingDomAPI();
             }
-        }
-        
-        function _positionDropdownIfVisible() {
-            if (that.containerVisible) {
-                _positionDropdown();
-            }
-        }
-
-        function _hasJQueryUI() {
-            return (window.jQuery && window.jQuery.ui);
         }
 
         function _positionUsingJQuery() {
@@ -626,9 +622,10 @@
 
         function _positionUsingDomAPI() {
             var rect = that.target[0].getBoundingClientRect();
+            var DOCUMENT = $document[0];
 
-            var scrollTop = $document[0].body.scrollTop || $document[0].documentElement.scrollTop || $window.pageYOffset,
-                scrollLeft = $document[0].body.scrollLeft || $document[0].documentElement.scrollLeft || $window.pageXOffset;
+            var scrollTop = DOCUMENT.body.scrollTop || DOCUMENT.documentElement.scrollTop || $window.pageYOffset;
+            var scrollLeft = DOCUMENT.body.scrollLeft || DOCUMENT.documentElement.scrollLeft || $window.pageXOffset;
 
             that.container.css({
                 'left': rect.left + scrollLeft + 'px',
@@ -652,7 +649,7 @@
             that.textModelCtrl.$setViewValue(value);
         }
 
-        function _hideDropdown () {
+        function _hideDropdown() {
             if (that.isInline() || !that.containerVisible) {
                 return;
             }
@@ -706,6 +703,7 @@
 
                 var items = _renderItems(renderFn, result);
 
+                // in case of paged list we add to the array instead of replacing it
                 angular.forEach(items, function (item) {
                     that.renderItems.push(item);
                 });
@@ -715,31 +713,39 @@
             });
         }
 
-        function _renderItems(renderFn, result) {
+        function _renderItems(renderFn, dataItems) {
             // limit number of items rendered in the dropdown
-            var maxItemsToRender = (result.length < that.options.maxItemsToRender) ? result.length : that.options.maxItemsToRender;
-            var itemsToRender = result.slice(0, maxItemsToRender);
-            var items = [];
+            var maxItemsToRender = (dataItems.length < that.options.maxItemsToRender) ? dataItems.length : that.options.maxItemsToRender;
+            var dataItemsToRender = dataItems.slice(0, maxItemsToRender);
 
-            angular.forEach(itemsToRender, function (data) {
+            var itemsToRender = _.map(dataItemsToRender, function (data, index) {
                 // invoke render callback with the data as parameter
                 // this should return an object with a 'label' and 'value' property where
-                // 'label' is the safe html for display and 'value' is the text for the textbox
+                // 'label' is the template for display and 'value' is the text for the textbox
+                // If the object has an 'id' property, it will be used in the 'track by' clause of ng-repeat in the template
                 var item = renderFn(data);
-                if (item && item.label && item.value) {
-                    // store the data on the renderItem and add to array
-                    item.data = data;
-                    items.push(item);
+
+                if (!item || !item.hasOwnProperty('label') || !item.hasOwnProperty('value')) {
+                    return null;
                 }
+
+                // store the data on the renderItem and add to array
+                item.data = data;
+                // unique 'id' for use in the 'track by' clause
+                item.id = item.hasOwnProperty('id') ? item.id : (item.value + item.label + index);
+
+                return item;
             });
 
-            return items;
+            return _.filter(itemsToRender, function (item) {
+                return (item !== null);
+            });
         }
 
         function _getRenderFn() {
             // user provided function
             if (angular.isFunction(that.options.renderItem) && that.options.renderItem !== angular.noop) {
-                return $q.when(that.options.renderItem);
+                return $q.when(that.options.renderItem.bind(null));
             }
 
             // itemTemplateUrl
@@ -748,24 +754,23 @@
             }
 
             // itemTemplate or default
-            var template = that.options.itemTemplate || '<span>{{item}}</span>';
-            return $q.when(_renderItem.bind(null, $interpolate(template, false)));
+            var template = that.options.itemTemplate || '<span ng-bind-html="$itemCtrl.item"></span>';
+            return $q.when(_getRenderItem.bind(null, template));
         }
 
         function _getRenderFnUsingTemplateUrl() {
             return $templateRequest(that.options.itemTemplateUrl)
-                .then(function (content) {
-                    // delegate to local function
-                    return _renderItem.bind(null, $interpolate(content, false));
+                .then(function (template) {
+                    return _getRenderItem.bind(null, template);
                 })
                 .catch($exceptionHandler);
         }
 
-        function _renderItem(interpolationFn, data) {
+        function _getRenderItem(template, data) {
             var value = (angular.isObject(data) && that.options.selectedTextAttr) ? data[that.options.selectedTextAttr] : data;
             return {
                 value: value,
-                label: $sce.trustAsHtml(interpolationFn({ item: data }))
+                label: template
             };
         }
 
@@ -809,20 +814,79 @@
         })();
     }
 
-    function InternalService() {
-        var that = this;
-        var pluginCtrls = [];
-        var instanceCount = 0;
-        var activeInstanceId = 0;
+    autoCompleteRenderItemDirective.$inject = ['$compile', '$rootScope', '$sce'];
+    function autoCompleteRenderItemDirective($compile, $rootScope, $sce) {
+        return {
+            restrict: 'E',
+            transclude: 'element',
+            scope: {},
+            controllerAs: '$ctrl',
+            bindToController: {
+                index: '<',
+                renderItem: '<',
+                searchText: '<'
+            },
+            controller: function () { },
+            link: function (scope, element) {
+                // Needed to maintain backward compatibility since the parameter passed to $compile must be html.
+                // When 'item' is returned from the 'options.renderItem' callback the 'label' might contain
+                // a trusted value [returned by a call to $sce.trustAsHtml(html)]. We can get the original
+                // html that was provided to $sce.trustAsHtml using the valueOf() function.
+                // If 'label' is not a value that had been returned by $sce.trustAsHtml, it will be returned unchanged.
+                var template = $sce.valueOf(scope.$ctrl.renderItem.label);
 
-        this.addDirectiveCtrl = function (ctrl) {
-            if (ctrl) {
-                pluginCtrls.push(ctrl);
+                var linkFn = $compile(template);
+                linkFn(createRenderScope(scope), function (clonedElement) {
+                    // append to the directive element's parent (<li>) since this directive element is replaced (transclude is set to 'element').
+                    $(element[0].parentElement).append(clonedElement);
+                });
             }
         };
 
-        this.getNewInstanceId = function () {
-            return instanceCount++;
+        function createRenderScope(directiveScope) {
+            var renderScope = $rootScope.$new(true);
+            // This can be converted to a controller instance later, if required.
+            renderScope.$itemCtrl = {};
+
+            var deregisterWatchesFn = _.map(['index', 'renderItem', 'searchText'], function (key) {
+                return directiveScope.$watch(('$ctrl.' + key), function (newVal) {
+                    switch (key) {
+                        case 'renderItem':
+                            // add 'item' property on renderScope for backward compatibility
+                            renderScope.$itemCtrl.item = renderScope.item = newVal.data;
+                            break;
+                        default:
+                            renderScope.$itemCtrl[key] = newVal;
+                            break;
+                    }
+                });
+            });
+
+            var destroyFn = directiveScope.$on('$destroy', function () {
+                _.each(deregisterWatchesFn, function (deregisterFn) {
+                    deregisterFn();
+                });
+
+                destroyFn();
+            });
+
+            return renderScope;
+        }
+    }
+
+    function HelperService() {
+        var that = this;
+        var plugins = [];
+        var instanceCount = 0;
+        var activeInstanceId = 0;
+
+        this.registerInstance = function (instance) {
+            if (instance) {
+                plugins.push(instance);
+                return ++instanceCount;
+            }
+
+            return -1;
         };
 
         this.setActiveInstanceId = function (instanceId) {
@@ -831,7 +895,7 @@
         };
 
         this.hideAllInactive = function () {
-            angular.forEach(pluginCtrls, function (ctrl) {
+            angular.forEach(plugins, function (ctrl) {
                 // hide if this is not the active instance
                 if (ctrl.instanceId !== activeInstanceId) {
                     ctrl.autoHide();
@@ -839,6 +903,15 @@
             });
         };
     }
+
+    var DOM_EVENT = {
+        RESIZE: 'resize',
+        SCROLL: 'scroll',
+        CLICK: 'click',
+        KEYDOWN: 'keydown',
+        FOCUS: 'focus',
+        INPUT: 'input'
+    };
 
     var KEYCODE = {
         TAB: 9,
@@ -977,8 +1050,9 @@
         loadingComplete: angular.noop,
         /**
          * Callback for custom rendering a list item. This is called for each item in the dropdown.
-         * This must return an object literal with "value" and "label" properties where "label" is the
-         * safe html for display and "value" is the text for the textbox.
+         * This must return an object literal with "value" and "label" properties where
+         * "label" is the template for display and "value" is the text for the textbox.
+         * If the object has an "id" property, it will be used in the "track by" clause of the ng-repeat of the dropdown list.
          * @default angular.noop
          */
         renderItem: angular.noop,

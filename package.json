@@ -1,6 +1,6 @@
 {
   "name": "angular-auto-complete",
-  "version": "1.6.4",
+  "version": "1.7.0-pre.8",
   "description": "AngularJS auto-complete plugin",
   "main": "angular-auto-complete.js",
   "homepage": "http://www.vickram.me/angular-auto-complete",
@@ -25,11 +25,17 @@
   "dependencies": {
     "angular": "^1.5.3",
     "angular-sanitize": "^1.6.2",
-    "underscore": "^1.8.3"
+    "lodash": "^4.17.5"
   },
   "devDependencies": {
+    "documentation": "^5.4.0",
+    "eslint": "^4.18.0",
+    "eslint-config-recommended": "^2.0.0",
     "gulp": "^3.9.1",
+    "gulp-documentation": "^3.2.1",
+    "gulp-eslint": "^4.0.2",
+    "gulp-load-plugins": "^1.5.0",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.5.3"
+    "gulp-uglify": "^1.5.4"
   }
 }
