@@ -1,14 +1,14 @@
 <div class="scenario">
-    <div ng-controller="SimpleListRemoteDataCtrl as vm">
+    <div ng-controller="SimpleListRemoteDataCtrl as ctrl">
         <h3 class="config-title">Remote Data Source</h3>
         <div style="position:relative">
             <input type="text"
-                   ng-model="vm.stateName"
+                   ng-model="ctrl.stateName"
                    class="form-control"
                    style="width:300px"
                    placeholder="USA State Name. Try 'a' or 'n'"
-                   auto-complete="vm.autoCompleteOptions" />
-            <span class="loading" ng-show="vm.loading"></span>
+                   auto-complete="ctrl.autoCompleteOptions" />
+            <span class="loading" ng-show="ctrl.loading"></span>
         </div>
     </div>
 </div>

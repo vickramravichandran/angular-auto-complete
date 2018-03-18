@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "angular": "^1.6.9",
-    "angular-auto-complete": "^1.6.4",
+    "angular-auto-complete": "^1.7.0",
     "angular-sanitize": "^1.6.9",
     "bootstrap": "^3.3.7",
     "jquery": "^3.1.1",

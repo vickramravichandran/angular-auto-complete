@@ -18,8 +18,8 @@
     <script type="text/javascript" src="node_modules/angular-sanitize/angular-sanitize.js"></script>
     <script type="text/javascript" src="node_modules/lodash/lodash.min.js"></script>
 
-    <!-- <script type="text/javascript" src="node_modules/angular-auto-complete/angular-auto-complete.js"></script> -->
-    <script type="text/javascript" src="js/angular-auto-complete.js"></script>
+    <script type="text/javascript" src="node_modules/angular-auto-complete/angular-auto-complete.js"></script>
+    <!-- <script type="text/javascript" src="js/angular-auto-complete.js"></script> -->
     <script type="text/javascript" src="js/mock-data.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
 
@@ -57,9 +57,11 @@
         <table class='auto-complete'>
             <tbody>
                 <tr>
-                    <td style='width: 60%;'>{{item.name | uppercase}}</td>
-                    <td style='width: 30%;'>{{item.code | uppercase}}</td>
-                    <td style='width: 20%; background-color:{{item.code}}'></td>
+                    <td style='width: 55%;'>
+                        <span ng-bind-html="entry.item.name | highlight:entry.searchText"></span>
+                    </td>
+                    <td style='width: 30%; padding-left: 10px'>{{entry.item.code}}</td>
+                    <td style='width: 15%; background-color:{{entry.item.code}}'></td>
                 </tr>
             </tbody>
         </table>

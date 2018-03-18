@@ -1,14 +1,14 @@
 <div class="scenario">
-    <div ng-controller="CustomListUsingTemplateCtrl as vm">
+    <div ng-controller="CustomListUsingTemplateCtrl as ctrl">
         <h3 class="config-title">Custom List</h3>
         <input type="text"
-               ng-model="vm.colorName"
+               ng-model="ctrl.colorName"
                class="form-control"
                style="width:200px"
                placeholder="Color Name. Try 'r' or 'b'"
-               auto-complete="vm.autoCompleteOptions" />
-        <div ng-show="vm.selectedColor" class="selected-json">
-            <pre>{{vm.selectedColor | json}}</pre>
+               auto-complete="ctrl.autoCompleteOptions" />
+        <div ng-show="ctrl.selectedColor" class="selected-json">
+            <pre>{{ctrl.selectedColor | json}}</pre>
         </div>
     </div>
 </div>
@@ -17,9 +17,11 @@
     <table class='auto-complete'>
         <tbody>
             <tr>
-                <td style='width: 60%'>{{item.name}}</td>
-                <td style='width: 30%'>{{item.code}}</td>
-                <td style='width: 10%; background-color:{{item.code}}'></td>
+                <td style='width: 55%;'>
+                    <span ng-bind-html="entry.item.name | highlight:entry.searchText"></span>
+                </td>
+                <td style='width: 30%; padding-left: 10px'>{{entry.item.code}}</td>
+                <td style='width: 15%; background-color:{{entry.item.code}}'></td>
             </tr>
         </tbody>
     </table>

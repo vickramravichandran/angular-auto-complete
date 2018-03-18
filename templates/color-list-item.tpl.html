@@ -1,9 +1,9 @@
 <table class='auto-complete'>
     <tbody>
         <tr>
-            <td style='width: 30%;'>{{item.code | uppercase}}</td>
-            <td style='width: 10%; background-color:{{item.code}}'></td>
-            <td style='width: 60%; padding-left: 10px'>{{item.name | uppercase}}</td>
+            <td style='width: 30%;' ng-bind-html="entry.item.code | highlight:entry.searchText" </td>
+            <td style='width: 10%; background-color:{{entry.item.code}}'></td>
+            <td style='width: 60%; padding-left: 10px' ng-bind-html="entry.item.name" </td>
         </tr>
     </tbody>
 </table>

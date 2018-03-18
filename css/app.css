@@ -56,6 +56,21 @@ p.auto-complete {
     margin: 0px;
 }
 
+div.color-codes ul.auto-complete-results li.auto-complete-item {
+    font-weight: normal;
+}
+
+div.color-codes ul.auto-complete-results li.auto-complete-item:hover,
+div.color-codes ul.auto-complete-results li.auto-complete-item-selected {
+    background-color:black;
+    color: white;
+}
+
+div.color-codes ul.auto-complete-results li.auto-complete-item .search-text-highlight {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 @keyframes spinner {
     to {
         transform: rotate(360deg);
