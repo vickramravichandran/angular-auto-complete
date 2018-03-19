@@ -127,6 +127,7 @@
                 html += '             class="auto-complete-item" data-index="{{ $index }}"';
                 html += '             ng-class="ctrl.getSelectedCssClass($index)">';
                 html += '               <auto-complete-item index="$index"';
+                html += '                      item-template-link-fn="ctrl.itemTemplateLinkFn"';
                 html += '                      render-item="renderItem"';
                 html += '                      search-text="ctrl.searchText" />';
                 html += '         </li>';
@@ -356,8 +357,8 @@
         }
     }
 
-    MainCtrl.$inject = ['$q', '$window', '$document', '$timeout', '$templateRequest', '$exceptionHandler'];
-    function MainCtrl($q, $window, $document, $timeout, $templateRequest, $exceptionHandler) {
+    MainCtrl.$inject = ['$q', '$window', '$document', '$timeout', '$templateRequest', '$compile', '$exceptionHandler'];
+    function MainCtrl($q, $window, $document, $timeout, $templateRequest, $compile, $exceptionHandler) {
         var that = this;
         var originalSearchText = null;
         var queryCounter = 0;
@@ -371,6 +372,7 @@
         this.renderItems = [];
         this.containerVisible = false;
         this.searchText = null;
+        this.itemTemplateLinkFn = null;
 
         this.isInline = function () {
             // if a dropdown jquery parent is provided it is assumed inline
@@ -387,7 +389,12 @@
 
         this.activate = function () {
             helperService.setActiveInstanceId(that.instanceId);
-            originalSearchText = that.searchText = null;
+            // do not reset if the container (dropdown list) is currently visible
+            // Ex: Switching to a different tab or window and switching back
+            // again when the dropdown list is visible.
+            if (!that.containerVisible) {
+                originalSearchText = that.searchText = null;
+            }
         };
 
         this.query = function (searchText) {
@@ -767,25 +774,25 @@
         function _getRenderFn() {
             // user provided function
             if (angular.isFunction(that.options.renderItem) && that.options.renderItem !== angular.noop) {
+                that.itemTemplateLinkFn = null;
                 return $q.when(that.options.renderItem.bind(null));
             }
 
+            return _getItemTemplate().then(function (template) {
+                that.itemTemplateLinkFn = $compile(template);
+                return _getRenderItem.bind(null, template);
+            }).catch($exceptionHandler);
+        }
+
+        function _getItemTemplate() {
             // itemTemplateUrl
             if (that.options.itemTemplateUrl) {
-                return _getRenderFnUsingTemplateUrl();
+                return $templateRequest(that.options.itemTemplateUrl);
             }
 
             // itemTemplate or default
             var template = that.options.itemTemplate || '<span ng-bind-html="entry.item"></span>';
-            return $q.when(_getRenderItem.bind(null, template));
-        }
-
-        function _getRenderFnUsingTemplateUrl() {
-            return $templateRequest(that.options.itemTemplateUrl)
-                .then(function (template) {
-                    return _getRenderItem.bind(null, template);
-                })
-                .catch($exceptionHandler);
+            return $q.when(template);
         }
 
         function _getRenderItem(template, data) {
@@ -846,18 +853,25 @@
             bindToController: {
                 index: '<',
                 renderItem: '<',
-                searchText: '<'
+                searchText: '<',
+                itemTemplateLinkFn: '<'
             },
             controller: function () { },
             link: function (scope, element) {
-                // Needed to maintain backward compatibility since the parameter passed to $compile must be html.
-                // When 'item' is returned from the 'options.renderItem' callback the 'label' might contain
-                // a trusted value [returned by a call to $sce.trustAsHtml(html)]. We can get the original
-                // html that was provided to $sce.trustAsHtml using the valueOf() function.
-                // If 'label' is not a value that had been returned by $sce.trustAsHtml, it will be returned unchanged.
-                var template = $sce.valueOf(scope.ctrl.renderItem.label);
+                var linkFn = null;
+                if (_.isFunction(scope.ctrl.itemTemplateLinkFn)) {
+                    linkFn = scope.ctrl.itemTemplateLinkFn;
+                }
+                else {
+                    // Needed to maintain backward compatibility since the parameter passed to $compile must be html.
+                    // When 'item' is returned from the 'options.renderItem' callback the 'label' might contain
+                    // a trusted value [returned by a call to $sce.trustAsHtml(html)]. We can get the original
+                    // html that was provided to $sce.trustAsHtml using the valueOf() function.
+                    // If 'label' is not a value that had been returned by $sce.trustAsHtml, it will be returned unchanged.
+                    var template = $sce.valueOf(scope.ctrl.renderItem.label);
+                    linkFn = $compile(template);
+                }
 
-                var linkFn = $compile(template);
                 linkFn(createEntryScope(scope), function (clonedElement) {
                     // append to the directive element's parent (<li>) since this directive element is replaced (transclude is set to 'element').
                     $(element[0].parentElement).append(clonedElement);
@@ -1094,7 +1108,7 @@
         hideDropdownOnWindowResize: true,
         /**
          * Set to true to enable the template to display a message when no items match the search text.
-         * @default false
+         * @default true
          */
         noMatchTemplateEnabled: true,
         /**
