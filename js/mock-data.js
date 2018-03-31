@@ -446,16 +446,17 @@ var MOCK_CSS_COLORS = [
 /* exported MOCK_BREAKFAST */
 
 var MOCK_BREAKFAST = [
-    "BAGELS",
-    //"BISCUITS AND GRAVY",
-    //"Cold Pizza",
-    "CEREAL",
-    "CROISSANT",
-    "DOUGHNUTS",
-    "EGG SANDWICH",
-    //"ENGLISH MUFFIN",
-    //"FRESH FRUIT",
-    "FRENCHTOAST",
-    "OATMEAL"
-    //"ORANGE JUICE"
+  "APPLE PIE",
+  "BAGELS",
+  //"BISCUITS AND GRAVY",
+  //"Cold Pizza",
+  "CEREAL",
+  "CROISSANT",
+  "DOUGHNUTS",
+  "EGG SANDWICH",
+  //"ENGLISH MUFFIN",
+  //"FRESH FRUIT",
+  "FRENCHTOAST",
+  "OATMEAL"
+  //"ORANGE JUICE"
 ];

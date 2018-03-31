@@ -11,7 +11,7 @@ gulp.task('lintjs', function () {
 });
 
 gulp.task('documentation', function () {
-    return gulp.src('js/angular-auto-complete.js')
+    return gulp.src('node_modules/angular-auto-complete/angular-auto-complete.js')
         .pipe(plugins.documentation('json', { filename: 'docs.json' }))
         .pipe(gulp.dest('.'));
 });

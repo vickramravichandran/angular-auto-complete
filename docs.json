@@ -61,26 +61,26 @@
     ],
     "loc": {
       "start": {
-        "line": 996,
+        "line": 1005,
         "column": 8
       },
       "end": {
-        "line": 999,
+        "line": 1008,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1000,
+          "line": 1009,
           "column": 8
         },
         "end": {
-          "line": 1000,
+          "line": 1009,
           "column": 31
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -170,26 +170,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1001,
+        "line": 1010,
         "column": 8
       },
       "end": {
-        "line": 1004,
+        "line": 1013,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1005,
+          "line": 1014,
           "column": 8
         },
         "end": {
-          "line": 1005,
+          "line": 1014,
           "column": 55
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -279,26 +279,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1006,
+        "line": 1015,
         "column": 8
       },
       "end": {
-        "line": 1009,
+        "line": 1018,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1010,
+          "line": 1019,
           "column": 8
         },
         "end": {
-          "line": 1010,
+          "line": 1019,
           "column": 23
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -388,26 +388,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1011,
+        "line": 1020,
         "column": 8
       },
       "end": {
-        "line": 1014,
+        "line": 1023,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1015,
+          "line": 1024,
           "column": 8
         },
         "end": {
-          "line": 1015,
+          "line": 1024,
           "column": 28
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -497,26 +497,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1016,
+        "line": 1025,
         "column": 8
       },
       "end": {
-        "line": 1019,
+        "line": 1028,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1020,
+          "line": 1029,
           "column": 8
         },
         "end": {
-          "line": 1020,
+          "line": 1029,
           "column": 30
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -606,26 +606,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1021,
+        "line": 1030,
         "column": 8
       },
       "end": {
-        "line": 1024,
+        "line": 1033,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1025,
+          "line": 1034,
           "column": 8
         },
         "end": {
-          "line": 1025,
+          "line": 1034,
           "column": 29
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -715,26 +715,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1026,
+        "line": 1035,
         "column": 8
       },
       "end": {
-        "line": 1029,
+        "line": 1038,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1030,
+          "line": 1039,
           "column": 8
         },
         "end": {
-          "line": 1030,
+          "line": 1039,
           "column": 30
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -824,26 +824,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1031,
+        "line": 1040,
         "column": 8
       },
       "end": {
-        "line": 1034,
+        "line": 1043,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1035,
+          "line": 1044,
           "column": 8
         },
         "end": {
-          "line": 1035,
+          "line": 1044,
           "column": 28
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -937,26 +937,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1036,
+        "line": 1045,
         "column": 8
       },
       "end": {
-        "line": 1040,
+        "line": 1049,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1041,
+          "line": 1050,
           "column": 8
         },
         "end": {
-          "line": 1041,
+          "line": 1050,
           "column": 30
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1169,26 +1169,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1042,
+        "line": 1051,
         "column": 8
       },
       "end": {
-        "line": 1046,
+        "line": 1055,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1047,
+          "line": 1056,
           "column": 8
         },
         "end": {
-          "line": 1047,
+          "line": 1056,
           "column": 26
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1278,26 +1278,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1048,
+        "line": 1057,
         "column": 8
       },
       "end": {
-        "line": 1051,
+        "line": 1060,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1052,
+          "line": 1061,
           "column": 8
         },
         "end": {
-          "line": 1052,
+          "line": 1061,
           "column": 29
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1387,26 +1387,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1053,
+        "line": 1062,
         "column": 8
       },
       "end": {
-        "line": 1056,
+        "line": 1065,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1057,
+          "line": 1066,
           "column": 8
         },
         "end": {
-          "line": 1057,
+          "line": 1066,
           "column": 28
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1496,26 +1496,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1058,
+        "line": 1067,
         "column": 8
       },
       "end": {
-        "line": 1061,
+        "line": 1070,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1062,
+          "line": 1071,
           "column": 8
         },
         "end": {
-          "line": 1062,
+          "line": 1071,
           "column": 19
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1611,26 +1611,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1063,
+        "line": 1072,
         "column": 8
       },
       "end": {
-        "line": 1068,
+        "line": 1077,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1069,
+          "line": 1078,
           "column": 8
         },
         "end": {
-          "line": 1069,
+          "line": 1078,
           "column": 43
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1780,26 +1780,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1070,
+        "line": 1079,
         "column": 8
       },
       "end": {
-        "line": 1075,
+        "line": 1084,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1076,
+          "line": 1085,
           "column": 8
         },
         "end": {
-          "line": 1076,
+          "line": 1085,
           "column": 33
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -1889,26 +1889,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1077,
+        "line": 1086,
         "column": 8
       },
       "end": {
-        "line": 1080,
+        "line": 1089,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1081,
+          "line": 1090,
           "column": 8
         },
         "end": {
-          "line": 1081,
+          "line": 1090,
           "column": 27
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2002,26 +2002,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1082,
+        "line": 1091,
         "column": 8
       },
       "end": {
-        "line": 1086,
+        "line": 1095,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1087,
+          "line": 1096,
           "column": 8
         },
         "end": {
-          "line": 1087,
+          "line": 1096,
           "column": 30
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2117,26 +2117,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1088,
+        "line": 1097,
         "column": 8
       },
       "end": {
-        "line": 1093,
+        "line": 1102,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1094,
+          "line": 1103,
           "column": 8
         },
         "end": {
-          "line": 1094,
+          "line": 1103,
           "column": 40
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2220,32 +2220,32 @@
     "tags": [
       {
         "title": "default",
-        "description": "false",
+        "description": "true",
         "lineNumber": 2
       }
     ],
     "loc": {
       "start": {
-        "line": 1095,
+        "line": 1104,
         "column": 8
       },
       "end": {
-        "line": 1098,
+        "line": 1107,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1099,
+          "line": 1108,
           "column": 8
         },
         "end": {
-          "line": 1099,
+          "line": 1108,
           "column": 36
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2335,26 +2335,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1100,
+        "line": 1109,
         "column": 8
       },
       "end": {
-        "line": 1103,
+        "line": 1112,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1104,
+          "line": 1113,
           "column": 8
         },
         "end": {
-          "line": 1104,
+          "line": 1113,
           "column": 79
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2444,26 +2444,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1105,
+        "line": 1114,
         "column": 8
       },
       "end": {
-        "line": 1108,
+        "line": 1117,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1109,
+          "line": 1118,
           "column": 8
         },
         "end": {
-          "line": 1109,
+          "line": 1118,
           "column": 27
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2553,26 +2553,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1110,
+        "line": 1119,
         "column": 8
       },
       "end": {
-        "line": 1113,
+        "line": 1122,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1114,
+          "line": 1123,
           "column": 8
         },
         "end": {
-          "line": 1114,
+          "line": 1123,
           "column": 29
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2668,26 +2668,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1115,
+        "line": 1124,
         "column": 8
       },
       "end": {
-        "line": 1120,
+        "line": 1129,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1121,
+          "line": 1130,
           "column": 8
         },
         "end": {
-          "line": 1121,
+          "line": 1130,
           "column": 26
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2777,26 +2777,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1122,
+        "line": 1131,
         "column": 8
       },
       "end": {
-        "line": 1125,
+        "line": 1134,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1126,
+          "line": 1135,
           "column": 8
         },
         "end": {
-          "line": 1126,
+          "line": 1135,
           "column": 37
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -2894,26 +2894,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1127,
+        "line": 1136,
         "column": 8
       },
       "end": {
-        "line": 1133,
+        "line": 1142,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1134,
+          "line": 1143,
           "column": 8
         },
         "end": {
-          "line": 1134,
+          "line": 1143,
           "column": 32
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -3003,26 +3003,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1135,
+        "line": 1144,
         "column": 8
       },
       "end": {
-        "line": 1138,
+        "line": 1147,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1139,
+          "line": 1148,
           "column": 8
         },
         "end": {
-          "line": 1139,
+          "line": 1148,
           "column": 34
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -3112,26 +3112,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1140,
+        "line": 1149,
         "column": 8
       },
       "end": {
-        "line": 1143,
+        "line": 1152,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1144,
+          "line": 1153,
           "column": 8
         },
         "end": {
-          "line": 1144,
+          "line": 1153,
           "column": 35
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],
@@ -3221,26 +3221,26 @@
     ],
     "loc": {
       "start": {
-        "line": 1145,
+        "line": 1154,
         "column": 8
       },
       "end": {
-        "line": 1148,
+        "line": 1157,
         "column": 11
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 1149,
+          "line": 1158,
           "column": 8
         },
         "end": {
-          "line": 1149,
+          "line": 1158,
           "column": 36
         }
       },
-      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\angular-auto-complete.js"
+      "file": "C:\\Users\\vickram\\Documents\\Visual Studio\\Projects\\angular-auto-complete\\node_modules\\angular-auto-complete\\angular-auto-complete.js"
     },
     "augments": [],
     "examples": [],

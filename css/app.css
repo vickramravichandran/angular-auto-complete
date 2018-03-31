@@ -107,7 +107,6 @@ div.color-codes ul.auto-complete-results li.auto-complete-item-selected {
 div.color-codes ul.auto-complete-results li.auto-complete-item .search-text-highlight {
   font-weight: bold;
   text-decoration: underline;
-
 }
 
 @keyframes spinner {

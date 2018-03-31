@@ -44,7 +44,7 @@ if (!String.prototype.includes) {
             };
         })
         /**
-         * Highlights text that matches entry.searchText
+         * Highlights text that matches matchItem
          * Taken from AngularUI Bootstrap Typeahead
          * See https://github.com/angular-ui/bootstrap/blob/master/src/typeahead/typeahead.js#L669
          */
