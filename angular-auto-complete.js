@@ -874,7 +874,7 @@
 
                 linkFn(createEntryScope(scope), function (clonedElement) {
                     // append to the directive element's parent (<li>) since this directive element is replaced (transclude is set to 'element').
-                    $(element[0].parentElement).append(clonedElement);
+                    $(element[0].parentNode).append(clonedElement);
                 });
             }
         };
@@ -921,7 +921,7 @@
                 var linkFn = $compile(scope.ctrl.template);
                 linkFn(createEntryScope(scope), function (clonedElement) {
                     // append to the directive element's parent (<li>) since this directive element is replaced (transclude is set to 'element').
-                    $(element[0].parentElement).append(clonedElement);
+                    $(element[0].parentNode).append(clonedElement);
                 });
             }
         };
