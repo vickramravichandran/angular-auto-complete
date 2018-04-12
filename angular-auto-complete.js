@@ -99,7 +99,7 @@
                 var elementUL = linkFn(scope);
                 container.append(elementUL);
 
-                return container;autoHideDropdown
+                return container;
             }
 
             function _getDefaultContainer() {
