@@ -99,7 +99,7 @@
                 var elementUL = linkFn(scope);
                 container.append(elementUL);
 
-                return container;
+                return container;autoHideDropdown
             }
 
             function _getDefaultContainer() {
@@ -415,7 +415,7 @@
         };
 
         this.autoHide = function () {
-            if (that.options.autoHideDropdown) {
+            if (that.options && that.options.autoHideDropdown) {
                 _hideDropdown();
             }
         };
