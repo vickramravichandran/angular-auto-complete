@@ -415,7 +415,7 @@
         };
 
         this.autoHide = function () {
-            if (that.options.autoHideDropdown) {
+            if (that.options && that.options.autoHideDropdown) {
                 _hideDropdown();
             }
         };
