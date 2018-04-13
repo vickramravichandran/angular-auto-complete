@@ -27,6 +27,17 @@
             auto-complete="ctrl.autoCompleteOptions" />
     &lt;/div>
 &lt;/body>
+
+&lt;!-- Contents of templates/color-list-item.tpl.html -->
+&lt;table class='auto-complete'>
+    &lt;tbody>
+        &lt;tr>
+            &lt;td style='width: 30%;' ng-bind-html="entry.item.code | highlight:entry.searchText"&lt;/td>
+            &lt;td style='width: 10%; background-color:{{entry.item.code}}'>&lt;/td>
+            &lt;td style='width: 60%; padding-left: 10px' ng-bind-html="entry.item.name"&lt;/td>
+        &lt;/tr>
+    &lt;/tbody>
+&lt;/table>
 </code></pre>
         </div>
         <div>
