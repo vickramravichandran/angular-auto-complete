@@ -16,7 +16,7 @@
     "url": "https://github.com/vickramravichandran/angular-auto-complete.git#gh-pages"
   },
   "devDependencies": {
-    "angular-auto-complete": "^1.7.1-pre.0",
+    "angular-auto-complete": "^1.7.3",
     "documentation": "^5.5.0",
     "eslint": "^4.18.0",
     "eslint-config-recommended": "^2.0.0",

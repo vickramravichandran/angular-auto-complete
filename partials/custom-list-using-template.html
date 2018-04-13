@@ -29,10 +29,10 @@
             &lt;tbody>
                 &lt;tr>
                     &lt;td style='width: 55%;'>
-                        &lt;span ng-bind-html="entry.item.name | uppercase | highlight:entry.searchText"></span>
+                        &lt;span ng-bind-html="entry.item.name | uppercase | highlight:entry.searchText">&lt;/span>
                     &lt;/td>
-                    &lt;td style='width: 15%; background-color:{{entry.item.code}}'></td>
-                    &lt;td style='width: 30%; padding-left: 10px'>{{entry.item.code | uppercase}}</td>
+                    &lt;td style='width: 15%; background-color:<span ng-non-bindable>{{entry.item.code}}</span>'>&lt;/td>
+                    &lt;td style='width: 30%; padding-left: 10px'>{{entry.item.code | uppercase}}&lt;/td>
                 &lt;/tr>
             &lt;/tbody>
         &lt;/table>
