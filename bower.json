@@ -2,7 +2,10 @@
   "name": "angular-auto-complete",
   "version": "1.7.3",
   "description": "AngularJS auto-complete plugin",
-  "main": "angular-auto-complete.js",
+  "main": [
+    "angular-auto-complete.js",
+    "angular-auto-complete.css"
+  ],
   "homepage": "http://www.vickram.me/angular-auto-complete",
   "authors": [
     "Vickram Ravichandran (http://www.vickram.me)"
